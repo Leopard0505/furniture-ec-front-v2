@@ -8,10 +8,10 @@ export default function Footer() {
     <footer className={styles.footer}>
         {/* <Announce /> */}
         {/* <Notice /> */}
-        <section className={styles.bussinessHours}>
+        {/* <section className={styles.bussinessHours}>
           <p className={styles.bussinessHoursTitle}>営業時間のご案内</p>
           <p className={styles.bussinessHoursText}>ご注文：365日24時間いつでもOK！！</p>
-        </section>
+        </section> */}
         <FooterMenu />
         <FooterCopyright />
       </footer>

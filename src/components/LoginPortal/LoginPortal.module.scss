@@ -1,0 +1,68 @@
+.login__portal {
+  width: 680px;
+  border: 1px solid $border-color-default;
+  border-radius: 8px;
+  margin: 24px auto 120px;
+
+  &__login,
+  &__to_new_user {
+    padding: 24px;
+
+    &__form {
+      padding: 0 116px;
+
+      &__input_box {
+        margin-bottom: 24px;
+      }
+
+      &__label {
+        display: block;
+        height: 21px;
+        font-family: $font-family;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.5;
+        color: $text-default;
+        margin-bottom: 8px;
+      }
+
+      &__input {
+        width: 400px;
+        height: 50px;
+        background: $background-color-white;
+        border: 1px solid $border-color-default;
+        border-radius: 4px;
+        padding: 13px 16px;
+
+        &::placeholder {
+          font-family: $font-family;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 1.5;
+          color: $text-gray;
+        }
+      }
+    }
+
+    &__forgot {
+      text-align: center;
+      margin-bottom: 24px;
+      &_link {
+        height: 24px;
+        font-family: $font-family;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        text-decoration-line: underline;
+        color: $text-default;
+        cursor: pointer;
+      }
+    }
+  }
+  &__to_new_user {
+    padding: 24px;
+  }
+}

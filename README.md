@@ -68,15 +68,16 @@ export default tseslint.config({
 
 # 画面設計
 
-| 内容                   | URL                  |
-| ---------------------- | -------------------- |
-| ログイン・ユーザー登録 | /login               |
-| トップ                 | /                    |
-| 商品詳細               | /items/{itemID}      |
-| カート                 | /cart                |
-| 購入                   | /purchase            |
-| 購入完了               | /purchase/complete   |
-| マイページ             | /me                  |
-| 注文履歴               | /me/orders           |
-| 注文詳細               | /me/orders/{orderID} |
-| お問い合わせ           | /contact             |
+| 内容                       | URL                  |
+| -------------------------- | -------------------- |
+| ログイン　　　　　　　　　 | /login               |
+| ユーザー登録　　　　　     | /sign-up             |
+| トップ                     | /                    |
+| 商品詳細                   | /items/{itemID}      |
+| カート                     | /cart                |
+| 購入                       | /purchase            |
+| 購入完了                   | /purchase/complete   |
+| マイページ                 | /me                  |
+| 注文履歴                   | /me/orders           |
+| 注文詳細                   | /me/orders/{orderID} |
+| お問い合わせ               | /contact             |

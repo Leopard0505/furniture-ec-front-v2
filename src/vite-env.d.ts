@@ -3,6 +3,8 @@
 interface ImportMetaEnv {
   readonly VITE_APP_TITLE: string;
   // その他の環境変数...
+  VITE_APP_EMAIL: string;
+  VITE_APP_PASSWORD: string;
 }
 
 interface ImportMeta {

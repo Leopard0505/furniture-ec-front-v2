@@ -15,10 +15,10 @@ export function HeaderTextIconButton(props: HeaderTextIconButtonProps) {
 
   return (
     <Link to={props.to} className={convertClassName}>
-      <div className={styles.itemLinkIconCircle}>
+      <span className={styles.itemLinkIconCircle}>
         {props.children}
-      </div>
-      <span className={styles.text}>{props.text}</span>
+      </span>
+      {/* <span classNam e={styles.text}>{props.text}</span> */}
     </Link>
   );
 }
