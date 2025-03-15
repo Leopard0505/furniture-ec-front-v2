@@ -1,0 +1,21 @@
+.signup__portal {
+  width: $container-inner-width;
+  margin: 24px auto 120px;
+
+  &__agree {
+    text-align: center;
+    margin-bottom: 24px;
+
+    &_link {
+      height: 24px;
+      font-family: $font-family;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      text-decoration-line: underline;
+      color: $text-default;
+      cursor: pointer;
+    }
+  }
+}

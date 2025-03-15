@@ -11,6 +11,7 @@ import Me from "./routes/me/Me"
 import Orders from "./routes/me/orders/Orders"
 import OrderId from "./routes/me/orders/orderId/OrderId"
 import Layout from "./layouts/mainLayout/Layout"
+import { Signup } from "./routes/sign-up/Signup"
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,13 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Login /> }
+    ]
+  },
+  {
+    path: "/sign-up",
+    element: <Layout />,
+    children: [
+      { index: true, element: <Signup /> }
     ]
   },
   {
