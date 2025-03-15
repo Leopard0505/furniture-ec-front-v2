@@ -4,13 +4,18 @@ import { HeaderTextLoginButton } from '../HeaderTextLoginButton/HeaderTextLoginB
 import { HeaderTextProfileButton } from '../HeaderTextProfileButton/HeaderTextProfileButton';
 import { HeaderTextFavoriteButton } from '../HeaderTextFavoriteButton/HeaderTextFavoriteButton';
 import { HeaderTextCartShoppingButton } from '../HeaderTextCartShoppingButton/HeaderTextCartShoppingButton';
+import { SearchField } from "../SearchField/SearchField";
+import { useSearch } from "../../hooks/useSearch";
 
 export default function Header() {
+  const { word, setWord, search } = useSearch();
+
   return (
     <header className={styles.header}>
       <a href="https://react.dev" target="_blank">
         <img src={reactLogo} className={styles.reactLogo} alt="React logo" />
       </a>
+      <SearchField word={word} onChange={(value) => setWord(value)} handleSearch={search} />
       <div className={styles.headerPrimaryFunction}>
         <ul className={styles.items}>
           <li className={styles.item}>

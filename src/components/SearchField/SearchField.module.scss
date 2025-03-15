@@ -1,0 +1,39 @@
+.search__field {
+  width: 800px;
+  padding: 8px 16px;
+  height: 50px;
+  background: $background-color-white;
+  border: 1px solid $border-color-default;
+  border-radius: 4px;
+
+  display: flex;
+  align-items: center;
+
+  &__input {
+    padding: 0;
+    border: 0;
+    width: 100%;
+    height: 34px;
+    color: $text-default;
+
+    &::placeholder {
+      font-family: $font-family;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.5;
+      color: $text-gray;
+    }
+
+    &:focus-visible {
+      outline: 0;
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 24px;
+    // inputと高さを合わせる
+    height: 34px;
+  }
+}
