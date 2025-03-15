@@ -1,0 +1,55 @@
+.header {
+  height: 72px;
+  background-color: $background-color-white;
+  border: 1px solid $border-color-default;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .reactLogo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+
+    &:hover {
+      filter: drop-shadow(0 0 2em #61dafbaa);
+    }
+
+    @keyframes logo-spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+
+  &Logo {
+    display: inline-block;
+    height: 50px;
+
+    >img {
+      height: 100%;
+    }
+  }
+
+  &PrimaryFunction {
+    .items {
+      margin: 0;
+      padding: 0;
+      display: flex;
+
+      .item {
+        width: 90px;
+        margin: 0 auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,199 @@
+.menu {
+  min-width: $container-width;
+  background-color: $background-color-gray;
+  padding: 35px 0;
+
+  &__title {
+    width: $container-width;
+    margin: 0 auto 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $border-color-white;
+    color: $text-default;
+    font-family: Open Sans, $font-family;
+    font-size: 2.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  &__content {
+    width: $container-width;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+
+    @mixin linkTitle {
+      color: $text-default;
+      font-family: $font-family;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .category__links {
+      &__title {
+        @include linkTitle;
+      }
+
+      &__content {
+        display: flex;
+      }
+
+      .separator_dotted {
+        margin-top: 20px;
+        border: none;
+        border-top: 2px dotted $border-color-white
+      }
+
+      .goods__links {
+        margin-top: 20px;
+      }
+    }
+
+    .trend__links {
+      &__title {
+        @include linkTitle;
+      }
+
+      &__content {
+        display: flex;
+      }
+    }
+
+    .shopping_info__links {
+      &__title {
+        color: $text-default;
+        font-family: $font-family;
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      &__content {
+        display: flex;
+      }
+    }
+
+    .guide__links {
+      &__title {
+        @include linkTitle;
+      }
+
+      &__content {
+        display: flex;
+      }
+    }
+
+    .other__links {
+      align-items: center;
+      display: -webkit-box;
+      display: flex;
+      justify-content: space-between;
+
+      .contact__link {
+        border: 2px solid $border-color-white;
+        color: $text-default;
+      }
+
+      .about__links {
+        text-align: center;
+
+        .about-link {
+          color: $text-default;
+          font-family: $font-family;
+          font-size: 1.2rem;
+          text-decoration: none;
+        }
+
+        .about-link-separator {
+          color: $text-default;
+          display: inline-block;
+          padding: 0 10px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+      }
+
+      .share__links {
+        display: flex;
+        justify-content: center;
+
+        .share-link {
+          color: $text-default;
+          margin-right: 15px;
+
+          .line {
+            background: $background-color-white;
+            border-radius: 50%;
+            display: block;
+            height: 30px;
+            position: relative;
+            width: 30px;
+
+            .span-tag {
+              color: $text-default;
+              left: 0;
+              margin: auto;
+              position: absolute;
+              right: 0;
+              text-align: center;
+              top: 50%;
+              -webkit-transform: translateY(-50%);
+              transform: translateY(-50%);
+            }
+          }
+        }
+      }
+    }
+
+    .menu__links {
+      margin: 0;
+      padding: 0;
+
+      &__main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+      }
+
+      &__item {
+        width: 304px;
+        padding-right: 8px;
+        border-bottom: 1px solid $border-color-default;
+
+        ::after {
+          border-color: transparent transparent transparent $border-color-black;
+          border-style: solid;
+          border-width: 5px 0 5px 10px;
+          bottom: 0;
+          content: "";
+          height: 0;
+          right: 0;
+          margin: auto;
+          position: absolute;
+          top: 0;
+          width: 0;
+        }
+
+        &:hover {
+          background-color: $background-color-gray-hovered;
+        }
+
+        .menu__link {
+          position: relative;
+          display: block;
+          color: $text-default;
+          font-family: $font-family;
+          font-size: 1.2rem;
+          text-decoration: none;
+          padding: 16px 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.footer {
+  height: 100%;
+  // background-color: $background-color-white;
+}
+
+.bussinessHours {
+  min-width: $container-width;
+  // background-color: $background-color-white;
+  padding: 20px 0;
+
+  &Title {
+    width: $container-width;
+    margin: 0 auto;
+    font-family: Open Sans, $font-family;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $text-default;
+    margin-bottom: 5px;
+  }
+
+  &Text {
+    width: $container-width;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: $text-default;
+  }
+}

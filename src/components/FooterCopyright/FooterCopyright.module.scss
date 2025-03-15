@@ -1,0 +1,14 @@
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $text-white;
+  background-color: $background-color-black;
+  margin: 0 auto;
+
+  &Text {
+    color: $text-white;
+    font-size: 1rem;
+    margin: 8px 0;
+  }
+}
