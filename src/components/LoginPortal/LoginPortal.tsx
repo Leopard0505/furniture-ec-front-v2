@@ -1,6 +1,8 @@
 
 import { Button } from '../Button/Button';
 import { ButtonLink } from '../ButtonLink/ButtonLink';
+import { InputField } from '../InputField/InputField';
+import { InputPasswordField } from '../InputPasswordField/InputPasswordField';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import styles from './LoginPortal.module.scss';
 
@@ -18,26 +20,8 @@ export function LoginPortal(props: LoginPortalProps) {
       <div className={styles.login__portal__login}>
         <SectionTitle text='ログイン' />
         <div className={styles.login__portal__login__form}>
-          <div className={styles.login__portal__login__form__input_box}>
-            <label className={styles.login__portal__login__form__label} htmlFor="">メールアドレス</label>
-            <input
-              className={styles.login__portal__login__form__input}
-              type="text"
-              placeholder='メールアドレスを入力してください'
-              value={props.email}
-              onChange={(e) => props.onChange({ email: e.target.value, password: props.password })}
-            />
-          </div>
-          <div className={styles.login__portal__login__form__input_box}>
-            <label className={styles.login__portal__login__form__label} htmlFor="">パスワード</label>
-            <input
-              className={styles.login__portal__login__form__input}
-              type="text"
-              placeholder='パスワードを入力してください'
-              value={props.password}
-              onChange={(e) => props.onChange({ email: props.email, password: e.target.value })}
-            />
-          </div>
+          <InputField text='メールアドレス' value={props.email} onChange={(value) => props.onChange({ email: value, password: props.password })} />
+          <InputPasswordField text='パスワード' value={props.password} onChange={(value) => props.onChange({ email: props.email, password: value })} />
           <div className={styles.login__portal__login__forgot}>
             <a className={styles.login__portal__login__forgot_link} href="#">ユーザID・パスワードを忘れた場合</a>
           </div>

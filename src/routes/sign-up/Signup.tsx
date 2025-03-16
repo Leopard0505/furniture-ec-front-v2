@@ -42,17 +42,17 @@ export function Signup() {
       buildname={buildname}
       roomname={roomname}
       onChange={({ email, password, name, namekana, phonenumber, postcode, prefecture, municipality, ding, buildname, roomname }) => {
-        if (email) setEmail(email);
-        if (password) setPassword(password);
-        if (name) setName(name);
-        if (namekana) setNamekana(namekana);
-        if (phonenumber) setPhonenumber(phonenumber);
-        if (postcode) setPostcode(postcode);
-        if (prefecture) setPrefecture(prefecture);
-        if (municipality) setMunicipality(municipality);
-        if (ding) setDing(ding);
-        if (buildname) setBuildname(buildname);
-        if (roomname) setRoomname(roomname);
+        if (email !== undefined) setEmail(email);
+        if (password !== undefined) setPassword(password);
+        if (name !== undefined) setName(name);
+        if (namekana !== undefined) setNamekana(namekana);
+        if (phonenumber !== undefined) setPhonenumber(phonenumber);
+        if (postcode !== undefined) setPostcode(postcode);
+        if (prefecture !== undefined) setPrefecture(prefecture);
+        if (municipality !== undefined) setMunicipality(municipality);
+        if (ding !== undefined) setDing(ding);
+        if (buildname !== undefined) setBuildname(buildname);
+        if (roomname !== undefined) setRoomname(roomname);
       }}
       signup={signup}
     />
