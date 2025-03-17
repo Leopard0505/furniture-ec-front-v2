@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+defaults::
+  - template: "01-hotbug_report.yml"
+    name: 🚨緊急バグ報告
+    about: 緊急なバグを報告する
+  - template: "02-bug_report.md"
+    name: 🐝バグ報告
+    about: バグを報告する
+  - template: "03-feature_request.md"
+    name: 💡改善・リファクタリング
+    about: 新機能のアイデアを提案する
