@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom"
-import App from "./routes/App"
 import Login from "./routes/login/Login"
 import Items from "./routes/items/Items"
 import ItemId from "./routes/items/itemId/ItemId"
@@ -12,6 +11,7 @@ import Orders from "./routes/me/orders/Orders"
 import OrderId from "./routes/me/orders/orderId/OrderId"
 import Layout from "./layouts/mainLayout/Layout"
 import { Signup } from "./routes/sign-up/Signup"
+import Top from "./routes/top/Top"
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
       {
         path: "/",
         index: true,
-        element: <App />,
+        element: <Top />,
       },
       {
         path: "/items",
