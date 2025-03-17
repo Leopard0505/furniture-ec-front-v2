@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import reactLogo from '../../assets/react.svg'
 import { HeaderTextLoginButton } from '../HeaderTextLoginButton/HeaderTextLoginButton';
@@ -12,9 +13,9 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <a href="https://react.dev" target="_blank">
+      <Link to="/">
         <img src={reactLogo} className={styles.reactLogo} alt="React logo" />
-      </a>
+      </Link>
       <SearchField word={word} onChange={(value) => setWord(value)} handleSearch={search} />
       <div className={styles.headerPrimaryFunction}>
         <ul className={styles.items}>
