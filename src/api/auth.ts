@@ -30,3 +30,31 @@ export const authLoginApi = async (
     throw error;
   }
 };
+
+interface SignupRequest {
+  username: string;
+  password: string;
+  password_confirm: string;
+}
+
+export const authSignupApi = async (
+  email: string,
+  password: string
+): Promise<void> => {
+  try {
+    await apiClient<SignupRequest, AxiosResponse<void>>({
+      url: "/auth/signup",
+      method: "POST",
+      data: {
+        username: email,
+        password: password,
+        password_confirm: password,
+      },
+    });
+    return;
+  } catch (error) {
+    // TODO: ログに吐き出す
+    console.error("Error login:", error);
+    throw error;
+  }
+};
