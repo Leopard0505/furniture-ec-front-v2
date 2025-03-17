@@ -9,7 +9,8 @@ import Complete from "./routes/purchase/complete/Complete"
 import Me from "./routes/me/Me"
 import Orders from "./routes/me/orders/Orders"
 import OrderId from "./routes/me/orders/orderId/OrderId"
-import Layout from "./layouts/mainLayout/Layout"
+import Layout from "./layouts/Layout"
+import { NotAuthenticateLayout } from "./layouts/NotAuthenticateLayout"
 import { Signup } from "./routes/sign-up/Signup"
 import Top from "./routes/top/Top"
 
@@ -31,14 +32,14 @@ export const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Layout />,
+    element: <NotAuthenticateLayout />,
     children: [
       { index: true, element: <Login /> }
     ]
   },
   {
     path: "/sign-up",
-    element: <Layout />,
+    element: <NotAuthenticateLayout />,
     children: [
       { index: true, element: <Signup /> }
     ]
