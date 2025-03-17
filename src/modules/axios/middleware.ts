@@ -31,6 +31,8 @@ export const apiClient = async <T, R = AxiosResponse<T>>(
   customAxios.interceptors.response.use(
     (res: AxiosResponse<T>) => res,
     async (error: AxiosError) => {
+      // TODO: 本来はここでログ書き込みをやるべき。ここは response だが、request も同じ。
+
       if (error.response?.status === 401 && isRetry) {
         // 👈 JWT有効期限切れかつ一回目のリクエストである時
         isRetry = true;
