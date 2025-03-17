@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { authLoginApi, authSignupApi } from "../api/auth";
+import { useApiAuth } from "../api/auth";
 import { usePageNavigate } from "./usePageNavigate";
+import { useAccessToken } from "./useAccessToken";
 
 export const useSignup = () => {
   const [email, setEmail] = useState<string>('');
@@ -15,21 +16,20 @@ export const useSignup = () => {
   const [buildname, setBuildname] = useState<string>('');
   const [roomname, setRoomname] = useState<string>('');
 
+  const { authSignupApi, authLoginApi } = useApiAuth();
   const { toTopNavigate } = usePageNavigate();
+  const { setToken } = useAccessToken();
 
   const signup = async (): Promise<void> => {
     try {
-      console.log('signup', { email, password, name, namekana, phonenumber, postcode, prefecture, municipality, ding, buildname, roomname });
       await authSignupApi(email, password);
-      const response = await authLoginApi(email, password);
-      console.log('reponse', response);
+      const { access_token } = await authLoginApi(email, password);
 
-      // TODO: 認証情報をstoreに保持する
+      setToken(access_token);
 
       toTopNavigate();
     } catch (error) {
-      alert(error);
-      // TODO: エラーハンドリング
+      // TODO: フロントで制御したいことがあれば書く
     }
   }
 

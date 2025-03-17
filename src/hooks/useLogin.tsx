@@ -1,26 +1,25 @@
 import { useEffect, useState } from "react";
-import { authLoginApi } from "../api/auth";
+import { useApiAuth } from "../api/auth";
 import { usePageNavigate } from "./usePageNavigate";
+import { useAccessToken } from "./useAccessToken";
 
 export const useLogin = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
+  const { authLoginApi } = useApiAuth();
   const { toTopNavigate } = usePageNavigate();
+  const { setToken } = useAccessToken();
 
   const login = async (): Promise<void> => {
     try {
-      console.log('login', { email, password });
+      const { access_token } = await authLoginApi(email, password);
 
-      const response = await authLoginApi(email, password);
-      console.log('reponse', response);
-
-      // TODO: 認証情報をstoreに保持する
+      setToken(access_token);
 
       toTopNavigate();
     } catch (error) {
-      alert(error);
-      // TODO: エラーハンドリング
+      // TODO: フロントで制御したいことがあれば書く
     }
   }
 
