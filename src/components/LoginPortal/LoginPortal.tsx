@@ -1,10 +1,13 @@
 
+import { loginSchema, type FormInputs } from './schema';
 import { Button } from '../Button/Button';
 import { ButtonLink } from '../ButtonLink/ButtonLink';
 import { InputField } from '../InputField/InputField';
 import { InputPasswordField } from '../InputPasswordField/InputPasswordField';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import styles from './LoginPortal.module.scss';
+import { FormProvider, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 interface LoginPortalProps {
   email: string;
@@ -14,21 +17,35 @@ interface LoginPortalProps {
 }
 
 export function LoginPortal(props: LoginPortalProps) {
+  const useFormMethods = useForm({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      username: props.email,
+      password: props.password,
+    }
+  });
+
+  const onSubmit = async (data: FormInputs) => {
+    console.log(data);
+    // await props.login();
+  }
 
   return (
     <div className={styles.login__portal}>
       <div className={styles.login__portal__login}>
         <SectionTitle text='ログイン' />
-        <div className={styles.login__portal__login__form}>
-          <InputField text='メールアドレス' value={props.email} onChange={(value) => props.onChange({ email: value, password: props.password })} />
-          <InputPasswordField text='パスワード' value={props.password} onChange={(value) => props.onChange({ email: props.email, password: value })} />
-          <div className={styles.login__portal__login__forgot}>
-            <a className={styles.login__portal__login__forgot_link} href="#">ユーザID・パスワードを忘れた場合</a>
-          </div>
-          <div>
-            <Button text='ログイン' onClick={() => props.login()} />
-          </div>
-        </div>
+        <FormProvider {...useFormMethods}>
+          <form className={styles.login__portal__login__form} onSubmit={useFormMethods.handleSubmit(onSubmit)}>
+            <InputField name='username' label='ユーザー名' />
+            <InputPasswordField name='password' label='パスワード' />
+            <div className={styles.login__portal__login__forgot}>
+              <a className={styles.login__portal__login__forgot_link} href="#">ユーザID・パスワードを忘れた場合</a>
+            </div>
+            <div>
+              <Button type='submit' text='ログイン' />
+            </div>
+          </form>
+        </FormProvider>
       </div>
       <hr />
       <div className={styles.login__portal__to_new_user}>
