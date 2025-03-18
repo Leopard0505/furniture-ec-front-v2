@@ -10,9 +10,9 @@ import Me from "./routes/me/Me"
 import Orders from "./routes/me/orders/Orders"
 import OrderId from "./routes/me/orders/orderId/OrderId"
 import Layout from "./layouts/Layout"
-import { NotAuthenticateLayout } from "./layouts/NotAuthenticateLayout"
 import { Signup } from "./routes/sign-up/Signup"
 import Top from "./routes/top/Top"
+import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute"
 
 export const router = createBrowserRouter([
   {
@@ -32,16 +32,30 @@ export const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <NotAuthenticateLayout />,
+    element: <Layout />,
     children: [
-      { index: true, element: <Login /> }
+      {
+        index: true,
+        element: (
+          <ProtectedRoute>
+            <Login />
+          </ProtectedRoute>
+        )
+      }
     ]
   },
   {
     path: "/sign-up",
-    element: <NotAuthenticateLayout />,
+    element: <Layout />,
     children: [
-      { index: true, element: <Signup /> }
+      {
+        index: true,
+        element: (
+          <ProtectedRoute>
+            <Signup />
+          </ProtectedRoute>
+        )
+      }
     ]
   },
   {
