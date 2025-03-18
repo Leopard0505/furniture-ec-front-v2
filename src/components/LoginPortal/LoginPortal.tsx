@@ -12,8 +12,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 interface LoginPortalProps {
   email: string;
   password: string;
-  onChange: (args: { email: string, password: string }) => void;
-  login: () => Promise<void>;
+  login: (username: string, password: string) => Promise<void>;
 }
 
 export function LoginPortal(props: LoginPortalProps) {
@@ -26,8 +25,7 @@ export function LoginPortal(props: LoginPortalProps) {
   });
 
   const onSubmit = async (data: FormInputs) => {
-    console.log(data);
-    // await props.login();
+    await props.login(data.username, data.password);
   }
 
   return (
