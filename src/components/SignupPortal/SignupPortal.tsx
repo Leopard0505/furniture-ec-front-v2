@@ -21,7 +21,19 @@ interface SignupPortalProps {
   ding: string;
   buildname: string;
   roomname: string;
-  signup: () => Promise<void>;
+  signup: (
+    username: string,
+    password: string,
+    name: string,
+    namekana: string,
+    phonenumber: string,
+    postcode: string,
+    prefecture: string,
+    municipality: string,
+    ding: string,
+    buildname: string,
+    roomname: string,
+  ) => Promise<void>;
 }
 
 export function SignupPortal(props: SignupPortalProps) {
@@ -34,7 +46,19 @@ export function SignupPortal(props: SignupPortalProps) {
   });
 
   const onSubmit = async (data: FormInputs) => {
-    await props.signup();
+    await props.signup(
+      data.username,
+      data.password,
+      data.name,
+      data.namekana,
+      data.phonenumber,
+      data.postcode,
+      data.prefecture,
+      data.municipality,
+      data.ding,
+      data.buildname,
+      data.roomname
+    );
   }
 
   return (

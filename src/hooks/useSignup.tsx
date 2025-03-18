@@ -20,10 +20,22 @@ export const useSignup = () => {
   const { toTopNavigate } = usePageNavigate();
   const { setToken } = useAccessToken();
 
-  const signup = async (): Promise<void> => {
+  const signup = async (
+    username: string,
+    password: string,
+    name: string,
+    namekana: string,
+    phonenumber: string,
+    postcode: string,
+    prefecture: string,
+    municipality: string,
+    ding: string,
+    buildname: string,
+    roomname: string,
+  ): Promise<void> => {
     try {
-      await authSignupApi(email, password);
-      const { access_token } = await authLoginApi(email, password);
+      await authSignupApi(username, password);
+      const { access_token } = await authLoginApi(username, password);
 
       setToken(access_token);
 
