@@ -1,0 +1,19 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "timezone": "Asia/Tokyo",
+  "schedule": ["before 9:30am every weekday"],
+  "labels": ["Renovate"],
+  "commitMessagePrefix": "[Renovate]: ",
+  "rebaseWhen": "never",
+  "assignees": ["Leopard0505"],
+  "reviewers": ["Leopard0505"],
+  "prConcurrentLimit": 30,
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch", "pin", "digest"],
+      "automerge": true,
+      "automergeSchedule": ["before 9:30am every weekday"]
+    }
+  ]
+}
