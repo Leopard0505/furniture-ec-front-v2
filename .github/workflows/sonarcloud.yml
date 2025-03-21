@@ -39,31 +39,19 @@ permissions:
   pull-requests: read # allows SonarCloud to decorate PRs with analysis results
 
 jobs:
-  Analysis:
+  sonarqube:
     runs-on: ubuntu-latest
     environment:
       name: sonarcloud
     steps:
-      - name: SONAR_TOKEN
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: echo "$SONAR_TOKEN"
-      - name: SONAR_PROJECTKEY
-        env:
-          SONAR_PROJECTKEY: ${{ secrets.SONAR_PROJECTKEY }}
-        run: echo "$SONAR_PROJECTKEY"
-      - name: SONAR_ORGANIZATION
-        env:
-          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
-        run: echo "$SONAR_ORGANIZATION"
       - name: Checkout
         uses: actions/checkout@v4
         with:
           # Disabling shallow clones is recommended for improving the relevancy of reporting
           fetch-depth: 0
-      - name: Analyze with SonarCloud
+      - name: Analyze with SonarQube
         # You can pin the exact commit or the version.
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
