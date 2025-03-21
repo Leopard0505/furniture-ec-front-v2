@@ -23,15 +23,6 @@ export const useSignup = () => {
   const signup = async (
     username: string,
     password: string,
-    _name: string,
-    _namekana: string,
-    _phonenumber: string,
-    _postcode: string,
-    _prefecture: string,
-    _municipality: string,
-    _ding: string,
-    _buildname: string,
-    _roomname: string,
   ): Promise<void> => {
     try {
       await authSignupApi(username, password);
@@ -40,7 +31,7 @@ export const useSignup = () => {
       setToken(access_token);
 
       toTopNavigate();
-    } catch (error) {
+    } catch {
       // TODO: フロントで制御したいことがあれば書く
     }
   }
