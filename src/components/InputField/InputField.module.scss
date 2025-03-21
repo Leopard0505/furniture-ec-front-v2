@@ -30,4 +30,19 @@
     line-height: 1.5;
     color: var(--text-gray);
   }
+
+  &[aria-invalid="true"] {
+    background-color: var(--background-color-error);
+    border: 1px solid var(--border-color-error);
+    margin-bottom: 8px;
+  }
+}
+
+.text__error {
+  color: var(--text-error);
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
 }

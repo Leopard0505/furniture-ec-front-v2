@@ -21,11 +21,12 @@ export function InputField(props: InputFieldProps) {
       <input
         {...register(props.name)}
         className={styles.input}
+        aria-invalid={errors[props.name] ? "true" : "false"}
         type="text"
         placeholder={`${props.label}を入力してください`}
       />
       {errors[props.name] && (
-        <p>{errors[props.name]?.message as string}</p>
+        <p className={styles.text__error}>{errors[props.name]?.message as string}</p>
       )}
     </div>
   );
