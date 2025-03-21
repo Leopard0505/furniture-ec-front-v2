@@ -1,27 +1,27 @@
 .footer {
   height: 100%;
-  // background-color: $background-color-white;
+  // background-color: var(--background-color-white);
 }
 
 .bussinessHours {
-  min-width: $container-width;
-  // background-color: $background-color-white;
+  min-width: var(--container-width);
+  // background-color: var(--background-color-white);
   padding: 20px 0;
 
   &Title {
-    width: $container-width;
+    width: var(--container-width);
     margin: 0 auto;
-    font-family: Open Sans, $font-family;
+    font-family: Open Sans, var(--font-family);
     font-size: 1.6rem;
     font-weight: 700;
-    color: $text-default;
+    color: var(--text-default);
     margin-bottom: 5px;
   }
 
   &Text {
-    width: $container-width;
+    width: var(--container-width);
     margin: 0 auto;
     font-size: 1.2rem;
-    color: $text-default;
+    color: var(--text-default);
   }
 }

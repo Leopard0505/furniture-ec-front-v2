@@ -1,0 +1,35 @@
+:root {
+  /* width */
+  --container-width: 960px;
+  --container-inner-width: 680px;
+
+  /* バックグラウンド */
+  --background-color-white: #ffffff;
+  --background-color-gray: #F5F5F5;
+  --background-color-gray-hovered: #e5e5e5;
+  --background-color-gray-pressed: #b5b5b5;
+  --background-color-black: #000000;
+  --background-color-skyblue: #40b3ff;
+
+  /* ボーダー */
+  --border-color-default: #dddddd;
+  --border-color-white: #ffffff;
+  --border-color-black: #000000;
+  --border-color-skyblue: #40b3ff;
+
+  /* テキスト */
+  --text-default: #252525;
+  --text-white: #ffffff;
+  --text-gray: #aaaaaa;
+  --text-skyblue: #40b3ff;
+
+  /* フォント */
+  --font-family: Noto Sans JP,
+    メイリオ,
+    Meiryo,
+    ヒラギノ角ゴ Pro W3,
+    Hiragino Kaku Gothic Pro,
+    MS PGothic,
+    ＭＳ Ｐゴシック,
+    sans-serif;
+}

@@ -1,7 +1,7 @@
 .header {
   height: 72px;
-  background-color: $background-color-white;
-  border: 1px solid $border-color-default;
+  background-color: var(--background-color-white);
+  border: 1px solid var(--border-color-default);
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,6 +1,6 @@
 .login__portal {
-  width: $container-inner-width;
-  border: 1px solid $border-color-default;
+  width: var(--container-inner-width);
+  border: 1px solid var(--border-color-default);
   border-radius: 8px;
   margin: 24px auto 120px;
 
@@ -17,13 +17,13 @@
       margin-bottom: 24px;
       &_link {
         height: 24px;
-        font-family: $font-family;
+        font-family: var(--font-family);
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
         line-height: 150%;
         text-decoration-line: underline;
-        color: $text-default;
+        color: var(--text-default);
         cursor: pointer;
       }
     }

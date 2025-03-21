@@ -1,15 +1,15 @@
 .menu {
-  min-width: $container-width;
-  background-color: $background-color-gray;
+  min-width: var(--container-width);
+  background-color: var(--background-color-gray);
   padding: 35px 0;
 
   &__title {
-    width: $container-width;
+    width: var(--container-width);
     margin: 0 auto 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid $border-color-white;
-    color: $text-default;
-    font-family: Open Sans, $font-family;
+    border-bottom: 2px solid var(--border-color-white);
+    color: var(--text-default);
+    font-family: Open Sans, var(--font-family);
     font-size: 2.8rem;
     font-weight: 600;
     letter-spacing: 2px;
@@ -17,15 +17,15 @@
   }
 
   &__content {
-    width: $container-width;
+    width: var(--container-width);
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     gap: 32px;
 
     @mixin linkTitle {
-      color: $text-default;
-      font-family: $font-family;
+      color: var(--text-default);
+      font-family: var(--font-family);
       font-size: 24px;
       font-weight: 700;
       line-height: 1.5;
@@ -44,7 +44,7 @@
       .separator_dotted {
         margin-top: 20px;
         border: none;
-        border-top: 2px dotted $border-color-white
+        border-top: 2px dotted var(--border-color-whit)e
       }
 
       .goods__links {
@@ -64,8 +64,8 @@
 
     .shopping_info__links {
       &__title {
-        color: $text-default;
-        font-family: $font-family;
+        color: var(--text-default);
+        font-family: var(--font-family);
         font-size: 1.6rem;
         font-weight: 700;
         margin-bottom: 10px;
@@ -93,22 +93,22 @@
       justify-content: space-between;
 
       .contact__link {
-        border: 2px solid $border-color-white;
-        color: $text-default;
+        border: 2px solid var(--border-color-white);
+        color: var(--text-default);
       }
 
       .about__links {
         text-align: center;
 
         .about-link {
-          color: $text-default;
-          font-family: $font-family;
+          color: var(--text-default);
+          font-family: var(--font-family);
           font-size: 1.2rem;
           text-decoration: none;
         }
 
         .about-link-separator {
-          color: $text-default;
+          color: var(--text-default);
           display: inline-block;
           padding: 0 10px;
           -webkit-user-select: none;
@@ -122,11 +122,11 @@
         justify-content: center;
 
         .share-link {
-          color: $text-default;
+          color: var(--text-default);
           margin-right: 15px;
 
           .line {
-            background: $background-color-white;
+            background: var(--background-color-white);
             border-radius: 50%;
             display: block;
             height: 30px;
@@ -134,7 +134,7 @@
             width: 30px;
 
             .span-tag {
-              color: $text-default;
+              color: var(--text-default);
               left: 0;
               margin: auto;
               position: absolute;
@@ -164,10 +164,10 @@
       &__item {
         width: 304px;
         padding-right: 8px;
-        border-bottom: 1px solid $border-color-default;
+        border-bottom: 1px solid var(--border-color-default);
 
         ::after {
-          border-color: transparent transparent transparent $border-color-black;
+          border-color: transparent transparent transparent var(--border-color-black);
           border-style: solid;
           border-width: 5px 0 5px 10px;
           bottom: 0;
@@ -181,14 +181,14 @@
         }
 
         &:hover {
-          background-color: $background-color-gray-hovered;
+          background-color: var(--background-color-gray-hovered);
         }
 
         .menu__link {
           position: relative;
           display: block;
-          color: $text-default;
-          font-family: $font-family;
+          color: var(--text-default);
+          font-family: var(--font-family);
           font-size: 1.2rem;
           text-decoration: none;
           padding: 16px 0;

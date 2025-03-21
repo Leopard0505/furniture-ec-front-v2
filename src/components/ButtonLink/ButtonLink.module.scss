@@ -8,9 +8,9 @@
   width: 100%;
   height: 48px;
 
-  background: $background-color-black;
+  background: var(--background-color-black);
   border-radius: 4px;
-  color: $text-white;
+  color: var(--text-white);
   text-decoration-line: none;
   cursor: pointer;
 }

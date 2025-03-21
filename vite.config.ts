@@ -6,12 +6,9 @@ import * as path from "path";
 export default defineConfig({
   plugins: [react()],
   css: {
-    modules: {
-      scopeBehaviour: "local",
-    },
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/assets/scss/_variables.scss";`,
+        api: "modern-compiler",
       },
     },
   },
