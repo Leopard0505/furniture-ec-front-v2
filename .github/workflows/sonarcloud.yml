@@ -43,6 +43,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: SONAR_TOKEN
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: echo "$SONAR_TOKEN"
+      - name: SONAR_PROJECTKEY
+        env:
+          SONAR_PROJECTKEY: ${{ secrets.SONAR_PROJECTKEY }}
+        run: echo "$SONAR_PROJECTKEY"
+      - name: SONAR_ORGANIZATION
+        env:
+          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
+        run: echo "$SONAR_ORGANIZATION"
       - name: Checkout
         uses: actions/checkout@v4
         with:
