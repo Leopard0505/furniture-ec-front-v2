@@ -18,7 +18,7 @@ export const useLogin = () => {
       setToken(access_token);
 
       toTopNavigate();
-    } catch (error) {
+    } catch {
       // TODO: フロントで制御したいことがあれば書く
     }
   }

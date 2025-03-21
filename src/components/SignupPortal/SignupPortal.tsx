@@ -24,15 +24,6 @@ interface SignupPortalProps {
   signup: (
     username: string,
     password: string,
-    name: string,
-    namekana: string,
-    phonenumber: string,
-    postcode: string,
-    prefecture: string,
-    municipality: string,
-    ding: string,
-    buildname: string,
-    roomname: string,
   ) => Promise<void>;
 }
 
@@ -49,15 +40,6 @@ export function SignupPortal(props: SignupPortalProps) {
     await props.signup(
       data.username,
       data.password,
-      data.name,
-      data.namekana,
-      data.phonenumber,
-      data.postcode,
-      data.prefecture,
-      data.municipality,
-      data.ding,
-      data.buildname,
-      data.roomname
     );
   }
 
