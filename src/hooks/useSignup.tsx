@@ -23,15 +23,15 @@ export const useSignup = () => {
   const signup = async (
     username: string,
     password: string,
-    name: string,
-    namekana: string,
-    phonenumber: string,
-    postcode: string,
-    prefecture: string,
-    municipality: string,
-    ding: string,
-    buildname: string,
-    roomname: string,
+    _name: string,
+    _namekana: string,
+    _phonenumber: string,
+    _postcode: string,
+    _prefecture: string,
+    _municipality: string,
+    _ding: string,
+    _buildname: string,
+    _roomname: string,
   ): Promise<void> => {
     try {
       await authSignupApi(username, password);
