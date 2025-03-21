@@ -10,18 +10,21 @@
   --background-color-gray-pressed: #b5b5b5;
   --background-color-black: #000000;
   --background-color-skyblue: #40b3ff;
+  --background-color-error: #FFD9D9;
 
   /* ボーダー */
   --border-color-default: #dddddd;
   --border-color-white: #ffffff;
   --border-color-black: #000000;
   --border-color-skyblue: #40b3ff;
+  --border-color-error: #DD3737;
 
   /* テキスト */
   --text-default: #252525;
   --text-white: #ffffff;
   --text-gray: #aaaaaa;
   --text-skyblue: #40b3ff;
+  --text-error: #AB3B3B;
 
   /* フォント */
   --font-family: Noto Sans JP,

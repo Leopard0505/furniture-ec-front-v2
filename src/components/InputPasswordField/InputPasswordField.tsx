@@ -26,6 +26,7 @@ export function InputPasswordField(props: InputPasswordFieldProps) {
         <input
           {...register(props.name)}
           className={styles.input}
+          aria-invalid={errors[props.name] ? "true" : "false"}
           type={type}
           placeholder={`${props.label}を入力してください`}
         />
@@ -38,7 +39,7 @@ export function InputPasswordField(props: InputPasswordFieldProps) {
         </span>
       </div>
       {errors[props.name] && (
-        <p>{errors[props.name]?.message as string}</p>
+        <p className={styles.text__error}>{errors[props.name]?.message as string}</p>
       )}
     </div>
   );
