@@ -49,12 +49,11 @@ jobs:
           # Disabling shallow clones is recommended for improving the relevancy of reporting
           fetch-depth: 0
       - name: Analyze with SonarCloud
-
         # You can pin the exact commit or the version.
         uses: SonarSource/sonarcloud-github-action@master
         env:
+          # SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           # Additional arguments for the SonarScanner CLI
           args:
