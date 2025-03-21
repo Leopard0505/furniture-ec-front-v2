@@ -4,7 +4,7 @@ import { useAccessToken } from "../../hooks/useAccessToken";
 export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { token } = useAccessToken();
 
-  if (token) {
+  if (JSON.stringify(token) !== '{}') {
     // user is not authenticated
     return <Navigate to="/" />;
   }
