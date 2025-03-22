@@ -1,0 +1,13 @@
+.ranking {
+  &__container {
+    width: var(--container-width);
+    margin: 0 auto 40px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 16px;
+  }
+}
