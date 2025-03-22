@@ -1,7 +1,10 @@
+import { MainVisual } from "../../components/MainVisual/MainVisual";
 
 export default function Top() {
 
   return (
-    <div>Top</div>
+    <main>
+      <MainVisual />
+    </main>
   )
 }

@@ -1,0 +1,10 @@
+.mainVisual {
+  width: var(--container-width);
+  margin: 0 auto;
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
