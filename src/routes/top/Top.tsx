@@ -4,10 +4,19 @@ import { RecommendItemList } from "../../components/RecommendItemList/RecommendI
 import { SearchByCategory } from "../../components/SearchByCategory/SearchByCategory";
 import { RankingList } from "../../components/RankingList/RankingList";
 
+import mainVisualImage1 from '@/assets/images/main-visual_1.png';
 import itemImage1 from '@/assets/images/item_1.png';
 import rankingItemImage1 from '@/assets/images/ranking-item_1.png';
 
 export default function Top() {
+
+  // メインビジュアル
+  // TODO: APIから取得
+  const mainVisualItems = [
+    { to: "/items/1", src: mainVisualImage1, alt: "メインビジュアル" },
+    { to: "/items/2", src: mainVisualImage1, alt: "メインビジュアル" },
+    { to: "/items/3", src: mainVisualImage1, alt: "メインビジュアル" },
+  ]
 
   // クーポン利用可能な商品
   // TODO: APIから取得
@@ -63,7 +72,7 @@ export default function Top() {
 
   return (
     <main>
-      <MainVisual />
+      <MainVisual items={mainVisualItems} />
       <CouponApplicableItemList items={couponApplicableItems} />
       <RecommendItemList items={recommendItems} />
       <SearchByCategory items={searchByCategoryItems} />
