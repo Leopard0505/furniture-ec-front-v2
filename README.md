@@ -82,7 +82,7 @@ GitHub Actions を使用して以下のチェックを自動実行していま�
 - [Issue の作成方法](DEVELOPERS.md#issue-の作成方法)
 - [PR の作成方法](DEVELOPERS.md#pr-の作成方法)
 
-### サイトでバグを見つけたら
+## サイトでバグを見つけたら
 
 バグを発見した場合は、以下の手順で報告をお願いします：
 
@@ -121,7 +121,7 @@ GitHub Actions を使用して以下のチェックを自動実行していま�
 > これらの情報を[Issue](https://github.com/Leopard0505/furniture-ec-front-v2/issues)に記載して報告してください。
 > 報告する際は[Issue の作成方法](DEVELOPERS.md#issue-の作成方法)を参考にしてください。
 
-### よくある質問（FAQ）
+## よくある質問（FAQ）
 
 1. 開発環境のセットアップについて
 
