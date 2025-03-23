@@ -20,15 +20,18 @@ export const useSignup = () => {
   const { toTopNavigate } = usePageNavigate();
   const { setToken } = useAccessToken();
 
-  const signup = async (): Promise<void> => {
+  const signup = async (
+    username: string,
+    password: string,
+  ): Promise<void> => {
     try {
-      await authSignupApi(email, password);
-      const { access_token } = await authLoginApi(email, password);
+      await authSignupApi(username, password);
+      const { access_token } = await authLoginApi(username, password);
 
       setToken(access_token);
 
       toTopNavigate();
-    } catch (error) {
+    } catch {
       // TODO: フロントで制御したいことがあれば書く
     }
   }

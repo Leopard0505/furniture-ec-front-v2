@@ -1,11 +1,11 @@
 .section__title {
   padding: 12px 20px;
-  border-left: 5px solid $border-color-black;
-  font-family: $font-family;
+  border-left: 5px solid var(--border-color-black);
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 1.5;
-  color: $text-default;
+  color: var(--text-default);
   margin-bottom: 16px;
 }

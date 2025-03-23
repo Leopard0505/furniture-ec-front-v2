@@ -1,0 +1,10 @@
+version: 2
+
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    # パッケージの更新はrenovateで行うため、dependabotでの更新は無効化
+    # セキュリティー更新はこの設定では無効化されないので、セキュリティー更新はdependabotでも行う
+    open-pull-requests-limit: 0

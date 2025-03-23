@@ -11,14 +11,14 @@ export const useLogin = () => {
   const { toTopNavigate } = usePageNavigate();
   const { setToken } = useAccessToken();
 
-  const login = async (): Promise<void> => {
+  const login = async (username: string, password: string): Promise<void> => {
     try {
-      const { access_token } = await authLoginApi(email, password);
+      const { access_token } = await authLoginApi(username, password);
 
       setToken(access_token);
 
       toTopNavigate();
-    } catch (error) {
+    } catch {
       // TODO: フロントで制御したいことがあれば書く
     }
   }
@@ -34,8 +34,6 @@ export const useLogin = () => {
   return {
     email,
     password,
-    setEmail,
-    setPassword,
     login
   };
 };
