@@ -1,0 +1,15 @@
+.list__item {
+  display: block;
+  width: 120px;
+  height: 120px;
+  user-select: none;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+  }
+}

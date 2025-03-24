@@ -1,0 +1,15 @@
+.coupon_applicable_item {
+
+  &__container {
+    width: var(--container-width);
+    margin: 0 auto 40px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}

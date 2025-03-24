@@ -1,0 +1,16 @@
+.mainVisual {
+  width: 1280px;
+  margin: 0 auto 52px;
+
+  &__item {
+    display: block;
+    width: var(--container-width);
+    height: auto;
+  }
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}

@@ -1,8 +1,8 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { screen } from "@testing-library/react";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { useAccessToken } from "../../hooks/useAccessToken";
+import { renderWithRouter } from '../../test/utils/renderWithRouter';
 
 // useAccessTokenフックのモック
 jest.mock("../../hooks/useAccessToken");
@@ -29,19 +29,10 @@ describe("ProtectedRoute", () => {
     // 認証済みの状態をモック
     (useAccessToken as jest.Mock).mockReturnValue({ token: { accessToken: "test-token" } });
 
-    render(
-      <BrowserRouter
-        future={{
-          // https://reactrouter.com/6.30.0/upgrading/future#v7_starttransition
-          v7_startTransition: true,
-          // https://reactrouter.com/6.30.0/upgrading/future#v7_relativesplatpath
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <ProtectedRoute>
-          <div data-testid={DATA_TESTID}>保護されたコンテンツ</div>
-        </ProtectedRoute>
-      </BrowserRouter>
+    renderWithRouter(
+      <ProtectedRoute>
+        <div data-testid={DATA_TESTID}>保護されたコンテンツ</div>
+      </ProtectedRoute>
     );
 
     expect(screen.queryByTestId(DATA_TESTID)).not.toBeInTheDocument();
@@ -52,19 +43,10 @@ describe("ProtectedRoute", () => {
     // 未認証の状態をモック
     (useAccessToken as jest.Mock).mockReturnValue({ token: {} });
 
-    render(
-      <BrowserRouter
-        future={{
-          // https://reactrouter.com/6.30.0/upgrading/future#v7_starttransition
-          v7_startTransition: true,
-          // https://reactrouter.com/6.30.0/upgrading/future#v7_relativesplatpath
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <ProtectedRoute>
-          <div data-testid={DATA_TESTID}>保護されたコンテンツ</div>
-        </ProtectedRoute>
-      </BrowserRouter>
+    renderWithRouter(
+      <ProtectedRoute>
+        <div data-testid={DATA_TESTID}>保護されたコンテンツ</div>
+      </ProtectedRoute>
     );
 
     expect(screen.getByTestId(DATA_TESTID)).toBeInTheDocument();
