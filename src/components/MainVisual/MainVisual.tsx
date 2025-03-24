@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import classNames from 'classnames';
 
 interface MainVisualProps {
-  items: { to: string, src: string, alt: string }[];
+  items: { id: string, to: string, src: string, alt: string }[];
 }
 
 export const MainVisual = (props: MainVisualProps) => {
@@ -38,8 +38,8 @@ export const MainVisual = (props: MainVisualProps) => {
       <div className="splide" aria-label="Splideの基本的なHTML">
         <div className="splide__track">
           <ul className="splide__list">
-            {props.items.map((item, index) => (
-              <li key={index} className={classNames('splide__slide', styles.mainVisual__item)}>
+            {props.items.map((item) => (
+              <li key={item.id} className={classNames('splide__slide', styles.mainVisual__item)}>
                 <Link to={item.to}>
                   <img className={styles.mainVisual__image} src={item.src} alt={item.alt} />
                 </Link>

@@ -13,9 +13,9 @@ export default function Top() {
   // メインビジュアル
   // TODO: APIから取得
   const mainVisualItems = [
-    { to: "/items/1", src: mainVisualImage1, alt: "メインビジュアル" },
-    { to: "/items/2", src: mainVisualImage1, alt: "メインビジュアル" },
-    { to: "/items/3", src: mainVisualImage1, alt: "メインビジュアル" },
+    { id: "1", to: "/items/1", src: mainVisualImage1, alt: "メインビジュアル" },
+    { id: "2", to: "/items/2", src: mainVisualImage1, alt: "メインビジュアル" },
+    { id: "3", to: "/items/3", src: mainVisualImage1, alt: "メインビジュアル" },
   ]
 
   // クーポン利用可能な商品
@@ -45,18 +45,18 @@ export default function Top() {
   // カテゴリから探す
   // TODO: APIから取得
   const searchByCategoryItems = [
-    { to: "/items/1", src: itemImage1, alt: "商品A" },
-    { to: "/items/2", src: itemImage1, alt: "商品B" },
-    { to: "/items/3", src: itemImage1, alt: "商品C" },
-    { to: "/items/4", src: itemImage1, alt: "商品D" },
-    { to: "/items/5", src: itemImage1, alt: "商品E" },
-    { to: "/items/6", src: itemImage1, alt: "商品F" },
-    { to: "/items/7", src: itemImage1, alt: "商品G" },
-    { to: "/items/8", src: itemImage1, alt: "商品H" },
-    { to: "/items/9", src: itemImage1, alt: "商品I" },
-    { to: "/items/10", src: itemImage1, alt: "商品J" },
-    { to: "/items/11", src: itemImage1, alt: "商品K" },
-    { to: "/items/12", src: itemImage1, alt: "商品L" },
+    { id: "1", to: "/items/1", src: itemImage1, alt: "商品A" },
+    { id: "2", to: "/items/2", src: itemImage1, alt: "商品B" },
+    { id: "3", to: "/items/3", src: itemImage1, alt: "商品C" },
+    { id: "4", to: "/items/4", src: itemImage1, alt: "商品D" },
+    { id: "5", to: "/items/5", src: itemImage1, alt: "商品E" },
+    { id: "6", to: "/items/6", src: itemImage1, alt: "商品F" },
+    { id: "7", to: "/items/7", src: itemImage1, alt: "商品G" },
+    { id: "8", to: "/items/8", src: itemImage1, alt: "商品H" },
+    { id: "9", to: "/items/9", src: itemImage1, alt: "商品I" },
+    { id: "10", to: "/items/10", src: itemImage1, alt: "商品J" },
+    { id: "11", to: "/items/11", src: itemImage1, alt: "商品K" },
+    { id: "12", to: "/items/12", src: itemImage1, alt: "商品L" },
   ]
 
   // ランキング
