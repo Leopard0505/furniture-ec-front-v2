@@ -37,6 +37,14 @@ jobs:
         name: List the state of node modules
         continue-on-error: true
         run: npm list
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Test
+        run: npm run test:coverage
       - name: Analyze with SonarQube
         uses: SonarSource/sonarqube-scan-action@master
         env:
@@ -49,9 +57,10 @@ jobs:
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECTKEY }}
             -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
             -Dsonar.sources=src
-            -Dsonar.exclusions=**/*.spec.tsx,**/*.test.tsx
+            -Dsonar.exclusions=dist/,node_modules,public,src/test,**/*.spec.tsx,**/*.test.tsx
             -Dsonar.tests=src
             -Dsonar.test.inclusions=**/*.spec.tsx,**/*.test.tsx
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
             -Dsonar.log.level=DEBUG
           # When you need the analysis to take place in a directory other than the one from which it was launched, default is .
           projectBaseDir: .
