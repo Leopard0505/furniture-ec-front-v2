@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Splide } from '@splidejs/splide';
-import '@splidejs/splide/css';
-import '@splidejs/splide/css/skyblue';
-// import '@splidejs/splide/css/sea-green';
+import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+import '@splidejs/splide/dist/css/themes/splide-skyblue.min.css';
 
 import styles from './MainVisual.module.scss';
 import { useEffect } from 'react';
