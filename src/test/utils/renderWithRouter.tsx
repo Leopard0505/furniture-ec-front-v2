@@ -1,9 +1,9 @@
 import React from 'react';
+import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
-export const TestBrowserRouter = ({ children }: { children: React.ReactNode }) => {
-
-  return (
+export const renderWithRouter = (component: React.ReactElement) => {
+  return render(
     <BrowserRouter
       future={{
         // https://reactrouter.com/6.30.0/upgrading/future#v7_starttransition
@@ -12,7 +12,7 @@ export const TestBrowserRouter = ({ children }: { children: React.ReactNode }) =
         v7_relativeSplatPath: true,
       }}
     >
-      {children}
+      {component}
     </BrowserRouter>
   );
-}
+};
