@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { RankingListItem } from './RankingListItem';
-import { TestBrowserRouter } from '../../test/utils/TestBrowserRouter';
+import { renderWithRouter } from '../../test/utils/renderWithRouter';
 
 const mockProps = {
   rank: 1,
@@ -14,11 +14,7 @@ const mockProps = {
 
 describe('RankingListItem', () => {
   it('全てのpropsが正しく表示されること', () => {
-    render(
-      <TestBrowserRouter>
-        <RankingListItem {...mockProps} />
-      </TestBrowserRouter>
-    );
+    renderWithRouter(<RankingListItem {...mockProps} />);
 
     // 画像が表示されていることを確認
     const image = screen.getByAltText('テスト商品画像');
@@ -39,11 +35,7 @@ describe('RankingListItem', () => {
   });
 
   it('リンクが正しいURLに遷移すること', () => {
-    render(
-      <TestBrowserRouter>
-        <RankingListItem {...mockProps} />
-      </TestBrowserRouter>
-    );
+    renderWithRouter(<RankingListItem {...mockProps} />);
 
     const link = screen.getByRole('link');
     expect(link).toHaveAttribute('href', '/products/1');

@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { RecommendItemList } from './RecommendItemList';
 import { ListItemType } from '../ListItem/ListItem';
-import { TestBrowserRouter } from '../../test/utils/TestBrowserRouter';
+import { renderWithRouter } from '../../test/utils/renderWithRouter';
 
 describe('RecommendItemList', () => {
   const mockItems: ListItemType[] = [
@@ -20,20 +20,12 @@ describe('RecommendItemList', () => {
   ];
 
   it('セクションタイトルが正しく表示されること', () => {
-    render(
-      <TestBrowserRouter>
-        <RecommendItemList items={mockItems} />
-      </TestBrowserRouter>
-    );
+    renderWithRouter(<RecommendItemList items={mockItems} />);
     expect(screen.getByText('注目のおすすめ商品')).toBeInTheDocument();
   });
 
   it('渡されたアイテムが正しく表示されること', () => {
-    render(
-      <TestBrowserRouter>
-        <RecommendItemList items={mockItems} />
-      </TestBrowserRouter>
-    );
+    renderWithRouter(<RecommendItemList items={mockItems} />);
 
     // 各アイテムの画像が表示されていることを確認
     const images = screen.getAllByRole('img');
@@ -45,11 +37,7 @@ describe('RecommendItemList', () => {
   });
 
   it('アイテムが空の場合でもコンポーネントが正しくレンダリングされること', () => {
-    render(
-      <TestBrowserRouter>
-        <RecommendItemList items={[]} />
-      </TestBrowserRouter>
-    );
+    renderWithRouter(<RecommendItemList items={[]} />);
     expect(screen.getByText('注目のおすすめ商品')).toBeInTheDocument();
   });
 });

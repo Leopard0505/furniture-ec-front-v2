@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { CouponApplicableItemList } from './CouponApplicableItemList';
 import { ListItemType } from '../ListItem/ListItem';
-import { TestBrowserRouter } from '../../test/utils/TestBrowserRouter';
+import { renderWithRouter } from '../../test/utils/renderWithRouter';
 
 describe('CouponApplicableItemList', () => {
   const mockItems: ListItemType[] = [
@@ -20,20 +20,12 @@ describe('CouponApplicableItemList', () => {
   ];
 
   it('クーポン利用可能な商品のタイトルが表示されること', () => {
-    render(
-      <TestBrowserRouter>
-        <CouponApplicableItemList items={mockItems} />
-      </TestBrowserRouter>
-    );
+    renderWithRouter(<CouponApplicableItemList items={mockItems} />);
     expect(screen.getByText('クーポン利用可能な商品')).toBeInTheDocument();
   });
 
   it('商品リストが正しく表示されること', () => {
-    render(
-      <TestBrowserRouter>
-        <CouponApplicableItemList items={mockItems} />
-      </TestBrowserRouter>
-    );
+    renderWithRouter(<CouponApplicableItemList items={mockItems} />);
 
     // 各商品が表示されていることを確認
     expect(screen.getByAltText('テスト商品1')).toBeInTheDocument();
@@ -45,11 +37,7 @@ describe('CouponApplicableItemList', () => {
   });
 
   it('商品が空の場合でもコンポーネントがレンダリングされること', () => {
-    render(
-      <TestBrowserRouter>
-        <CouponApplicableItemList items={[]} />
-      </TestBrowserRouter>
-    );
+    renderWithRouter(<CouponApplicableItemList items={[]} />);
     expect(screen.getByText('クーポン利用可能な商品')).toBeInTheDocument();
   });
 });

@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { SearchByCategory } from './SearchByCategory';
-import { TestBrowserRouter } from '../../test/utils/TestBrowserRouter';
+import { renderWithRouter } from '../../test/utils/renderWithRouter';
 
 const mockItems = [
   { id: '1', to: '/category1', src: '/image1.jpg', alt: 'カテゴリ1' },
@@ -14,14 +14,6 @@ const mockItems = [
 ];
 
 describe('SearchByCategory', () => {
-  const renderWithRouter = (component: React.ReactElement) => {
-    return render(
-      <TestBrowserRouter>
-        {component}
-      </TestBrowserRouter>
-    );
-  };
-
   it('コンポーネントが正しくレンダリングされること', () => {
     renderWithRouter(<SearchByCategory items={mockItems} />);
 

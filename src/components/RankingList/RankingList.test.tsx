@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { RankingList } from './RankingList';
-import { TestBrowserRouter } from '../../test/utils/TestBrowserRouter';
+import { renderWithRouter } from '../../test/utils/renderWithRouter';
 
 describe('RankingList', () => {
   const mockItems = [
@@ -25,20 +25,12 @@ describe('RankingList', () => {
   ];
 
   it('ランキングタイトルが表示されること', () => {
-    render(
-      <TestBrowserRouter>
-        <RankingList items={mockItems} />
-      </TestBrowserRouter>
-    );
+    renderWithRouter(<RankingList items={mockItems} />);
     expect(screen.getByText('ランキング')).toBeInTheDocument();
   });
 
   it('全てのランキングアイテムが表示されること', () => {
-    render(
-      <TestBrowserRouter>
-        <RankingList items={mockItems} />
-      </TestBrowserRouter>
-    );
+    renderWithRouter(<RankingList items={mockItems} />);
 
     // 商品名の確認
     expect(screen.getByText('商品1')).toBeInTheDocument();
@@ -54,11 +46,7 @@ describe('RankingList', () => {
   });
 
   it('空の配列が渡された場合でもエラーが発生しないこと', () => {
-    render(
-      <TestBrowserRouter>
-        <RankingList items={[]} />
-      </TestBrowserRouter>
-    );
+    renderWithRouter(<RankingList items={[]} />);
     expect(screen.getByText('ランキング')).toBeInTheDocument();
   });
 });

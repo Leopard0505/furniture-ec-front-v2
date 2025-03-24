@@ -1,8 +1,8 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { useAccessToken } from "../../hooks/useAccessToken";
-import { TestBrowserRouter } from '../../test/utils/TestBrowserRouter';
+import { renderWithRouter } from '../../test/utils/renderWithRouter';
 
 // useAccessTokenフックのモック
 jest.mock("../../hooks/useAccessToken");
@@ -29,12 +29,10 @@ describe("ProtectedRoute", () => {
     // 認証済みの状態をモック
     (useAccessToken as jest.Mock).mockReturnValue({ token: { accessToken: "test-token" } });
 
-    render(
-      <TestBrowserRouter>
-        <ProtectedRoute>
-          <div data-testid={DATA_TESTID}>保護されたコンテンツ</div>
-        </ProtectedRoute>
-      </TestBrowserRouter>
+    renderWithRouter(
+      <ProtectedRoute>
+        <div data-testid={DATA_TESTID}>保護されたコンテンツ</div>
+      </ProtectedRoute>
     );
 
     expect(screen.queryByTestId(DATA_TESTID)).not.toBeInTheDocument();
@@ -45,12 +43,10 @@ describe("ProtectedRoute", () => {
     // 未認証の状態をモック
     (useAccessToken as jest.Mock).mockReturnValue({ token: {} });
 
-    render(
-      <TestBrowserRouter>
-        <ProtectedRoute>
-          <div data-testid={DATA_TESTID}>保護されたコンテンツ</div>
-        </ProtectedRoute>
-      </TestBrowserRouter>
+    renderWithRouter(
+      <ProtectedRoute>
+        <div data-testid={DATA_TESTID}>保護されたコンテンツ</div>
+      </ProtectedRoute>
     );
 
     expect(screen.getByTestId(DATA_TESTID)).toBeInTheDocument();
