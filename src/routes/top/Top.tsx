@@ -21,25 +21,25 @@ export default function Top() {
   // クーポン利用可能な商品
   // TODO: APIから取得
   const couponApplicableItems = [
-    { to: "/items/1", src: itemImage1, alt: "商品A" },
-    { to: "/items/2", src: itemImage1, alt: "商品B" },
-    { to: "/items/3", src: itemImage1, alt: "商品C" },
-    { to: "/items/4", src: itemImage1, alt: "商品D" },
-    { to: "/items/5", src: itemImage1, alt: "商品E" },
-    { to: "/items/6", src: itemImage1, alt: "商品F" },
-    { to: "/items/7", src: itemImage1, alt: "商品G" },
+    { id: "1", to: "/items/1", src: itemImage1, alt: "商品A" },
+    { id: "2", to: "/items/2", src: itemImage1, alt: "商品B" },
+    { id: "3", to: "/items/3", src: itemImage1, alt: "商品C" },
+    { id: "4", to: "/items/4", src: itemImage1, alt: "商品D" },
+    { id: "5", to: "/items/5", src: itemImage1, alt: "商品E" },
+    { id: "6", to: "/items/6", src: itemImage1, alt: "商品F" },
+    { id: "7", to: "/items/7", src: itemImage1, alt: "商品G" },
   ];
 
   // おすすめ商品
   // TODO: APIから取得
   const recommendItems = [
-    { to: "/items/1", src: itemImage1, alt: "商品A" },
-    { to: "/items/2", src: itemImage1, alt: "商品B" },
-    { to: "/items/3", src: itemImage1, alt: "商品C" },
-    { to: "/items/4", src: itemImage1, alt: "商品D" },
-    { to: "/items/5", src: itemImage1, alt: "商品E" },
-    { to: "/items/6", src: itemImage1, alt: "商品F" },
-    { to: "/items/7", src: itemImage1, alt: "商品G" },
+    { id: "1", to: "/items/1", src: itemImage1, alt: "商品A" },
+    { id: "2", to: "/items/2", src: itemImage1, alt: "商品B" },
+    { id: "3", to: "/items/3", src: itemImage1, alt: "商品C" },
+    { id: "4", to: "/items/4", src: itemImage1, alt: "商品D" },
+    { id: "5", to: "/items/5", src: itemImage1, alt: "商品E" },
+    { id: "6", to: "/items/6", src: itemImage1, alt: "商品F" },
+    { id: "7", to: "/items/7", src: itemImage1, alt: "商品G" },
   ];
 
   // カテゴリから探す
