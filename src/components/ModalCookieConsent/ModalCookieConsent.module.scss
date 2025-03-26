@@ -1,0 +1,55 @@
+@keyframes fromBottomToTop {
+  0% {
+    bottom: -300px;
+  }
+
+  100% {
+    bottom: 0;
+  }
+}
+
+.modal__cookie__consent {
+  width: 400px;
+  background-color: var(--background-color-white);
+  border: 1px solid var(--border-color-default);
+  border-radius: 4px;
+  padding: 20px;
+  z-index: 9999;
+
+  position: fixed;
+  bottom: -300px;
+
+  animation-name: fromBottomToTop;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+
+  &__text__container {
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--text-default);
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-default);
+  }
+
+  &__button__container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+}
