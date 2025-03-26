@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
+import { ModalCookieConsent } from '../components/ModalCookieConsent/ModalCookieConsent';
 
 export default function Layout() {
 
@@ -11,6 +12,7 @@ export default function Layout() {
       <Header />
       <Outlet />
       <Footer />
+      <ModalCookieConsent />
     </>
   )
 }
