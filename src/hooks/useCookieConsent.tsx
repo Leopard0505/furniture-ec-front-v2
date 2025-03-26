@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = 'STORAGE_KEY_COOKIE_CONSENT';
+export const STORAGE_KEY = 'STORAGE_KEY_COOKIE_CONSENT';
 
 export const useCookieConsent = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
