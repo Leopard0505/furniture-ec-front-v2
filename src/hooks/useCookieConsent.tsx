@@ -6,6 +6,7 @@ export const useCookieConsent = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   const closeModal = () => {
+    localStorage.setItem(STORAGE_KEY, 'false');
     setIsModalOpen(false);
   };
 
@@ -15,7 +16,8 @@ export const useCookieConsent = () => {
   }
 
   useEffect(() => {
-    if (localStorage.getItem(STORAGE_KEY) === 'true') {
+    const consentStatus = localStorage.getItem(STORAGE_KEY);
+    if (consentStatus === 'true' || consentStatus === 'false') {
       closeModal();
     }
   });
