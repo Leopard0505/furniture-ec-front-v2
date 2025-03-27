@@ -1,0 +1,20 @@
+.category__label {
+  display: inline-block;
+  min-width: 80px;
+  padding: 8px;
+  border-radius: 50px;
+  color: var(--text-white);
+  background-color: var(--background-color-black);
+  border: 1px solid var(--border-color-default);
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
