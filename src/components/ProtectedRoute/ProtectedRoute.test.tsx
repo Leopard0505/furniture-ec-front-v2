@@ -11,8 +11,8 @@ describe("ProtectedRoute", () => {
   const mockNavigate = jest.fn();
 
   // react-router-domのNavigateコンポーネントをモック
-  jest.mock("react-router-dom", () => ({
-    ...jest.requireActual("react-router-dom"),
+  jest.mock('react-router', () => ({
+    ...jest.requireActual('react-router'),
     Navigate: () => {
       mockNavigate();
       return null;

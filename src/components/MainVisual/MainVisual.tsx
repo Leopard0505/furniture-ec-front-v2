@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { Splide } from '@splidejs/splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import '@splidejs/splide/dist/css/themes/splide-skyblue.min.css';
