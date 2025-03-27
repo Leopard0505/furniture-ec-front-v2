@@ -1,0 +1,46 @@
+.color__palette {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+
+  &__color__container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    &__color {
+      width: 25px;
+      height: 25px;
+      border-radius: 4px;
+
+      &:nth-child(1) {
+        background-color: var(--background-color-red);
+      }
+
+      &:nth-child(2) {
+        background-color: var(--background-color-orange);
+      }
+
+      &:nth-child(3) {
+        background-color: var(--background-color-yellow);
+      }
+
+      &:nth-child(4) {
+        background-color: var(--background-color-green);
+      }
+
+      &:nth-child(5) {
+        background-color: var(--background-color-skyblue);
+      }
+
+      &:nth-child(6) {
+        background-color: var(--background-color-blue);
+      }
+
+      &:nth-child(7) {
+        background-color: var(--background-color-purple);
+      }
+    }
+  }
+}
