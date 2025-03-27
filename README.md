@@ -4,12 +4,10 @@
 
 [![lint](https://github.com/Leopard0505/furniture-ec-front-v2/actions/workflows/lint.yml/badge.svg)](https://github.com/Leopard0505/furniture-ec-front-v2/actions/workflows/lint.yml)
 [![Build](https://github.com/Leopard0505/furniture-ec-front-v2/actions/workflows/build.yml/badge.svg)](https://github.com/Leopard0505/furniture-ec-front-v2/actions/workflows/build.yml)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0.0-blue.svg)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-18.2.0-61DAFB.svg)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-4.5.0-646CFF.svg)](https://vitejs.dev/)
-[![ESLint](https://img.shields.io/badge/ESLint-8.0.0-4B32C3.svg)](https://eslint.org/)
-[![Coverage Status](https://coveralls.io/repos/github/Leopard0505/furniture-ec-front-v2/badge.svg?branch=main)](https://coveralls.io/github/Leopard0505/furniture-ec-front-v2?branch=main)
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/summary/new_code?id=Leopard0505_furniture-ec-front-v2)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue.svg)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19.0.0-61DAFB.svg)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.0.0-646CFF.svg)](https://vitejs.dev/)
+[![ESLint](https://img.shields.io/badge/ESLint-9.8.0-4B32C3.svg)](https://eslint.org/)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Leopard0505_furniture-ec-front-v2&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Leopard0505_furniture-ec-front-v2)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Leopard0505_furniture-ec-front-v2&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Leopard0505_furniture-ec-front-v2)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Leopard0505_furniture-ec-front-v2&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Leopard0505_furniture-ec-front-v2)
@@ -21,20 +19,54 @@
 
 このプロジェクトは、React + TypeScript + Vite を使用して構築された家具の EC サイトです。
 
+### 主な機能
+
+- 商品一覧表示
+- 商品詳細表示
+- カート機能
+- ユーザー認証
+- 注文管理
+- お気に入り機能
+- 商品検索
+- 商品カテゴリ別表示
+
+### 技術的な特徴
+
+- モダンな技術スタック（React 19, TypeScript 5.5, Vite 6）
+- コンポーネントベースの設計
+- 型安全性の確保
+- 継続的インテグレーション（CI）の実装
+- コード品質管理（SonarCloud）
+
+### バックエンド
+
 バックエンドは [furniture-ec-api](https://github.com/Leopard0505/furniture-ec-api) を参照してください。
+
+### 開発の目的
+
+- モダンな Web 開発技術の実践
+- ユーザー体験の向上
+- 保守性の高いコードベースの維持
 
 ## 技術スタック
 
-- React 18
-- TypeScript
-- Vite
-- ESLint
+| 技術                  | バージョン |
+| --------------------- | ---------- |
+| React                 | 19.0.0     |
+| React Router DOM      | 7.4.0      |
+| TypeScript            | 5.5.3      |
+| Vite                  | 6.0.0      |
+| Jest                  | 29.7.0     |
+| React Testing Library | 16.2.0     |
+| ESLint                | 9.8.0      |
+| GitHub Actions        | -          |
+| SonarCloud            | -          |
 
 ## 開発環境のセットアップ
 
 ### 必要条件
 
-- Node.js 18.0.0 以上
+- Node.js 20.0.0 以上
 - npm 9.0.0 以上
 
 ### インストール
