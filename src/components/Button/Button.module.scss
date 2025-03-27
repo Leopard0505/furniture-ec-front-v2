@@ -9,7 +9,31 @@
   height: 48px;
 
   background: var(--background-color-black);
+  border: 1px solid var(--border-color-black);
   border-radius: 4px;
   color: var(--text-white);
   cursor: pointer;
+
+  &:active {
+    border-style: solid;
+  }
+
+  &:focus-visible {
+    outline: 0;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &.white {
+    background-color: var(--background-color-white);
+    border-color: var(--border-color-default);
+    color: var(--text-default);
+
+    &:hover {
+      opacity: 1;
+      background-color: var(--background-color-gray-hovered);
+    }
+  }
 }
