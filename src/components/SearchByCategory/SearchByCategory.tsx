@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import styles from './SearchByCategory.module.scss';
 import { LinkList } from '../LinkList/LinkList';

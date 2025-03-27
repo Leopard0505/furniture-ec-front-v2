@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router';
 import styles from "./Header.module.scss";
 import reactLogo from '../../assets/react.svg'
 import { HeaderTextLoginButton } from '../HeaderTextLoginButton/HeaderTextLoginButton';
