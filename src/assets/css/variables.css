@@ -9,7 +9,13 @@
   --background-color-gray-hovered: #e5e5e5;
   --background-color-gray-pressed: #b5b5b5;
   --background-color-black: #000000;
-  --background-color-skyblue: #40b3ff;
+  --background-color-blue: #0049B7;
+  --background-color-skyblue: #00A1B7;
+  --background-color-green: #66B700;
+  --background-color-purple: #8700B7;
+  --background-color-red: #B70000;
+  --background-color-orange: #E06C00;
+  --background-color-yellow: #F1BD02;
   --background-color-error: #FFD9D9;
 
   /* ボーダー */
