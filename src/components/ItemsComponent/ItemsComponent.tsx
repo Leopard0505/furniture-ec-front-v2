@@ -1,3 +1,4 @@
+import { ItemSortField } from '../ItemSortField/ItemSortField';
 import { SearchConditionsForm } from '../SearchConditionsForm/SearchConditionsForm';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 
@@ -8,8 +9,8 @@ export function ItemsComponent() {
   return (
     <div className={styles.items__container}>
       <SearchConditionsForm />
-      <div>
-        <div>並び替え</div>
+      <div className={styles.items__container__content}>
+        <ItemSortField />
         <div>
           <SectionTitle text={'カテゴリ名'} />
           <div>商品一覧</div>
