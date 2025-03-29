@@ -1,10 +1,17 @@
 import { ItemSortField } from '../ItemSortField/ItemSortField';
+import { Pagenation } from '../Pagenation/Pagenation';
 import { SearchConditionsForm } from '../SearchConditionsForm/SearchConditionsForm';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 
 import styles from './ItemsComponent.module.scss';
 
-export function ItemsComponent() {
+interface ItemsComponentProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+}
+
+export function ItemsComponent(props: ItemsComponentProps) {
 
   return (
     <div className={styles.items__container}>
@@ -14,7 +21,7 @@ export function ItemsComponent() {
         <div>
           <SectionTitle text={'カテゴリ名'} />
           <div>商品一覧</div>
-          <div>ページネーション</div>
+          <Pagenation currentPage={props.currentPage} totalPages={props.totalPages} onPageChange={props.onPageChange} />
         </div>
       </div>
     </div>
