@@ -1,13 +1,13 @@
 .section__title {
   padding: 12px 20px;
-  border-left: 5px solid var(--border-color-black);
+  border-left: 5px solid var(--border-dark);
   font-family: var(--font-family);
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 1.5;
-  color: var(--text-default);
-  background-color: var(--background-color-white);
+  color: var(--text-on-primary-light);
+  background-color: var(--background-primary);
   margin-bottom: 16px;
 
   &.small {

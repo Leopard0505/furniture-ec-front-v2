@@ -1,5 +1,5 @@
 .item__sort__field {
-  background-color: var(--background-color-gray);
+  background-color: var(--background-secondary);
   margin-bottom: 24px;
 
   &__container {
@@ -12,13 +12,13 @@
     cursor: pointer;
 
     &:hover {
-      background-color: var(--background-color-gray-hovered);
+      background-color: var(--background-tertiary);
     }
 
     &__icon {
       width: 24px;
       height: 24px;
-      color: var(--text-default);
+      color: var(--text-on-primary-light);
     }
   }
 
@@ -56,7 +56,7 @@
       cursor: pointer;
 
       &:hover {
-        background-color: var(--background-color-gray-hovered);
+        background-color: var(--background-tertiary);
       }
     }
 

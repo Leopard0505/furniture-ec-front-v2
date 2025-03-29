@@ -2,12 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--text-white);
-  background-color: var(--background-color-black);
+  color: var(--text-on-primary);
+  background-color: var(--neutral-900);
   margin: 0 auto;
 
   &Text {
-    color: var(--text-white);
+    color: var(--text-on-primary);
     font-size: 1rem;
     margin: 8px 0;
   }

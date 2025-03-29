@@ -1,20 +1,12 @@
 .category__label {
   display: inline-block;
-  min-width: 80px;
-  padding: 8px;
-  border-radius: 50px;
-  color: var(--text-white);
-  background-color: var(--background-color-black);
-  border: 1px solid var(--border-color-default);
+  padding: 4px 8px;
+  background-color: var(--primary-500);
+  color: var(--text-on-primary);
   font-family: var(--font-family);
   font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1;
-  text-align: center;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.8;
-  }
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 4px;
 }

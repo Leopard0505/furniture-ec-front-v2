@@ -5,6 +5,7 @@ import { CookiesProvider } from 'react-cookie'
 import './assets/scss/_reset.scss'
 import './index.css'
 import './assets/css/variables.css'
+import './assets/css/color.css'
 import { router } from './router'
 import { config } from './constants/cookie'
 

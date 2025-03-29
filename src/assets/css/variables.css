@@ -3,36 +3,6 @@
   --container-width: 960px;
   --container-inner-width: 680px;
 
-  /* バックグラウンド */
-  --background-color-white: #ffffff;
-  --background-color-gray: #F5F5F5;
-  --background-color-gray-hovered: #e5e5e5;
-  --background-color-gray-pressed: #b5b5b5;
-  --background-color-black: #000000;
-  --background-color-blue: #0049B7;
-  --background-color-skyblue: #00A1B7;
-  --background-color-green: #66B700;
-  --background-color-purple: #8700B7;
-  --background-color-red: #B70000;
-  --background-color-orange: #E06C00;
-  --background-color-yellow: #F1BD02;
-  --background-color-error: #FFD9D9;
-
-  /* ボーダー */
-  --border-color-default: #dddddd;
-  --border-color-white: #ffffff;
-  --border-color-black: #000000;
-  --border-color-skyblue: #40b3ff;
-  --border-color-error: #DD3737;
-
-  /* テキスト */
-  --text-default: #252525;
-  --text-white: #ffffff;
-  --text-gray: #aaaaaa;
-    --text-darkgray: #666666;
-  --text-skyblue: #40b3ff;
-  --text-error: #AB3B3B;
-
   /* フォント */
   --font-family: Noto Sans JP,
     メイリオ,
