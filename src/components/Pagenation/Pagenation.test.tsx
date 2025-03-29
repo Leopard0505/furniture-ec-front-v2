@@ -19,7 +19,7 @@ describe('Pagenation', () => {
   });
 
   it('ページネーションが正しくレンダリングされる', () => {
-    renderWithRouter(<Pagenation currentPage={1} totalPages={5} onPageChange={() => {}} />);
+    renderWithRouter(<Pagenation currentPage={1} totalPages={5} />);
 
     expect(screen.getByText('1')).toBeInTheDocument();
     expect(screen.getByText('2')).toBeInTheDocument();
@@ -29,7 +29,7 @@ describe('Pagenation', () => {
   });
 
   it('前へボタンをクリックすると正しいページに移動する', () => {
-    renderWithRouter(<Pagenation currentPage={3} totalPages={5} onPageChange={() => {}} />);
+    renderWithRouter(<Pagenation currentPage={3} totalPages={5} />);
 
     const prevButton = screen.getByText('<');
     fireEvent.click(prevButton);
@@ -38,7 +38,7 @@ describe('Pagenation', () => {
   });
 
   it('次へボタンをクリックすると正しいページに移動する', () => {
-    renderWithRouter(<Pagenation currentPage={3} totalPages={5} onPageChange={() => {}} />);
+    renderWithRouter(<Pagenation currentPage={3} totalPages={5} />);
 
     const nextButton = screen.getByText('>');
     fireEvent.click(nextButton);
@@ -47,7 +47,7 @@ describe('Pagenation', () => {
   });
 
   it('ページ番号をクリックすると正しいページに移動する', () => {
-    renderWithRouter(<Pagenation currentPage={1} totalPages={5} onPageChange={() => {}} />);
+    renderWithRouter(<Pagenation currentPage={1} totalPages={5} />);
 
     const pageButton = screen.getByText('3');
     fireEvent.click(pageButton);
@@ -56,7 +56,7 @@ describe('Pagenation', () => {
   });
 
   it('最初のページでは前へボタンがクリックできない', () => {
-    renderWithRouter(<Pagenation currentPage={1} totalPages={5} onPageChange={() => {}} />);
+    renderWithRouter(<Pagenation currentPage={1} totalPages={5} />);
 
     const prevButton = screen.getByText('<');
     fireEvent.click(prevButton);
@@ -65,7 +65,7 @@ describe('Pagenation', () => {
   });
 
   it('最後のページでは次へボタンがクリックできない', () => {
-    renderWithRouter(<Pagenation currentPage={5} totalPages={5} onPageChange={() => {}} />);
+    renderWithRouter(<Pagenation currentPage={5} totalPages={5} />);
 
     const nextButton = screen.getByText('>');
     fireEvent.click(nextButton);
