@@ -1,15 +1,17 @@
 <a id="top"></a>
 
-# 家具 EC サイト (Furniture EC)
+# 🪑 家具 EC サイト (Furniture EC)
+
+<div align="center">
+
+[![logo](https://img.shields.io/badge/Furniture_EC-A0522D?style=for-the-badge&logoColor=white)](https://github.com/Leopard0505/furniture-ec-front-v2)
 
 [![lint](https://github.com/Leopard0505/furniture-ec-front-v2/actions/workflows/lint.yml/badge.svg)](https://github.com/Leopard0505/furniture-ec-front-v2/actions/workflows/lint.yml)
 [![Build](https://github.com/Leopard0505/furniture-ec-front-v2/actions/workflows/build.yml/badge.svg)](https://github.com/Leopard0505/furniture-ec-front-v2/actions/workflows/build.yml)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0.0-blue.svg)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-18.2.0-61DAFB.svg)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-4.5.0-646CFF.svg)](https://vitejs.dev/)
-[![ESLint](https://img.shields.io/badge/ESLint-8.0.0-4B32C3.svg)](https://eslint.org/)
-[![Coverage Status](https://coveralls.io/repos/github/Leopard0505/furniture-ec-front-v2/badge.svg?branch=main)](https://coveralls.io/github/Leopard0505/furniture-ec-front-v2?branch=main)
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/summary/new_code?id=Leopard0505_furniture-ec-front-v2)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue.svg)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19.0.0-61DAFB.svg)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.0.0-646CFF.svg)](https://vitejs.dev/)
+[![ESLint](https://img.shields.io/badge/ESLint-9.8.0-4B32C3.svg)](https://eslint.org/)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Leopard0505_furniture-ec-front-v2&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Leopard0505_furniture-ec-front-v2)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Leopard0505_furniture-ec-front-v2&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Leopard0505_furniture-ec-front-v2)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Leopard0505_furniture-ec-front-v2&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Leopard0505_furniture-ec-front-v2)
@@ -17,27 +19,72 @@
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Leopard0505_furniture-ec-front-v2&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Leopard0505_furniture-ec-front-v2)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## プロジェクト概要
+</div>
+
+## 📋 目次
+
+- [プロジェクト概要](#プロジェクト概要)
+- [技術スタック](#技術スタック)
+- [開発環境のセットアップ](#開発環境のセットアップ)
+- [CI/CD](#cicd)
+- [開発ガイドライン](#開発ガイドライン)
+- [バグ報告](#バグ報告)
+- [FAQ](#よくある質問faq)
+- [ライセンス](#ライセンス)
+
+## 🎯 プロジェクト概要
 
 このプロジェクトは、React + TypeScript + Vite を使用して構築された家具の EC サイトです。
 
+### ✨ 主な機能
+
+- 🛍️ 商品一覧表示
+- 📝 商品詳細表示
+- 🛒 カート機能
+- 👤 ユーザー認証
+- 📦 注文管理
+- ❤️ お気に入り機能
+- 🔍 商品検索
+- 📑 商品カテゴリ別表示
+
+### 🛠️ 技術的な特徴
+
+- ⚡ モダンな技術スタック（React 19, TypeScript 5.5, Vite 6）
+- 🧩 コンポーネントベースの設計
+- 🔒 型安全性の確保
+- 🔄 継続的インテグレーション（CI）の実装
+- 📊 コード品質管理（SonarCloud）
+
+### 🔧 バックエンド
+
 バックエンドは [furniture-ec-api](https://github.com/Leopard0505/furniture-ec-api) を参照してください。
 
-## 技術スタック
+### 🎯 開発の目的
 
-- React 18
-- TypeScript
-- Vite
-- ESLint
+- 💻 モダンな Web 開発技術の実践
+- 👥 ユーザー体験の向上
+- 🔧 保守性の高いコードベースの維持
 
-## 開発環境のセットアップ
+## 🛠️ 技術スタック
 
-### 必要条件
+| 技術           | バージョン |
+| -------------- | ---------- |
+| React          | 19.0.0     |
+| TypeScript     | 5.5.3      |
+| Vite           | 6.0.0      |
+| Jest           | 29.7.0     |
+| ESLint         | 9.8.0      |
+| GitHub Actions | -          |
+| SonarCloud     | -          |
 
-- Node.js 18.0.0 以上
+## 🚀 開発環境のセットアップ
+
+### 📋 必要条件
+
+- Node.js 20.0.0 以上
 - npm 9.0.0 以上
 
-### インストール
+### 💻 インストール
 
 ```bash
 # 依存パッケージのインストール
@@ -53,7 +100,7 @@ npm run lint
 npm run build
 ```
 
-## CI/CD
+## 🔄 CI/CD
 
 ### 継続的インテグレーション (CI)
 
@@ -63,9 +110,7 @@ GitHub Actions を使用して以下のチェックを自動実行していま�
 - 型チェック
 - リントチェック
 
-## 開発ガイドライン
-
-最後にチケットの起票方法、ブランチ戦略、PR の作成方法など、コード以外の開発ルールを記載しておきましょう。
+## 📚 開発ガイドライン
 
 ### 設計資料
 
@@ -82,7 +127,7 @@ GitHub Actions を使用して以下のチェックを自動実行していま�
 - [Issue の作成方法](DEVELOPERS.md#issue-の作成方法)
 - [PR の作成方法](DEVELOPERS.md#pr-の作成方法)
 
-## サイトでバグを見つけたら
+## 🐛 バグ報告
 
 バグを発見した場合は、以下の手順で報告をお願いします：
 
@@ -121,7 +166,7 @@ GitHub Actions を使用して以下のチェックを自動実行していま�
 > これらの情報を[Issue](https://github.com/Leopard0505/furniture-ec-front-v2/issues)に記載して報告してください。
 > 報告する際は[Issue の作成方法](DEVELOPERS.md#issue-の作成方法)を参考にしてください。
 
-## よくある質問（FAQ）
+## ❓ よくある質問（FAQ）
 
 1. 開発環境のセットアップについて
 
@@ -136,13 +181,16 @@ GitHub Actions を使用して以下のチェックを自動実行していま�
    - デプロイ後の動作確認方法
 
 3. テストについて
-
    - テストの実行方法
    - テストカバレッジの確認方法
    - E2E テストの実行環境
 
-## ライセンス
+## 📄 ライセンス
 
 このプロジェクトは[MIT ライセンス](LICENSE)の下で公開されています。
 
-<p align="right">(<a href="#top">トップへ</a>)</p>
+<div align="right">
+
+[トップへ](#top)
+
+</div>
