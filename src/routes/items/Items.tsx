@@ -29,7 +29,6 @@ export default function Items() {
     <ItemsComponent
       currentPage={currentPage}
       totalPages={totalPages}
-      onPageChange={(page: number) => console.log('page changed', page)}
     />
   )
 }

@@ -6,7 +6,6 @@ import { useCallback } from 'react';
 interface PagenationProps {
   currentPage: number;
   totalPages: number;
-  onPageChange: (page: number) => void;
 }
 
 export const Pagenation = (props: PagenationProps) => {
