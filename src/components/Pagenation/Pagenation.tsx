@@ -20,6 +20,7 @@ export const Pagenation = (props: PagenationProps) => {
         key={page}
         className={classNames(styles.pagenation__item, props.currentPage === page ? styles.active : '')}
         onClick={() => handleSelectPage(page)}
+        onKeyUp={() => handleSelectPage(page)}
       >
         {page}
       </div>
@@ -31,6 +32,7 @@ export const Pagenation = (props: PagenationProps) => {
       <div
         className={styles.pagenation__prev}
         onClick={() => props.currentPage > 1 && handlePrevPage()}
+        onKeyUp={() => props.currentPage > 1 && handlePrevPage()}
       >
         &lt;
       </div>
@@ -38,6 +40,7 @@ export const Pagenation = (props: PagenationProps) => {
       <div
         className={styles.pagenation__next}
         onClick={() => props.currentPage < props.totalPages && handleNextPage()}
+        onKeyUp={() => props.currentPage < props.totalPages && handleNextPage()}
       >
         &gt;
       </div>

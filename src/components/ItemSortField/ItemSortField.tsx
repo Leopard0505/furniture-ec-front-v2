@@ -8,7 +8,7 @@ export function ItemSortField() {
 
   return (
     <div className={styles.item__sort__field}>
-      <div className={styles.item__sort__field__container} onClick={handleClick}>
+      <div className={styles.item__sort__field__container} onClick={handleClick} onKeyUp={handleClick}>
         <div>並び替え</div>
         <BsFilterLeft className={styles.item__sort__field__container__icon} />
       </div>

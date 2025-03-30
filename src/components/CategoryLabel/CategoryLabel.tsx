@@ -12,6 +12,7 @@ export function CategoryLabel(props: CategoryLabelProps) {
     <span
       className={styles.category__label}
       onClick={props.onClick}
+      onKeyUp={props.onClick}
     >
       {props.text}
     </span>
