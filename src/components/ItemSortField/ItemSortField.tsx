@@ -1,14 +1,17 @@
+import { KeyboardEvent } from "react";
 import { BsFilterLeft } from "react-icons/bs";
 import styles from './ItemSortField.module.scss';
 import { Button } from "../Button/Button";
 import { useAccordion } from "../../hooks/useAccordion";
+import { useKeyupFunction } from "../../hooks/useKeyupFunction";
 
 export function ItemSortField() {
   const { convertClassName, handleClick } = useAccordion(styles.item__sort__field__list, styles.item__sort__field__list__open);
+  const { handleEnterKey } = useKeyupFunction();
 
   return (
     <div className={styles.item__sort__field}>
-      <div className={styles.item__sort__field__container} onClick={handleClick} onKeyUp={handleClick}>
+      <div className={styles.item__sort__field__container} onClick={handleClick} onKeyUp={(e: KeyboardEvent) => handleEnterKey(e, handleClick)}>
         <div>並び替え</div>
         <BsFilterLeft className={styles.item__sort__field__container__icon} />
       </div>

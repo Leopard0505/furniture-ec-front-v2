@@ -1,6 +1,8 @@
+import { KeyboardEvent } from "react";
 import { BsSearch } from "react-icons/bs";
 
 import styles from './SearchField.module.scss';
+import { useKeyupFunction } from "../../hooks/useKeyupFunction";
 
 interface SearchFieldProps {
   word: string;
@@ -9,6 +11,8 @@ interface SearchFieldProps {
 }
 
 export function SearchField(props: SearchFieldProps) {
+  const { handleEnterKey } = useKeyupFunction();
+
   return (
     <div className={styles.search__field}>
       <input
@@ -17,9 +21,7 @@ export function SearchField(props: SearchFieldProps) {
         placeholder='検索'
         value={props.word}
         onChange={(e) => props.onChange(e.target.value)}
-        onKeyUp={(e) => {
-          if (e.key === "Enter") props.handleSearch();
-        }}
+        onKeyUp={(e: KeyboardEvent) => handleEnterKey(e, props.handleSearch)}
       />
       <BsSearch className={styles.search__field__icon} onClick={() => props.handleSearch()} />
     </div>

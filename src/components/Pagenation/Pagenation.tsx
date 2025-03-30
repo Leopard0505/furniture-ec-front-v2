@@ -1,7 +1,8 @@
+import { KeyboardEvent, useCallback } from 'react';
 import styles from './Pagenation.module.scss';
 import { usePagenation } from '../../hooks/usePagenation';
 import classNames from 'classnames';
-import { useCallback } from 'react';
+import { useKeyupFunction } from '../../hooks/useKeyupFunction';
 
 interface PagenationProps {
   currentPage: number;
@@ -13,6 +14,7 @@ export const Pagenation = (props: PagenationProps) => {
     currentPage: props.currentPage,
     totalPages: props.totalPages,
   });
+  const { handleEnterKey } = useKeyupFunction();
 
   const renderPageNumbers = useCallback(() => {
     return pages.map((page) => (
@@ -20,19 +22,19 @@ export const Pagenation = (props: PagenationProps) => {
         key={page}
         className={classNames(styles.pagenation__item, props.currentPage === page ? styles.active : '')}
         onClick={() => handleSelectPage(page)}
-        onKeyUp={() => handleSelectPage(page)}
+        onKeyUp={(e: KeyboardEvent) => handleEnterKey(e, () => handleSelectPage(page))}
       >
         {page}
       </div>
     ));
-  }, [pages, props.currentPage, handleSelectPage]);
+  }, [pages, props.currentPage, handleSelectPage, handleEnterKey]);
 
   return (
     <div className={styles.pagenation}>
       <div
         className={styles.pagenation__prev}
         onClick={() => props.currentPage > 1 && handlePrevPage()}
-        onKeyUp={() => props.currentPage > 1 && handlePrevPage()}
+        onKeyUp={(e: KeyboardEvent) => handleEnterKey(e, () => props.currentPage > 1 && handlePrevPage())}
       >
         &lt;
       </div>
@@ -40,7 +42,7 @@ export const Pagenation = (props: PagenationProps) => {
       <div
         className={styles.pagenation__next}
         onClick={() => props.currentPage < props.totalPages && handleNextPage()}
-        onKeyUp={() => props.currentPage < props.totalPages && handleNextPage()}
+        onKeyUp={(e: KeyboardEvent) => handleEnterKey(e, () =>props.currentPage < props.totalPages && handleNextPage())}
       >
         &gt;
       </div>
