@@ -5,7 +5,7 @@ export const useAccordion = (className: string, openClassName: string) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [convertClassName, setConvertClassName] = useState<string>(className);
 
-  const handleClick = () => {
+  const handleClickAccordion = () => {
     setIsOpen(!isOpen);
   };
 
@@ -15,6 +15,6 @@ export const useAccordion = (className: string, openClassName: string) => {
 
   return {
     convertClassName,
-    handleClick,
+    handleClickAccordion,
   };
 }

@@ -7,7 +7,7 @@ interface PagenationProps {
 }
 
 const MAX_VISIBLE_PAGES = 5;
-const QUERY_PARAM_PAGE = 'page';
+export const QUERY_PARAM_PAGE = 'page';
 
 export const usePagenation = (props: PagenationProps) => {
   const [pages, setPages] = useState<number[]>([]);

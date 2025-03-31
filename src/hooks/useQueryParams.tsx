@@ -1,34 +1,44 @@
-import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
+import { QUERY_PARAM_PAGE } from "./usePagenation";
+import { QUERY_PARAM_SORT, QUERY_PARAM_ORDER } from "./useItemSort";
 
 export const useQueryParams = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [queryParams, setQueryParams] = useState<Record<string, string>>({});
-
-  useEffect(() => {
-    const newQueryParams: Record<string, string> = {};
-    searchParams.forEach((value, key) => {
-      newQueryParams[key] = value;
-    });
-    setQueryParams(newQueryParams);
-  }, [searchParams]);
 
   const getQueryParam = (key: string) => {
     return searchParams.get(key);
   };
 
-  const getQueryParamPage = () => {
-    const page = getQueryParam('page');
-    return page ? parseInt(page as string) : 1;
+  const updateSearchParams = (key: string, value: string | null) => {
+    setSearchParams((prevSearchParams) => {
+      if (value === null) {
+        prevSearchParams.delete(key);
+      } else {
+        prevSearchParams.set(key, value);
+      }
+      return prevSearchParams;
+    });
   };
 
-  const updateSearchParams = (key: string, value: string) => {
-    setSearchParams({ ...queryParams, [key]: value });
+  const getQueryParamPage = () => {
+    const page = getQueryParam(QUERY_PARAM_PAGE);
+    if (!page) return 1;
+    const parsedPage = parseInt(page);
+    return isNaN(parsedPage) || parsedPage <= 0 ? 1 : parsedPage;
+  };
+
+  const getQueryParamSort = () => {
+    return getQueryParam(QUERY_PARAM_SORT);
+  };
+
+  const getQueryParamOrder = () => {
+    return getQueryParam(QUERY_PARAM_ORDER);
   };
 
   return {
-    queryParams,
-    getQueryParamPage,
     updateSearchParams,
+    getQueryParamPage,
+    getQueryParamSort,
+    getQueryParamOrder,
   };
 };

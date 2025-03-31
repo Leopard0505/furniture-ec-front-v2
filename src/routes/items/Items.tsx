@@ -5,8 +5,10 @@ import { useQueryParams } from '../../hooks/useQueryParams';
 export default function Items() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(10);
-  const { getQueryParamPage } = useQueryParams();
+  const { getQueryParamPage, getQueryParamSort, getQueryParamOrder } = useQueryParams();
   const queryParamPage: number = getQueryParamPage();
+  const queryParamSort: string | null = getQueryParamSort();
+  const queryParamOrder: string | null = getQueryParamOrder();
 
   useEffect(() => {
     // TODO: 商品一覧を取得
@@ -23,7 +25,7 @@ export default function Items() {
     };
     setCurrentPage(queryParamPage);
     setTotalPages(response.totalPage);
-  }, [queryParamPage]);
+  }, [queryParamOrder, queryParamPage, queryParamSort]);
 
   return (
     <ItemsComponent
