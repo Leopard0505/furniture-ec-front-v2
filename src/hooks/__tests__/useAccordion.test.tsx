@@ -18,13 +18,13 @@ describe('useAccordion', () => {
 
     // クリックして開く
     act(() => {
-      result.current.handleClick();
+      result.current.handleClickAccordion();
     });
     expect(result.current.convertClassName).toBe(`${baseClassName} ${openClassName}`);
 
     // クリックして閉じる
     act(() => {
-      result.current.handleClick();
+      result.current.handleClickAccordion();
     });
     expect(result.current.convertClassName).toBe(baseClassName);
   });

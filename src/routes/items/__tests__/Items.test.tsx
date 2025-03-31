@@ -6,7 +6,9 @@ import Items from '../Items';
 jest.mock('../../../hooks/useQueryParams', () => ({
   useQueryParams: () => ({
     getQueryParamPage: () => 1,
-    updateSearchParams: jest.fn()
+    updateSearchParams: jest.fn(),
+    getQueryParamSort: jest.fn(),
+    getQueryParamOrder: jest.fn(),
   })
 }));
 
@@ -27,7 +29,9 @@ describe('Items', () => {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     jest.spyOn(require('../../../hooks/useQueryParams'), 'useQueryParams').mockImplementation(() => ({
       getQueryParamPage: () => 1,
-      updateSearchParams: mockUpdateSearchParams
+      updateSearchParams: mockUpdateSearchParams,
+      getQueryParamSort: jest.fn(),
+      getQueryParamOrder: jest.fn(),
     }));
 
     renderWithRouter(<Items />);
