@@ -29,14 +29,23 @@
     opacity: 0.8;
   }
 
-  &.white {
-    background-color: var(--background-primary);
-    border-color: var(--border-light);
-    color: var(--text-on-primary-light);
+  &[aria-pressed="true"] {
+    opacity: 0.8;
+  }
+}
 
-    &:hover {
-      opacity: 1;
-      background-color: var(--background-tertiary);
-    }
+.white {
+  background-color: var(--background-primary);
+  border-color: var(--border-light);
+  color: var(--text-on-primary-light);
+
+  &:hover {
+    opacity: 1;
+    background-color: var(--background-tertiary);
+  }
+
+  &[aria-pressed="true"] {
+    opacity: 1;
+    background-color: var(--background-tertiary);
   }
 }

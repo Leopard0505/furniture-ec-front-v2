@@ -2,10 +2,10 @@
 import classNames from 'classnames';
 import styles from './Button.module.scss';
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
-  type?: "button" | "submit" | "reset" | undefined;
   white?: boolean;
+  pressed?: boolean;
   onClick?: () => void;
 }
 
@@ -16,6 +16,7 @@ export function Button(props: ButtonProps) {
     <button
       className={convertClassName}
       type={props.type}
+      aria-pressed={props.pressed}
       onClick={props.onClick}>
       {props.text}
     </button>
