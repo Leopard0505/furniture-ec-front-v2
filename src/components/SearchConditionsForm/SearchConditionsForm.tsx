@@ -2,12 +2,14 @@ import { Button } from '../Button/Button';
 import { CategoryLabel } from '../CategoryLabel/CategoryLabel';
 import { ColorPalette } from '../ColorPalette/ColorPalette';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { PriceInput } from '../PriceInput/PriceInput';
 import styles from './SearchConditionsForm.module.scss';
 import { useReviewScore } from '../../hooks/useReviewScore';
 import { useProductCondition } from '../../hooks/useProductCondition';
 import { useStock } from '../../hooks/useStock';
 import { useShipping } from '../../hooks/useShipping';
-import { useQueryParams, QUERY_PARAM_REVIEW_SCORE, QUERY_PARAM_PRODUCT_CONDITION, QUERY_PARAM_STOCK, QUERY_PARAM_SHIPPING, UpdateMultipleSearchParams } from '../../hooks/useQueryParams';
+import { usePrice } from '../../hooks/usePrice';
+import { useQueryParams, QUERY_PARAM_REVIEW_SCORE, QUERY_PARAM_PRODUCT_CONDITION, QUERY_PARAM_STOCK, QUERY_PARAM_SHIPPING, QUERY_PARAM_MIN_PRICE, QUERY_PARAM_MAX_PRICE, UpdateMultipleSearchParams } from '../../hooks/useQueryParams';
 import { QUERY_PARAM_PAGE } from '../../hooks/usePagenation';
 
 export const SearchConditionsForm = () => {
@@ -16,6 +18,7 @@ export const SearchConditionsForm = () => {
   const { buttons: conditionButtons, handleButtonClick: handleConditionButtonClick, clear: clearCondition } = useProductCondition();
   const { buttons: stockButtons, handleButtonClick: handleStockButtonClick, clear: clearStock } = useStock();
   const { buttons: shippingButtons, handleButtonClick: handleShippingButtonClick, clear: clearShipping } = useShipping();
+  const { price, handleMinPriceChange, handleMaxPriceChange, clear: clearPrice } = usePrice();
 
   const handleSearch = async () => {
     const updates: UpdateMultipleSearchParams[] = [];
@@ -48,6 +51,16 @@ export const SearchConditionsForm = () => {
       value: pressedShippingButton ? pressedShippingButton.value : null,
     });
 
+    // 価格の更新
+    updates.push({
+      key: QUERY_PARAM_MIN_PRICE,
+      value: price.min || null,
+    });
+    updates.push({
+      key: QUERY_PARAM_MAX_PRICE,
+      value: price.max || null,
+    });
+
     // 検索条件が変更されたのでページを1にリセット
     updates.push({
       key: QUERY_PARAM_PAGE,
@@ -62,12 +75,26 @@ export const SearchConditionsForm = () => {
     clearCondition();
     clearStock();
     clearShipping();
+    clearPrice();
   };
 
   return (
     <div className={styles.search_conditions_form}>
       <div className={styles.search_conditions_form__item}>
         <SectionTitle text='商品価格' size='small' />
+        <div className={styles.search_conditions_form__item__price}>
+          <PriceInput
+            label="下限価格"
+            value={price.min}
+            onChange={handleMinPriceChange}
+          />
+          <span className={styles.search_conditions_form__item__price__separator}>〜</span>
+          <PriceInput
+            label="上限価格"
+            value={price.max}
+            onChange={handleMaxPriceChange}
+          />
+        </div>
       </div>
       <div className={styles.search_conditions_form__item}>
         <SectionTitle text='カテゴリ' size='small' />

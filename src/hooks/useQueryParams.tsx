@@ -6,6 +6,8 @@ export const QUERY_PARAM_REVIEW_SCORE = 'review_score';
 export const QUERY_PARAM_PRODUCT_CONDITION = 'product_condition';
 export const QUERY_PARAM_STOCK = 'stock';
 export const QUERY_PARAM_SHIPPING = 'shipping';
+export const QUERY_PARAM_MIN_PRICE = 'min_price';
+export const QUERY_PARAM_MAX_PRICE = 'max_price';
 
 export interface UpdateMultipleSearchParams {
   key: string;
@@ -76,6 +78,14 @@ export const useQueryParams = () => {
     return getQueryParam(QUERY_PARAM_SHIPPING);
   };
 
+  const getQueryParamMinPrice = () => {
+    return getQueryParam(QUERY_PARAM_MIN_PRICE);
+  };
+
+  const getQueryParamMaxPrice = () => {
+    return getQueryParam(QUERY_PARAM_MAX_PRICE);
+  };
+
   return {
     updateSearchParams,
     updateMultipleSearchParams,
@@ -86,5 +96,7 @@ export const useQueryParams = () => {
     getQueryParamCondition,
     getQueryParamStock,
     getQueryParamShipping,
+    getQueryParamMinPrice,
+    getQueryParamMaxPrice,
   };
 };

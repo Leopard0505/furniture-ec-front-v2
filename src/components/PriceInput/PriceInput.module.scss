@@ -1,0 +1,35 @@
+.price_input {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    display: block;
+    height: 21px;
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__input {
+    width: 120px;
+    padding: 8px 12px;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  &__unit {
+    font-size: 14px;
+    color: var(--text-primary);
+  }
+}

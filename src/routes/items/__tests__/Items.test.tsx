@@ -9,6 +9,12 @@ jest.mock('../../../hooks/useQueryParams', () => ({
     updateSearchParams: jest.fn(),
     getQueryParamSort: jest.fn(),
     getQueryParamOrder: jest.fn(),
+    getQueryParamMinPrice: jest.fn(),
+    getQueryParamMaxPrice: jest.fn(),
+    getQueryParamReviewScore: jest.fn(),
+    getQueryParamCondition: jest.fn(),
+    getQueryParamStock: jest.fn(),
+    getQueryParamShipping: jest.fn(),
   })
 }));
 
@@ -32,6 +38,12 @@ describe('Items', () => {
       updateSearchParams: mockUpdateSearchParams,
       getQueryParamSort: jest.fn(),
       getQueryParamOrder: jest.fn(),
+      getQueryParamMinPrice: jest.fn(),
+      getQueryParamMaxPrice: jest.fn(),
+      getQueryParamReviewScore: jest.fn(),
+      getQueryParamCondition: jest.fn(),
+      getQueryParamStock: jest.fn(),
+      getQueryParamShipping: jest.fn(),
     }));
 
     renderWithRouter(<Items />);
