@@ -9,7 +9,8 @@ import { useProductCondition } from '../../hooks/useProductCondition';
 import { useStock } from '../../hooks/useStock';
 import { useShipping } from '../../hooks/useShipping';
 import { usePrice } from '../../hooks/usePrice';
-import { useQueryParams, QUERY_PARAM_REVIEW_SCORE, QUERY_PARAM_PRODUCT_CONDITION, QUERY_PARAM_STOCK, QUERY_PARAM_SHIPPING, QUERY_PARAM_MIN_PRICE, QUERY_PARAM_MAX_PRICE, UpdateMultipleSearchParams } from '../../hooks/useQueryParams';
+import { useCategory } from '../../hooks/useCategory';
+import { useQueryParams, QUERY_PARAM_REVIEW_SCORE, QUERY_PARAM_PRODUCT_CONDITION, QUERY_PARAM_STOCK, QUERY_PARAM_SHIPPING, QUERY_PARAM_MIN_PRICE, QUERY_PARAM_MAX_PRICE, QUERY_PARAM_CATEGORY, UpdateMultipleSearchParams } from '../../hooks/useQueryParams';
 import { QUERY_PARAM_PAGE } from '../../hooks/usePagenation';
 
 export const SearchConditionsForm = () => {
@@ -19,9 +20,17 @@ export const SearchConditionsForm = () => {
   const { buttons: stockButtons, handleButtonClick: handleStockButtonClick, clear: clearStock } = useStock();
   const { buttons: shippingButtons, handleButtonClick: handleShippingButtonClick, clear: clearShipping } = useShipping();
   const { price, handleMinPriceChange, handleMaxPriceChange, clear: clearPrice } = usePrice();
+  const { buttons: categoryButtons, handleButtonClick: handleCategoryButtonClick, clear: clearCategory } = useCategory();
 
   const handleSearch = async () => {
     const updates: UpdateMultipleSearchParams[] = [];
+
+    // カテゴリの更新
+    const pressedCategoryButton = categoryButtons.find(button => button.pressed);
+    updates.push({
+      key: QUERY_PARAM_CATEGORY,
+      value: pressedCategoryButton ? pressedCategoryButton.value : null,
+    });
 
     // レビュースコアの更新
     const pressedReviewButton = reviewButtons.find(button => button.pressed);
@@ -76,6 +85,7 @@ export const SearchConditionsForm = () => {
     clearStock();
     clearShipping();
     clearPrice();
+    clearCategory();
   };
 
   return (
@@ -99,9 +109,14 @@ export const SearchConditionsForm = () => {
       <div className={styles.search_conditions_form__item}>
         <SectionTitle text='カテゴリ' size='small' />
         <div className={styles.search_conditions_form__item__category}>
-          <CategoryLabel text='スマホ' />
-          <CategoryLabel text='タブレット' />
-          <CategoryLabel text='PC' />
+          {categoryButtons.map((button) => (
+            <CategoryLabel
+              key={button.value}
+              text={button.text}
+              pressed={button.pressed}
+              onClick={() => handleCategoryButtonClick(button.value)}
+            />
+          ))}
         </div>
       </div>
       <div className={styles.search_conditions_form__item}>

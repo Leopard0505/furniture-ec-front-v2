@@ -13,6 +13,12 @@
   transition: 0.3s;
 
   &:hover {
+    background-color: var(--primary-600);
+  }
+
+  &[aria-pressed="true"] {
     opacity: 0.8;
+    background-color: var(--primary-800);
+    border-color: var(--border-dark);
   }
 }

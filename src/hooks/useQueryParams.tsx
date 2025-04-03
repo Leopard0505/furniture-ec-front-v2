@@ -8,6 +8,7 @@ export const QUERY_PARAM_STOCK = 'stock';
 export const QUERY_PARAM_SHIPPING = 'shipping';
 export const QUERY_PARAM_MIN_PRICE = 'min_price';
 export const QUERY_PARAM_MAX_PRICE = 'max_price';
+export const QUERY_PARAM_CATEGORY = 'category';
 
 export interface UpdateMultipleSearchParams {
   key: string;
@@ -86,6 +87,10 @@ export const useQueryParams = () => {
     return getQueryParam(QUERY_PARAM_MAX_PRICE);
   };
 
+  const getQueryParamCategory = () => {
+    return getQueryParam(QUERY_PARAM_CATEGORY);
+  };
+
   return {
     updateSearchParams,
     updateMultipleSearchParams,
@@ -98,5 +103,6 @@ export const useQueryParams = () => {
     getQueryParamShipping,
     getQueryParamMinPrice,
     getQueryParamMaxPrice,
+    getQueryParamCategory,
   };
 };
