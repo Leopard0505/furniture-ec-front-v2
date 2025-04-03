@@ -2,6 +2,16 @@ import { useSearchParams } from "react-router";
 import { QUERY_PARAM_PAGE } from "./usePagenation";
 import { QUERY_PARAM_SORT, QUERY_PARAM_ORDER } from "./useItemSort";
 
+export const QUERY_PARAM_REVIEW_SCORE = 'review_score';
+export const QUERY_PARAM_PRODUCT_CONDITION = 'product_condition';
+export const QUERY_PARAM_STOCK = 'stock';
+export const QUERY_PARAM_SHIPPING = 'shipping';
+
+export interface UpdateMultipleSearchParams {
+  key: string;
+  value: string | null;
+}
+
 export const useQueryParams = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -20,6 +30,21 @@ export const useQueryParams = () => {
     });
   };
 
+  const updateMultipleSearchParams = (updates: UpdateMultipleSearchParams[]): Promise<void> => {
+    return new Promise((resolve) => {
+      const newSearchParams = new URLSearchParams(searchParams);
+      updates.forEach(({ key, value }) => {
+        if (value === null) {
+          newSearchParams.delete(key);
+        } else {
+          newSearchParams.set(key, value);
+        }
+      });
+      setSearchParams(newSearchParams);
+      resolve();
+    });
+  };
+
   const getQueryParamPage = () => {
     const page = getQueryParam(QUERY_PARAM_PAGE);
     if (!page) return 1;
@@ -35,10 +60,31 @@ export const useQueryParams = () => {
     return getQueryParam(QUERY_PARAM_ORDER);
   };
 
+  const getQueryParamReviewScore = () => {
+    return getQueryParam(QUERY_PARAM_REVIEW_SCORE);
+  };
+
+  const getQueryParamCondition = () => {
+    return getQueryParam(QUERY_PARAM_PRODUCT_CONDITION);
+  };
+
+  const getQueryParamStock = () => {
+    return getQueryParam(QUERY_PARAM_STOCK);
+  };
+
+  const getQueryParamShipping = () => {
+    return getQueryParam(QUERY_PARAM_SHIPPING);
+  };
+
   return {
     updateSearchParams,
+    updateMultipleSearchParams,
     getQueryParamPage,
     getQueryParamSort,
     getQueryParamOrder,
+    getQueryParamReviewScore,
+    getQueryParamCondition,
+    getQueryParamStock,
+    getQueryParamShipping,
   };
 };
