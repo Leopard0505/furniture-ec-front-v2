@@ -10,7 +10,7 @@ import { useStock } from '../../hooks/useStock';
 import { useShipping } from '../../hooks/useShipping';
 import { usePrice } from '../../hooks/usePrice';
 import { useCategory } from '../../hooks/useCategory';
-import { useQueryParams, QUERY_PARAM_REVIEW_SCORE, QUERY_PARAM_PRODUCT_CONDITION, QUERY_PARAM_STOCK, QUERY_PARAM_SHIPPING, QUERY_PARAM_MIN_PRICE, QUERY_PARAM_MAX_PRICE, QUERY_PARAM_CATEGORY, UpdateMultipleSearchParams } from '../../hooks/useQueryParams';
+import { useQueryParams, QUERY_PARAM_REVIEW_SCORE, QUERY_PARAM_PRODUCT_CONDITION, QUERY_PARAM_STOCK, QUERY_PARAM_SHIPPING, QUERY_PARAM_MIN_PRICE, QUERY_PARAM_MAX_PRICE, QUERY_PARAM_CATEGORY, UpdateMultipleSearchParams } from '../../hooks/useQueryParams.tsx';
 import { QUERY_PARAM_PAGE } from '../../hooks/usePagenation';
 
 export const SearchConditionsForm = () => {

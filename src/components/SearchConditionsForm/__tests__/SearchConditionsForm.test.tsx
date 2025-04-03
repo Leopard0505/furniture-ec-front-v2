@@ -13,6 +13,7 @@ jest.mock('../../../hooks/useQueryParams', () => ({
   QUERY_PARAM_SHIPPING: 'shipping',
   QUERY_PARAM_MIN_PRICE: 'min_price',
   QUERY_PARAM_MAX_PRICE: 'max_price',
+  QUERY_PARAM_CATEGORY: 'category',
   QUERY_PARAM_PAGE: 'page',
 }));
 
@@ -73,6 +74,18 @@ jest.mock('../../../hooks/usePrice', () => ({
     },
     handleMinPriceChange: jest.fn(),
     handleMaxPriceChange: jest.fn(),
+    clear: jest.fn(),
+  }),
+}));
+
+jest.mock('../../../hooks/useCategory', () => ({
+  useCategory: () => ({
+    buttons: [
+      { value: 'smartphone', text: 'スマホ', pressed: false },
+      { value: 'tablet', text: 'タブレット', pressed: false },
+      { value: 'pc', text: 'PC', pressed: false },
+    ],
+    handleButtonClick: jest.fn(),
     clear: jest.fn(),
   }),
 }));

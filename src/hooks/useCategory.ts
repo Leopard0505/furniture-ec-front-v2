@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useQueryParams } from "./useQueryParams";
+import { useQueryParams } from "./useQueryParams.tsx";
 
 interface CategoryButton {
   text: string;

@@ -15,6 +15,7 @@ jest.mock('../../../hooks/useQueryParams', () => ({
     getQueryParamCondition: jest.fn(),
     getQueryParamStock: jest.fn(),
     getQueryParamShipping: jest.fn(),
+    getQueryParamCategory: jest.fn(),
   })
 }));
 
@@ -44,6 +45,7 @@ describe('Items', () => {
       getQueryParamCondition: jest.fn(),
       getQueryParamStock: jest.fn(),
       getQueryParamShipping: jest.fn(),
+      getQueryParamCategory: jest.fn(),
     }));
 
     renderWithRouter(<Items />);
