@@ -15,31 +15,31 @@
       border-radius: 4px;
 
       &:nth-child(1) {
-        background-color: var(--background-color-red);
+        background-color: var(--success);
       }
 
       &:nth-child(2) {
-        background-color: var(--background-color-orange);
+        background-color: var(--warning);
       }
 
       &:nth-child(3) {
-        background-color: var(--background-color-yellow);
+        background-color: var(--error);
       }
 
       &:nth-child(4) {
-        background-color: var(--background-color-green);
+        background-color: var(--info);
       }
 
       &:nth-child(5) {
-        background-color: var(--background-color-skyblue);
+        background-color: var(--success);
       }
 
       &:nth-child(6) {
-        background-color: var(--background-color-blue);
+        background-color: var(--warning);
       }
 
       &:nth-child(7) {
-        background-color: var(--background-color-purple);
+        background-color: var(--error);
       }
     }
   }
