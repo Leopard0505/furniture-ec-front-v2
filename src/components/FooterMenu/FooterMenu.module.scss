@@ -1,14 +1,14 @@
 .menu {
   min-width: var(--container-width);
-  background-color: var(--background-color-gray);
+  background-color: var(--background-tertiary);
   padding: 35px 0;
 
   &__title {
     width: var(--container-width);
     margin: 0 auto 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid var(--border-color-white);
-    color: var(--text-default);
+    border-bottom: 2px solid var(--border-light);
+    color: var(--text-on-primary-light);
     font-family: Open Sans, var(--font-family);
     font-size: 2.8rem;
     font-weight: 600;
@@ -24,7 +24,7 @@
     gap: 32px;
 
     @mixin linkTitle {
-      color: var(--text-default);
+      color: var(--text-on-primary-light);
       font-family: var(--font-family);
       font-size: 24px;
       font-weight: 700;
@@ -44,7 +44,7 @@
       .separator_dotted {
         margin-top: 20px;
         border: none;
-        border-top: 2px dotted var(--border-color-whit)e
+        border-top: 2px dotted var(--border-light);
       }
 
       .goods__links {
@@ -64,7 +64,7 @@
 
     .shopping_info__links {
       &__title {
-        color: var(--text-default);
+        color: var(--text-on-primary-light);
         font-family: var(--font-family);
         font-size: 1.6rem;
         font-weight: 700;
@@ -93,22 +93,22 @@
       justify-content: space-between;
 
       .contact__link {
-        border: 2px solid var(--border-color-white);
-        color: var(--text-default);
+        border: 2px solid var(--border-light);
+        color: var(--text-on-primary-light);
       }
 
       .about__links {
         text-align: center;
 
         .about-link {
-          color: var(--text-default);
+          color: var(--text-on-primary-light);
           font-family: var(--font-family);
           font-size: 1.2rem;
           text-decoration: none;
         }
 
         .about-link-separator {
-          color: var(--text-default);
+          color: var(--text-on-primary-light);
           display: inline-block;
           padding: 0 10px;
           -webkit-user-select: none;
@@ -122,11 +122,11 @@
         justify-content: center;
 
         .share-link {
-          color: var(--text-default);
+          color: var(--text-on-primary-light);
           margin-right: 15px;
 
           .line {
-            background: var(--background-color-white);
+            background: var(--background-primary);
             border-radius: 50%;
             display: block;
             height: 30px;
@@ -134,7 +134,7 @@
             width: 30px;
 
             .span-tag {
-              color: var(--text-default);
+              color: var(--text-on-primary-light);
               left: 0;
               margin: auto;
               position: absolute;
@@ -164,10 +164,10 @@
       &__item {
         width: 304px;
         padding-right: 8px;
-        border-bottom: 1px solid var(--border-color-default);
+        border-bottom: 1px solid var(--border-light);
 
         ::after {
-          border-color: transparent transparent transparent var(--border-color-black);
+          border-color: transparent transparent transparent var(--border-dark);
           border-style: solid;
           border-width: 5px 0 5px 10px;
           bottom: 0;
@@ -181,13 +181,13 @@
         }
 
         &:hover {
-          background-color: var(--background-color-gray-hovered);
+          background-color: var(--background-tertiary);
         }
 
         .menu__link {
           position: relative;
           display: block;
-          color: var(--text-default);
+          color: var(--text-on-primary-light);
           font-family: var(--font-family);
           font-size: 1.2rem;
           text-decoration: none;

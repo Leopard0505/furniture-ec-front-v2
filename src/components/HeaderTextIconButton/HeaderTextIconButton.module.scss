@@ -4,26 +4,26 @@
   justify-content: center;
   align-items: center;
   padding: 11px 0;
-  color: var(--text-default);
+  color: var(--text-on-primary-light);
   text-decoration: unset;
 
   &:hover {
-    background-color: var(--background-color-gray-hovered);
+    background-color: var(--background-tertiary);
   }
 
   &:active {
-    background-color: var(--background-color-gray-pressed);
+    background-color: var(--background-tertiary);
   }
 
   &IconCircle {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    color: var(--text-default);
+    color: var(--text-on-primary-light);
   }
 
   .text {
-    // color: var(--text-default);
+    // color: var(--text-on-primary-light);
     // font-size: 1.2rem;
   }
 }

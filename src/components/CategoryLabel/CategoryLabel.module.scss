@@ -1,0 +1,24 @@
+.category__label {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: var(--primary-500);
+  color: var(--text-on-primary);
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: var(--primary-600);
+  }
+
+  &[aria-pressed="true"] {
+    opacity: 0.8;
+    background-color: var(--primary-800);
+    border-color: var(--border-dark);
+  }
+}

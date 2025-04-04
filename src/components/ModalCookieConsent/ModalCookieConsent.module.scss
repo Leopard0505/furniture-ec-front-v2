@@ -10,8 +10,8 @@
 
 .modal__cookie__consent {
   width: 400px;
-  background-color: var(--background-color-white);
-  border: 1px solid var(--border-color-default);
+  background-color: var(--background-primary);
+  border: 1px solid var(--border-light);
   border-radius: 4px;
   padding: 20px;
   z-index: 9999;
@@ -34,7 +34,7 @@
     font-weight: 700;
     font-size: 18px;
     line-height: 1.5;
-    color: var(--text-default);
+    color: var(--text-on-primary-light);
     margin-bottom: 8px;
   }
 
@@ -44,7 +44,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 1.5;
-    color: var(--text-default);
+    color: var(--text-on-primary-light);
   }
 
   &__button__container {

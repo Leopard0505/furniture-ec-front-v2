@@ -10,15 +10,15 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
-  color: var(--text-default);
+  color: var(--text-primary);
   margin-bottom: 8px;
 }
 
 .input {
   width: 100%;
   height: 50px;
-  background: var(--background-color-white);
-  border: 1px solid var(--border-color-default);
+  background: var(--background-primary);
+  border: 1px solid var(--border-light);
   border-radius: 4px;
   padding: 13px 16px;
 
@@ -28,18 +28,18 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 1.5;
-    color: var(--text-gray);
+    color: var(--text-secondary);
   }
 
   &[aria-invalid="true"] {
-    background-color: var(--background-color-error);
-    border: 1px solid var(--border-color-error);
+    background-color: var(--error);
+    border: 1px solid var(--error);
     margin-bottom: 8px;
   }
 }
 
 .text__error {
-  color: var(--text-error);
+  color: var(--error);
   font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;

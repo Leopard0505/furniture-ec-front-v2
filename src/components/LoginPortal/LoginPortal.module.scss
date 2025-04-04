@@ -1,6 +1,6 @@
 .login__portal {
   width: var(--container-inner-width);
-  border: 1px solid var(--border-color-default);
+  border: 1px solid var(--border-light);
   border-radius: 8px;
   margin: 24px auto 120px;
 
@@ -15,6 +15,7 @@
     &__forgot {
       text-align: center;
       margin-bottom: 24px;
+
       &_link {
         height: 24px;
         font-family: var(--font-family);
@@ -23,11 +24,12 @@
         font-size: 16px;
         line-height: 150%;
         text-decoration-line: underline;
-        color: var(--text-default);
+        color: var(--text-on-primary-light);
         cursor: pointer;
       }
     }
   }
+
   &__to_new_user {
     padding: 24px;
   }

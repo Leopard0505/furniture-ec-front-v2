@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/react';
 import { RecommendItemList } from './RecommendItemList';
-import { ListItemType } from '../ListItem/ListItem';
+import { LinkedImageType } from '../LinkedImage/LinkedImage';
 import { renderWithRouter } from '../../test/utils/renderWithRouter';
 
 describe('RecommendItemList', () => {
-  const mockItems: ListItemType[] = [
+  const mockItems: LinkedImageType[] = [
     {
       id: '1',
       to: '/items/1',

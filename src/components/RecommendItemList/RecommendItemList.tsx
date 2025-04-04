@@ -1,10 +1,10 @@
 
-import { ListItem, ListItemType } from '../ListItem/ListItem';
+import { LinkedImage, LinkedImageType } from '../LinkedImage/LinkedImage';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import styles from './RecommendItemList.module.scss';
 
 interface RecommendItemListProps {
-  items: ListItemType[];
+  items: LinkedImageType[];
 }
 
 export function RecommendItemList(props: RecommendItemListProps) {
@@ -14,7 +14,7 @@ export function RecommendItemList(props: RecommendItemListProps) {
       <SectionTitle text='注目のおすすめ商品' />
       <div className={styles.recommend_item__list}>
         {props.items.map((item) => (
-          <ListItem key={item.id} item={item} />
+          <LinkedImage key={item.id} item={item} />
         ))}
       </div>
     </div>
