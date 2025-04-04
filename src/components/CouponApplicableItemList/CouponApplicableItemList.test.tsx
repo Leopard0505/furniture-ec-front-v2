@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/react';
 import { CouponApplicableItemList } from './CouponApplicableItemList';
-import { ListItemType } from '../ListItem/ListItem';
+import { LinkedImageType } from '../LinkedImage/LinkedImage';
 import { renderWithRouter } from '../../test/utils/renderWithRouter';
 
 describe('CouponApplicableItemList', () => {
-  const mockItems: ListItemType[] = [
+  const mockItems: LinkedImageType[] = [
     {
       id: '1',
       to: '/items/1',

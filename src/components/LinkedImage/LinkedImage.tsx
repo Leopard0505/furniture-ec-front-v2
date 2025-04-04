@@ -1,19 +1,19 @@
 
 import { Link } from 'react-router';
-import styles from './ListItem.module.scss';
+import styles from './LinkedImage.module.scss';
 
-export type ListItemType = {
+export type LinkedImageType = {
   id: string;
   to: string;
   src: string;
   alt: string;
 };
 
-export interface ListItemProps {
-  item: ListItemType;
+export interface LinkedImageProps {
+  item: LinkedImageType;
 }
 
-export function ListItem({ item }: ListItemProps) {
+export function LinkedImage({ item }: LinkedImageProps) {
   return (
     <Link className={styles.list__item} to={item.to}>
       <img
