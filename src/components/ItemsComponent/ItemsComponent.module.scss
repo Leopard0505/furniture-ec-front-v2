@@ -4,5 +4,13 @@
   &__content {
     width: 100%;
     padding: 16px 40px 120px;
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px 16px;
+      margin: 0;
+      padding: 0;
+    }
   }
 }
