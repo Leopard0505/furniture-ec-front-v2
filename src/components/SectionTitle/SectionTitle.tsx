@@ -3,6 +3,7 @@ import styles from './SectionTitle.module.scss';
 
 interface SectionTitleProps {
   text: string;
+  id?: string;
   size?: 'small' | 'medium' | 'large';
 }
 
@@ -11,7 +12,7 @@ export function SectionTitle(props: SectionTitleProps) {
   const convertClassName = classNames(styles.section__title, convertSizeStyle);
 
   return (
-    <h3 className={convertClassName}>
+    <h3 className={convertClassName} id={props.id}>
       {props.text}
     </h3>
   );

@@ -1,0 +1,17 @@
+.guide {
+  width: var(--container-width);
+  margin: 40px auto 120px;
+
+  &__content {
+    display: flex;
+    gap: 40px;
+
+    &__main {
+      width: 100%;
+
+      &__link__list {
+        margin-bottom: 60px;
+      }
+    }
+  }
+}

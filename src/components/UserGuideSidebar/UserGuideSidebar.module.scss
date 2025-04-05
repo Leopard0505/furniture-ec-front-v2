@@ -1,0 +1,20 @@
+.sidebar {
+  &__sub__title {
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-on-primary-light);
+    cursor: pointer;
+    border-bottom: 1px dotted var(--border-light);
+    padding: 8px 0;
+  }
+
+  &__sub__list {
+    border-bottom: 1px solid var(--border-light);
+    margin: 0;
+    padding: 0;
+    padding-left: 24px;
+  }
+}

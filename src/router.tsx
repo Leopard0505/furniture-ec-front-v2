@@ -13,6 +13,8 @@ import Layout from "./layouts/Layout"
 import { Signup } from "./routes/sign-up/Signup"
 import Top from "./routes/top/Top"
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute"
+import Guide from "./routes/guide/Guide"
+import OrderProcessGuide from './routes/guide/OrderProcessGuide'
 
 export const router = createBrowserRouter([
   {
@@ -91,6 +93,20 @@ export const router = createBrowserRouter([
         ],
       },
     ],
+  },
+  {
+    path: "/guide",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Guide />,
+      },
+      {
+        path: "/guide/order-process",
+        element: <OrderProcessGuide />,
+      }
+    ]
   },
   {
     path: "/contact",

@@ -8,9 +8,11 @@
   }
 
   &__item {
-    width: 304px;
+    width: 210px;
     padding-right: 8px;
     border-bottom: 1px solid var(--border-light);
+    border-radius: 4px;
+    transition: all 0.2s ease;
 
     ::after {
       border-color: transparent transparent transparent var(--border-dark);
@@ -35,9 +37,9 @@
       display: block;
       color: var(--text-on-primary-light);
       font-family: var(--font-family);
-      font-size: 1.2rem;
+      font-size: 14px;
       text-decoration: none;
-      padding: 16px 0;
+      padding: 16px;
     }
   }
 }

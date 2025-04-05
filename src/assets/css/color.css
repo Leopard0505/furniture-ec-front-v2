@@ -84,5 +84,5 @@
   /* Border Colors */
   --border-light: var(--neutral-200);
   --border-medium: var(--neutral-300);
-  --border-dark: var(--neutral-400);
+  --border-dark: var(--neutral-900);
 }

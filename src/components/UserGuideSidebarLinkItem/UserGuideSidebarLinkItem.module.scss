@@ -1,0 +1,25 @@
+.guide__item {
+  border-bottom: 1px dotted var(--border-light);
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &__link {
+    display: block;
+    padding: 8px 0;
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-on-primary-light);
+    text-decoration: none;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
