@@ -1,0 +1,16 @@
+.user__guide__button__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user__guide__button {
+  height: auto;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+}

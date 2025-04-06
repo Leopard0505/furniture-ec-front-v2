@@ -11,4 +11,5 @@ export const PATH = {
   ME_ORDERS: () => "/me/orders",
   ME_ORDERS_ORDER_ID: (id: string) => `/me/orders/${id}`,
   CONTACT: () => "/contact",
+  GUIDE: () => "/guide",
 };

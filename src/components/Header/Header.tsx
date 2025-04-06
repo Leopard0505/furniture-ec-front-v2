@@ -7,6 +7,7 @@ import { HeaderTextFavoriteButton } from '../HeaderTextFavoriteButton/HeaderText
 import { HeaderTextCartShoppingButton } from '../HeaderTextCartShoppingButton/HeaderTextCartShoppingButton';
 import { SearchField } from "../SearchField/SearchField";
 import { useSearch } from "../../hooks/useSearch";
+import { UserGuideButtonForHeader } from '../UserGuideButtonForHeader/UserGuideButtonForHeader';
 
 export default function Header() {
   const { word, setWord, search } = useSearch();
@@ -18,6 +19,7 @@ export default function Header() {
       </Link>
       <SearchField word={word} onChange={(value) => setWord(value)} handleSearch={search} />
       <div className={styles.headerPrimaryFunction}>
+        <UserGuideButtonForHeader />
         <ul className={styles.items}>
           <li className={styles.item}>
             <HeaderTextLoginButton />
