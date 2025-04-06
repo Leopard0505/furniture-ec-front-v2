@@ -5,9 +5,10 @@ import classNames from 'classnames';
 
 interface ButtonLinkProps {
   to: string;
-  text: string;
+  text?: string;
   white?: boolean;
   className?: string;
+  children?: React.ReactNode;
   onClick?: () => void;
 }
 
@@ -20,6 +21,7 @@ export function ButtonLink(props: ButtonLinkProps) {
       to={props.to}
       onClick={props.onClick}>
       {props.text}
+      {props.children}
     </Link>
   );
 }
