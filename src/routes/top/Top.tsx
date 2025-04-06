@@ -7,6 +7,7 @@ import { RankingList } from "../../components/RankingList/RankingList";
 import mainVisualImage1 from '@/assets/images/main-visual_1.png';
 import itemImage1 from '@/assets/images/linked-item_1.png';
 import rankingItemImage1 from '@/assets/images/ranking-item_1.png';
+import { UserGuideForTop } from "../../components/UserGuideForTop/UserGuideForTop";
 
 export default function Top() {
 
@@ -73,6 +74,7 @@ export default function Top() {
   return (
     <main>
       <MainVisual items={mainVisualItems} />
+      <UserGuideForTop />
       <CouponApplicableItemList items={couponApplicableItems} />
       <RecommendItemList items={recommendItems} />
       <SearchByCategory items={searchByCategoryItems} />

@@ -1,0 +1,27 @@
+.user__guide__for__top__container {
+  width: var(--container-width);
+  margin: 0 auto 40px;
+}
+
+.user__guide__for__top {
+  padding: 24px 40px;
+  background-color: var(--accent-800);
+  border-radius: 4px;
+  text-align: center;
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.6rem;
+    color: var(--text-on-primary);
+    margin-bottom: 24px;
+  }
+
+  &__content {
+    font-size: 16px;
+    color: var(--text-on-primary);
+    margin-bottom: 24px;
+  }
+}
