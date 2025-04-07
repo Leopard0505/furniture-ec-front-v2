@@ -10,7 +10,7 @@ interface SearchByCategoryProps {
 
 export function SearchByCategory(props: SearchByCategoryProps) {
   const [iconItems,] = useState(props.items.slice(0, 6));
-  const [moreItems,] = useState(props.items.slice(6, 12));
+  const [moreItems,] = useState(props.items.slice(6, 12).map((item) => ({ ...item, to: item.to, text: item.alt })));
 
   return (
     <div className={styles.search_by_category__container}>

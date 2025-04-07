@@ -56,7 +56,7 @@
   /* Background Colors */
   --background-primary: #FFFFFF;
   --background-secondary: var(--neutral-100);
-  --background-tertiary: var(--neutral-200);
+  --background-tertiary: var(--neutral-800);
 
   /* Text Colors */
   --text-primary: var(--neutral-900);
