@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 
 import styles from './FooterMenu.module.scss';
+import { UserGuideForFooter } from '../UserGuideForFooter/UserGuideForFooter';
 
 export function FooterMenu() {
 
@@ -114,6 +115,7 @@ export function FooterMenu() {
             </ul>
           </div>
         </section>
+        <UserGuideForFooter />
         <div className={styles.other__links}>
           <a href="/contact" className={styles.contact__link}>
             <button className="atom-btn atom-btn-color-black atom-btn-medium atom-btn-padding-medium molecule-icon-button-icon-pos-right" color="black">

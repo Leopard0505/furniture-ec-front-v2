@@ -21,4 +21,10 @@
   &.large {
     font-size: 24px;
   }
+
+  &.secondary {
+    background-color: var(--secondary-600);
+    border-left: 5px solid var(--border-light);
+    color: var(--text-on-primary);
+  }
 }
