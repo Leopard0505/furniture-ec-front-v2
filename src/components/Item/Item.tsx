@@ -6,7 +6,7 @@ import { PATH } from '../../constants/path';
 export interface ItemProps {
   id: number,
   name: string,
-  price: number,
+  price: number | string,
   src: string,
   alt: string,
   description: string,
