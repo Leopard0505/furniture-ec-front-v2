@@ -3,99 +3,11 @@ import { Button } from '../Button/Button';
 import { Item } from '../Item/Item';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { CustomerReview } from '../CustomerReview/CustomerReview';
-
-type Image = {
-  url: string;
-  alt: string;
-};
-
-type Category = {
-  id: number;
-  name: string;
-};
-
-type Brand = {
-  id: number;
-  name: string;
-};
-
-type Seller = {
-  id: number;
-  name: string;
-  about: string;
-};
-
-type Shipping = {
-  method: string;
-  fee: string;
-  area: string;
-  days: number;
-};
-
-type Material = {
-  id: number;
-  name: string;
-};
-
-type Handling = {
-  return: boolean;
-  returnDays: string;
-  returnCondition: string;
-  returnFee: string;
-  cancellation: boolean;
-  cancellationDays: string;
-};
-
-type ReviewItem = {
-  id: number;
-  user: {
-    id: number;
-    name: string;
-    avatar: string;
-  };
-  rating: string;
-  comment: string;
-  createdAt: string;
-};
-
-type Reviews = {
-  average: string;
-  count: number;
-  items: ReviewItem[];
-};
-
-type TogetherItem = {
-  id: number;
-  name: string;
-  image: Image;
-  review: string;
-  description: string;
-};
-
-type Item = {
-  id: number;
-  image: Image;
-  subImages: Image[];
-  category: Category;
-  brand: Brand;
-  name: string;
-  price: string;
-  stock: boolean;
-  overview: string;
-  description: string;
-  width: string;
-  height: string;
-  weight: string;
-  seller: Seller;
-  shipping: Shipping;
-  materials: Material[];
-  handling: Handling;
-  reviews: Reviews;
-  togetherItems: TogetherItem[];
-};
+import type { ItemType } from './ItemDetail.type';
+import { ImageViewer } from '../ImageViewer/ImageViewer';
 
 type ItemDetailProps = {
-  item: Item;
+  item: ItemType;
 };
 
 export default function ItemDetail({ item }: ItemDetailProps) {
@@ -103,12 +15,7 @@ export default function ItemDetail({ item }: ItemDetailProps) {
     <div className={styles.container}>
       <div className={styles.mainSection}>
         <div className={styles.imageSection}>
-          <img src={item.image.url} alt={item.image.alt} className={styles.mainImage} />
-          <div className={styles.subImages}>
-            {item.subImages.map((subImage, index) => (
-              <img key={index} src={subImage.url} alt={subImage.alt} className={styles.subImage} />
-            ))}
-          </div>
+          <ImageViewer mainView={item.image} subView={item.subImages} />
         </div>
         <div className={styles.infoSection}>
           <p className={styles.category}>{item.category.name}</p>
