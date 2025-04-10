@@ -26,7 +26,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "/items",
-        element: <Items />,
+        children: [
+          {
+            index: true,
+            element: <Items />,
+          },
+          {
+            path: "/items/:itemId",
+            element: <ItemId />,
+          },
+        ],
       },
     ],
   },
@@ -57,10 +66,6 @@ export const router = createBrowserRouter([
         )
       }
     ]
-  },
-  {
-    path: "/items/:itemId",
-    element: <ItemId />,
   },
   {
     path: "/cart",

@@ -6,7 +6,6 @@ import styles from './HeaderTextIconButton.module.scss';
 interface HeaderTextIconButtonProps {
   className?: string;
   to: string;
-  text: string;
   children: React.ReactNode;
 }
 
@@ -18,7 +17,6 @@ export function HeaderTextIconButton(props: HeaderTextIconButtonProps) {
       <span className={styles.itemLinkIconCircle}>
         {props.children}
       </span>
-      {/* <span classNam e={styles.text}>{props.text}</span> */}
     </Link>
   );
 }

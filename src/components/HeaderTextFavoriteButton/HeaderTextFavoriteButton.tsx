@@ -5,7 +5,7 @@ import styles from './HeaderTextFavoriteButton.module.scss';
 
 export function HeaderTextFavoriteButton() {
   return (
-    <HeaderTextIconButton to="/favorites" text="お気に入り">
+    <HeaderTextIconButton to="/favorites">
       <FaRegHeart className={styles.icon} />
     </HeaderTextIconButton>
   );

@@ -6,6 +6,13 @@
     "**/__tests__/**/*.+(ts|tsx|js)",
     "**/?(*.)+(spec|test).+(ts|tsx|js)"
   ],
+  "coveragePathIgnorePatterns": [
+    "<rootDir>/node_modules/",
+    "<rootDir>/dist/",
+    "<rootDir>/public/",
+    "<rootDir>/src/assets/",
+    "<rootDir>/src/constants/"
+  ],
   "transform": {
     "^.+\\.(ts|tsx)$": [
       "ts-jest",
