@@ -5,7 +5,7 @@ import styles from './HeaderTextProfileButton.module.scss';
 
 export function HeaderTextProfileButton() {
   return (
-    <HeaderTextIconButton to="/profile" text="マイページ">
+    <HeaderTextIconButton to="/profile">
       <MdOutlineAccountCircle className={styles.icon} />
     </HeaderTextIconButton>
   );

@@ -5,7 +5,7 @@ import styles from './HeaderTextLoginButton.module.scss';
 
 export function HeaderTextLoginButton() {
   return (
-    <HeaderTextIconButton to="/login" text="ログイン">
+    <HeaderTextIconButton to="/login">
       <MdOutlineAccountCircle className={styles.icon} />
     </HeaderTextIconButton>
   );
