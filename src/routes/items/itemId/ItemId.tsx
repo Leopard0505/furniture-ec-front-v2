@@ -1,9 +1,11 @@
+import { useParams } from 'react-router';
 import ItemDetail from '../../../components/ItemDetail/ItemDetail';
 import itemImage1 from '@/assets/images/item_1.png';
 
 export default function ItemId() {
+  const { itemId } = useParams();
   const item = {
-    id: 1,
+    id: Number(itemId),
     image: {
       url: "https://placehold.co/400x400",
       alt: "商品画像"

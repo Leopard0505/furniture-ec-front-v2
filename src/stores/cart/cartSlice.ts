@@ -45,9 +45,11 @@ const cartSlice = createSlice({
     },
     removeItem: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
+      localStorage.setItem(LOACL_STORAGE_KEY, JSON.stringify(state.items));
     },
     clearCart: (state) => {
       state.items = [];
+      localStorage.setItem(LOACL_STORAGE_KEY, JSON.stringify(state.items));
     },
   },
 });

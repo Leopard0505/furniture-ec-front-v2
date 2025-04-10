@@ -9,7 +9,7 @@ const mockedUseCart = useCart as jest.MockedFunction<typeof useCart>;
 
 describe("HeaderTextCartShoppingButton", () => {
   it("displays the correct cart item count", () => {
-    mockedUseCart.mockReturnValue({ cartItemCount: 5, addToCart: jest.fn() });
+    mockedUseCart.mockReturnValue({ cartItems: [], cartItemCount: 5, addToCart: jest.fn(), removeFromCart: jest.fn() });
 
     renderWithRouter(<HeaderTextCartShoppingButton />);
 

@@ -74,11 +74,9 @@ export default function ItemDetail({ item }: ItemDetailProps) {
               key={relatedItem.id}
               id={relatedItem.id}
               name={relatedItem.name}
-              price={relatedItem.review}
               src={relatedItem.image.url}
               alt={relatedItem.image.alt}
               description={relatedItem.description}
-              category={item.category.name}
               review={relatedItem.review}
             />
           ))}
