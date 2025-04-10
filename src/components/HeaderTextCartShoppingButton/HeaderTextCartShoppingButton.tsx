@@ -2,11 +2,15 @@ import { FaCartShopping } from "react-icons/fa6";
 import { HeaderTextIconButton } from "../HeaderTextIconButton/HeaderTextIconButton";
 
 import styles from './HeaderTextCartShoppingButton.module.scss';
+import { useCart } from "../../hooks/useCart";
 
 export function HeaderTextCartShoppingButton() {
+  const { cartItemCount } = useCart();
+
   return (
-    <HeaderTextIconButton to="/cart" text="カート">
+    <HeaderTextIconButton className={styles.cart__button} to="/cart" text="カート">
       <FaCartShopping className={styles.icon} />
+      <div className={styles.badge}>{cartItemCount}</div>
     </HeaderTextIconButton>
   );
 }

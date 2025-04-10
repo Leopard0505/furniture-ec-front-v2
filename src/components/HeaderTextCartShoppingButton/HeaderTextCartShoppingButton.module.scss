@@ -1,4 +1,22 @@
+.cart__button {
+  position: relative;
+}
+
 .icon {
   width: 30px;
   height: 30px;
+}
+
+.badge {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--error);
+  color: var(--text-on-primary);
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 0 6px;
 }

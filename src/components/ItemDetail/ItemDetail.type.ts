@@ -67,3 +67,8 @@ export type ItemType = {
   reviews: Reviews;
   togetherItems: TogetherItem[];
 };
+
+export interface Variation {
+  size: string;
+  color: string;
+}

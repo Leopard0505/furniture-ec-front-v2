@@ -5,12 +5,15 @@ import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { CustomerReview } from '../CustomerReview/CustomerReview';
 import type { ItemType } from './ItemDetail.type';
 import { ImageViewer } from '../ImageViewer/ImageViewer';
+import { useCart } from '../../hooks/useCart';
 
 type ItemDetailProps = {
   item: ItemType;
 };
 
 export default function ItemDetail({ item }: ItemDetailProps) {
+  const { addToCart } = useCart();
+
   return (
     <div className={styles.container}>
       <div className={styles.mainSection}>
@@ -22,7 +25,22 @@ export default function ItemDetail({ item }: ItemDetailProps) {
           <h1 className={styles.title}>{item.name}</h1>
           <p className={styles.price}>{item.price}</p>
           <p className={styles.stock}>{item.stock ? "在庫あり" : "在庫なし"}</p>
-          <Button className={styles.buyButton}>購入する</Button>
+          <Button
+            className={styles.buyButton}
+            onClick={() => addToCart({
+              id: item.id,
+              quantity: 1,
+              name: item.name,
+              price: item.price,
+              image: item.image,
+              variation: {
+                size: "M",
+                color: "red",
+              },
+              stock: item.stock,
+            })}>
+            購入する
+          </Button>
         </div>
       </div>
       <div className={styles.detailsSection}>
