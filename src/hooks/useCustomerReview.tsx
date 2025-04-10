@@ -18,6 +18,9 @@ export const useCustomerReview = ({ reviews }: { reviews: ReviewItem[] }) => {
 
   useEffect(() => {
     // 初期表示のレビューを設定
+    if (chunkedReviews.length === 0) {
+      return;
+    }
     setShowReviews(chunkedReviews[0]);
   }, [chunkedReviews]);
 

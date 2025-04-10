@@ -8,7 +8,7 @@ export function HeaderTextCartShoppingButton() {
   const { cartItemCount } = useCart();
 
   return (
-    <HeaderTextIconButton className={styles.cart__button} to="/cart" text="カート">
+    <HeaderTextIconButton className={styles.cart__button} to="/cart">
       <FaCartShopping className={styles.icon} />
       <div className={styles.badge}>{cartItemCount}</div>
     </HeaderTextIconButton>
