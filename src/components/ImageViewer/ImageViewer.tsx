@@ -1,5 +1,7 @@
 
+import { KeyboardEvent } from 'react';
 import { useImageViewer } from '../../hooks/useImageViewer';
+import { useKeyupFunction } from '../../hooks/useKeyupFunction';
 import styles from './ImageViewer.module.scss';
 import { ImageType } from './ImageViewer.type';
 
@@ -10,6 +12,7 @@ interface ImageViewerProps {
 
 export function ImageViewer({ mainView, subView }: ImageViewerProps) {
   const { mainImage, subImages, handleSubImageClick } = useImageViewer({ mainView, subView });
+  const { handleEnterKey } = useKeyupFunction();
 
   return (
     <div className={styles.image__viewer}>
@@ -23,7 +26,9 @@ export function ImageViewer({ mainView, subView }: ImageViewerProps) {
             className={styles.image__viewer__sub__image}
             src={subImage.url}
             alt={subImage.alt}
-            onClick={() => handleSubImageClick(index)} />
+            onClick={() => handleSubImageClick(index)}
+            onKeyUp={(e: KeyboardEvent) => handleEnterKey(e, () => handleSubImageClick(index))}
+          />
         ))}
       </div>
     </div>
