@@ -53,7 +53,7 @@ export type ItemType = {
   category: Category;
   brand: Brand;
   name: string;
-  price: string;
+  price: number;
   stock: boolean;
   overview: string;
   description: string;

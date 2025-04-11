@@ -18,7 +18,7 @@ export default function ItemId() {
     category: { id: 1, name: "カテゴリ名" },
     brand: { id: 1, name: "ブランド名" },
     name: "商品名が入ります商品名が入ります商品名が入ります",
-    price: "33,880円（税込）",
+    price: 33880,
     stock: true,
     overview: "商品の概要が入ります。",
     description: "商品の説明が入ります。商品の説明や値段が入ります。商品の説明や値段が入ります。",

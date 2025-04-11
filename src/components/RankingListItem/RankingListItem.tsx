@@ -8,7 +8,7 @@ export interface RankingListItemProps {
   alt: string;
   name: string;
   description: string;
-  price: string;
+  price: number;
 }
 
 export function RankingListItem(props: RankingListItemProps) {
