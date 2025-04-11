@@ -1,46 +1,49 @@
-import styles from "./ModalItemAddedToCart.module.scss";
+import { useEffect, useState } from "react";
 import { useCart } from "../../hooks/useCart";
 import { Portal } from "../Portal/Portal";
-import { usePrevious } from "../../hooks/usePrevios";
-import { CartItem } from "../../stores/cart/cartSlice";
-
-// -1: 減っている
-// 1: 増えている
-// 0: 変わらない
-const compareTo = (current: CartItem[], prev: CartItem[]) => {
-  if (current.length < prev.length) {
-    return -1;
-  } else if (current.length > prev.length) {
-    return 1;
-  } else {
-    let result = 0;
-    current.forEach((crrentItem) => {
-      prev.forEach((prevItem) => {
-        if (crrentItem.id === prevItem.id && crrentItem.quantity < prevItem.quantity) {
-          result = -1;
-          return;
-        } else if (crrentItem.id === prevItem.id && crrentItem.quantity > prevItem.quantity) {
-          result = 1;
-          return;
-        }
-      });
-    });
-    return result;
-  }
-};
+import styles from "./ModalItemAddedToCart.module.scss";
+import { useBodyScroll } from "../../hooks/useBodyScroll";
 
 export function ModalItemAddedToCart() {
-  const { cartItems } = useCart();
-  const prevCartItems = usePrevious(cartItems);
+  const { lastAddedItem } = useCart();
+  const [isVisible, setIsVisible] = useState(false);
+  const { disableBodyScroll, enableBodyScroll } = useBodyScroll();
 
-  if (compareTo(cartItems, prevCartItems) <= 0) {
-    return <></>;
-  }
+  useEffect(() => {
+    if (lastAddedItem) {
+      setIsVisible(true);
+
+      // Disable body scroll
+      disableBodyScroll();
+
+      const timer = setTimeout(() => {
+        setIsVisible(false);
+        enableBodyScroll(); // Re-enable body scroll
+      }, 3000);
+
+      return () => {
+        clearTimeout(timer);
+        enableBodyScroll(); // Re-enable body scroll
+      };
+    }
+  }, [disableBodyScroll, enableBodyScroll, lastAddedItem]);
+
+  if (!isVisible || !lastAddedItem) return null; // モーダルが非表示の場合は何も描画しない
+
+  const handleClose = () => {
+    setIsVisible(false); // モーダルを閉じる
+    enableBodyScroll(); // 背景スクロールを有効化
+  };
 
   return (
     <Portal>
-      <div className={styles.container}>
-        <p className={styles.text}>Item added to cart</p>
+      <div className={styles.overlay} onClick={handleClose}>
+        <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+          <p className={styles.text}>Item added to cart:</p>
+          <p className={styles.itemName}>{lastAddedItem.name}</p>
+          <p className={styles.itemQuantity}>Quantity: {lastAddedItem.quantity}</p>
+          <p className={styles.itemPrice}>Price: ${lastAddedItem.price}</p>
+        </div>
       </div>
     </Portal>
   );

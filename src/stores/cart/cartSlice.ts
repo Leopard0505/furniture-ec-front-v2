@@ -14,22 +14,36 @@ export type CartItem = {
   stock: boolean;
 };
 
+export type CartLastAddedItem = CartItem;
+export type CartLastRemovedItem = {
+  id: number;
+  name: string;
+  image: ImageType;
+  variation: Variation;
+};
+
 type CartState = {
   items: CartItem[];
+  lastAddedItem: CartItem | null;
+  lastRemovedItem: CartLastRemovedItem | null;
 };
 
 const cartSlice = createSlice({
   name: "cart",
 
-  initialState: () => {
+  initialState: (): CartState => {
     let items: CartItem[] = [];
     try {
       const storedCart = localStorage.getItem(LOACL_STORAGE_KEY);
       items = storedCart ? JSON.parse(storedCart) : [];
     } catch {
-      return { items: [] };
+      items = [];
     }
-    return { items };
+    return {
+      items,
+      lastAddedItem: null,
+      lastRemovedItem: null,
+    };
   },
   reducers: {
     addItem: (state, action: PayloadAction<CartItem>) => {
@@ -41,9 +55,13 @@ const cartSlice = createSlice({
       } else {
         state.items.push(action.payload);
       }
+      state.lastAddedItem = { ...action.payload };
       localStorage.setItem(LOACL_STORAGE_KEY, JSON.stringify(state.items));
     },
     removeItem: (state, action: PayloadAction<number>) => {
+      state.lastRemovedItem = state.items.find(
+        (item) => item.id === action.payload
+      ) as CartLastRemovedItem;
       state.items = state.items.filter((item) => item.id !== action.payload);
       localStorage.setItem(LOACL_STORAGE_KEY, JSON.stringify(state.items));
     },
@@ -60,3 +78,9 @@ export const selectCartItems = (state: { cart: CartState }) => state.cart.items;
 
 export const selectCartItemCount = (state: { cart: CartState }) =>
   state.cart.items.reduce((count, item) => count + item.quantity, 0);
+
+export const selectLastAddedItem = (state: { cart: CartState }) =>
+  state.cart.lastAddedItem;
+
+export const selectLastRemovedItem = (state: { cart: CartState }) =>
+  state.cart.lastRemovedItem;

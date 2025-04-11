@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { actions as cartActions, selectCartItemCount, selectCartItems } from "../stores/cart/cartSlice";
+import { actions as cartActions, selectCartItemCount, selectCartItems, selectLastAddedItem } from "../stores/cart/cartSlice";
 import type { CartItem } from "../stores/cart/cartSlice";
 
 export const useCart = () => {
@@ -7,6 +7,7 @@ export const useCart = () => {
 
   const cartItems = useSelector(selectCartItems);
   const cartItemCount = useSelector(selectCartItemCount);
+  const lastAddedItem = useSelector(selectLastAddedItem);
 
   const addToCart = (item: CartItem) => {
     dispatch(cartActions.addItem(item));
@@ -19,6 +20,7 @@ export const useCart = () => {
   return {
     cartItems,
     cartItemCount,
+    lastAddedItem,
     addToCart,
     removeFromCart,
   };
