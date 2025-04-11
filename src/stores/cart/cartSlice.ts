@@ -84,3 +84,9 @@ export const selectLastAddedItem = (state: { cart: CartState }) =>
 
 export const selectLastRemovedItem = (state: { cart: CartState }) =>
   state.cart.lastRemovedItem;
+
+export const selectCartTotalPrice = (state: { cart: CartState }) =>
+  state.cart.items.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
