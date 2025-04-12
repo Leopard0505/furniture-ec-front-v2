@@ -6,6 +6,7 @@ import { CustomerReview } from '../CustomerReview/CustomerReview';
 import type { ItemType } from './ItemDetail.type';
 import { ImageViewer } from '../ImageViewer/ImageViewer';
 import { useCart } from '../../hooks/useCart';
+import { formattedPrice } from '../../utils/price';
 
 type ItemDetailProps = {
   item: ItemType;
@@ -23,7 +24,7 @@ export default function ItemDetail({ item }: ItemDetailProps) {
         <div className={styles.infoSection}>
           <p className={styles.category}>{item.category.name}</p>
           <h1 className={styles.title}>{item.name}</h1>
-          <p className={styles.price}>{item.price}</p>
+          <p className={styles.price}>{formattedPrice(item.price)}</p>
           <p className={styles.stock}>{item.stock ? "在庫あり" : "在庫なし"}</p>
           <Button
             className={styles.buyButton}

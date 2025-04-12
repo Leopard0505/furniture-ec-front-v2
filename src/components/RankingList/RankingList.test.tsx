@@ -41,8 +41,8 @@ describe('RankingList', () => {
     expect(screen.getByText('商品2の説明')).toBeInTheDocument();
 
     // 価格の確認
-    expect(screen.getByText('10000')).toBeInTheDocument();
-    expect(screen.getByText('20000')).toBeInTheDocument();
+    expect(screen.getByText('￥10,000')).toBeInTheDocument();
+    expect(screen.getByText('￥20,000')).toBeInTheDocument();
   });
 
   it('空の配列が渡された場合でもエラーが発生しないこと', () => {

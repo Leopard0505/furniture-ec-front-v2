@@ -55,7 +55,7 @@ test('renders item details', () => {
   renderWithRouter(<ItemDetail item={item} />);
 
   expect(screen.getByText("商品名")).toBeInTheDocument();
-  expect(screen.getByText("1000")).toBeInTheDocument();
+  expect(screen.getByText("￥1,000")).toBeInTheDocument();
   expect(screen.getByText("商品の概要")).toBeInTheDocument();
   expect(screen.getByText("カテゴリ名")).toBeInTheDocument();
   expect(screen.getByText("在庫あり")).toBeInTheDocument();
