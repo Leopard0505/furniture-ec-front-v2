@@ -75,4 +75,29 @@ describe('ItemSortField', () => {
     expect(mockHandleSort).toHaveBeenCalledTimes(1);
     expect(mockHandleClickAccordion).toHaveBeenCalledTimes(1);
   });
+
+  it('並び替えオプションのEnterキー押下でhandleSetItemSortが呼ばれること', () => {
+    renderWithRouter(<ItemSortField />);
+
+    fireEvent.keyUp(screen.getByText('価格：安い順'), { key: 'Enter', code: 'Enter' });
+    expect(mockHandleSetItemSort).toHaveBeenCalledWith('price', 'asc');
+
+    fireEvent.keyUp(screen.getByText('価格：高い順'), { key: 'Enter', code: 'Enter' });
+    expect(mockHandleSetItemSort).toHaveBeenCalledWith('price', 'desc');
+  });
+
+  it('クリアボタンのEnterキー押下でhandleClearSortが呼ばれること', () => {
+    renderWithRouter(<ItemSortField />);
+
+    fireEvent.click(screen.getByText('クリア'), { key: 'Enter', code: 'Enter' });
+    expect(mockHandleClearSort).toHaveBeenCalledTimes(1);
+  });
+
+  it('並び替え実行ボタンのEnterキー押下でhandleSortとhandleClickAccordionが呼ばれること', () => {
+    renderWithRouter(<ItemSortField />);
+
+    fireEvent.click(screen.getByText('この条件で並び替える'), { key: 'Enter', code: 'Enter' });
+    expect(mockHandleSort).toHaveBeenCalledTimes(1);
+    expect(mockHandleClickAccordion).toHaveBeenCalledTimes(1);
+  });
 });

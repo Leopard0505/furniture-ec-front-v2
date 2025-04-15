@@ -72,4 +72,31 @@ describe('Pagenation', () => {
 
     expect(mockUpdateSearchParams).not.toHaveBeenCalled();
   });
+
+  it('前へボタンのEnterキー押下で正しいページに移動する', () => {
+    renderWithRouter(<Pagenation currentPage={3} totalPages={5} />);
+
+    const prevButton = screen.getByText('<');
+    fireEvent.keyUp(prevButton, { key: 'Enter', code: 'Enter' });
+
+    expect(mockUpdateSearchParams).toHaveBeenCalledWith('page', '2');
+  });
+
+  it('次へボタンのEnterキー押下で正しいページに移動する', () => {
+    renderWithRouter(<Pagenation currentPage={3} totalPages={5} />);
+
+    const nextButton = screen.getByText('>');
+    fireEvent.keyUp(nextButton, { key: 'Enter', code: 'Enter' });
+
+    expect(mockUpdateSearchParams).toHaveBeenCalledWith('page', '4');
+  });
+
+  it('ページ番号のEnterキー押下で正しいページに移動する', () => {
+    renderWithRouter(<Pagenation currentPage={1} totalPages={5} />);
+
+    const pageButton = screen.getByText('3');
+    fireEvent.keyUp(pageButton, { key: 'Enter', code: 'Enter' });
+
+    expect(mockUpdateSearchParams).toHaveBeenCalledWith('page', '3');
+  });
 });

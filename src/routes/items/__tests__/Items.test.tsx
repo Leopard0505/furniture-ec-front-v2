@@ -1,26 +1,28 @@
 import { screen, fireEvent } from '@testing-library/react';
 import { renderWithRouter } from '../../../test/utils/renderWithRouter';
 import Items from '../Items';
+import { useQueryParams } from '../../../hooks/useQueryParams';
 
-// useQueryParamsのモック
-jest.mock('../../../hooks/useQueryParams', () => ({
-  useQueryParams: () => ({
-    getQueryParamPage: () => 1,
-    updateSearchParams: jest.fn(),
-    getQueryParamSort: jest.fn(),
-    getQueryParamOrder: jest.fn(),
-    getQueryParamMinPrice: jest.fn(),
-    getQueryParamMaxPrice: jest.fn(),
-    getQueryParamReviewScore: jest.fn(),
-    getQueryParamCondition: jest.fn(),
-    getQueryParamStock: jest.fn(),
-    getQueryParamShipping: jest.fn(),
-    getQueryParamCategory: jest.fn(),
-  })
-}));
+jest.mock('../../../hooks/useQueryParams');
+const mockUseQueryParams = useQueryParams as jest.Mock;
 
 describe('Items', () => {
   it('初期状態で正しくレンダリングされること', () => {
+    mockUseQueryParams.mockReturnValue({
+      getQueryParamPage: () => 1,
+      updateSearchParams: jest.fn(),
+      updateMultipleSearchParams: jest.fn(),
+      getQueryParamSort: jest.fn(),
+      getQueryParamOrder: jest.fn(),
+      getQueryParamReviewScore: jest.fn(),
+      getQueryParamCondition: jest.fn(),
+      getQueryParamStock: jest.fn(),
+      getQueryParamShipping: jest.fn(),
+      getQueryParamMinPrice: jest.fn(),
+      getQueryParamMaxPrice: jest.fn(),
+      getQueryParamCategory: jest.fn(),
+    });
+
     renderWithRouter(<Items />);
 
     // ページネーションコンポーネントが表示されていることを確認
@@ -33,20 +35,20 @@ describe('Items', () => {
 
   it('ページ変更時にURLのクエリパラメータが更新されること', () => {
     const mockUpdateSearchParams = jest.fn();
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    jest.spyOn(require('../../../hooks/useQueryParams'), 'useQueryParams').mockImplementation(() => ({
+    mockUseQueryParams.mockReturnValue({
       getQueryParamPage: () => 1,
       updateSearchParams: mockUpdateSearchParams,
+      updateMultipleSearchParams: jest.fn(),
       getQueryParamSort: jest.fn(),
       getQueryParamOrder: jest.fn(),
-      getQueryParamMinPrice: jest.fn(),
-      getQueryParamMaxPrice: jest.fn(),
       getQueryParamReviewScore: jest.fn(),
       getQueryParamCondition: jest.fn(),
       getQueryParamStock: jest.fn(),
       getQueryParamShipping: jest.fn(),
+      getQueryParamMinPrice: jest.fn(),
+      getQueryParamMaxPrice: jest.fn(),
       getQueryParamCategory: jest.fn(),
-    }));
+    });
 
     renderWithRouter(<Items />);
 

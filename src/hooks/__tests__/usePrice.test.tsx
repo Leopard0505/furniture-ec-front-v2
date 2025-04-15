@@ -1,25 +1,27 @@
 import { renderHook, act } from '@testing-library/react';
 import { usePrice } from '../usePrice';
+import { useQueryParams } from '../useQueryParams';
 
-// useQueryParamsのモック
-jest.mock('../useQueryParams', () => ({
-  useQueryParams: () => ({
-    getQueryParamMinPrice: jest.fn(),
-    getQueryParamMaxPrice: jest.fn(),
-    updateSearchParams: jest.fn(),
-    updateMultipleSearchParams: jest.fn(),
-    getQueryParamPage: jest.fn(),
-    getQueryParamSort: jest.fn(),
-    getQueryParamOrder: jest.fn(),
-    getQueryParamReviewScore: jest.fn(),
-    getQueryParamCondition: jest.fn(),
-    getQueryParamStock: jest.fn(),
-    getQueryParamShipping: jest.fn(),
-  }),
-}));
+jest.mock('../useQueryParams');
+const mockUseQueryParams = useQueryParams as jest.Mock;
 
 describe('usePrice', () => {
   it('初期状態で正しくレンダリングされること', () => {
+    mockUseQueryParams.mockReturnValue({
+      getQueryParamMinPrice: () => '',
+      getQueryParamMaxPrice: () => '',
+      updateSearchParams: jest.fn(),
+      updateMultipleSearchParams: jest.fn(),
+      getQueryParamPage: jest.fn(),
+      getQueryParamSort: jest.fn(),
+      getQueryParamOrder: jest.fn(),
+      getQueryParamReviewScore: jest.fn(),
+      getQueryParamCondition: jest.fn(),
+      getQueryParamStock: jest.fn(),
+      getQueryParamShipping: jest.fn(),
+      getQueryParamCategory: jest.fn(),
+    });
+
     const { result } = renderHook(() => usePrice());
 
     expect(result.current.price).toEqual({
@@ -29,9 +31,7 @@ describe('usePrice', () => {
   });
 
   it('URLパラメータから初期値が設定されること', () => {
-    // useQueryParamsのモックを設定
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    jest.spyOn(require('../useQueryParams'), 'useQueryParams').mockImplementation(() => ({
+    mockUseQueryParams.mockReturnValue({
       getQueryParamMinPrice: () => '1000',
       getQueryParamMaxPrice: () => '5000',
       updateSearchParams: jest.fn(),
@@ -43,7 +43,8 @@ describe('usePrice', () => {
       getQueryParamCondition: jest.fn(),
       getQueryParamStock: jest.fn(),
       getQueryParamShipping: jest.fn(),
-    }));
+      getQueryParamCategory: jest.fn(),
+    });
 
     const { result } = renderHook(() => usePrice());
 
@@ -80,9 +81,7 @@ describe('usePrice', () => {
   });
 
   it('クリア機能が動作すること', () => {
-    // 初期値を設定
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    jest.spyOn(require('../useQueryParams'), 'useQueryParams').mockImplementation(() => ({
+    mockUseQueryParams.mockReturnValue({
       getQueryParamMinPrice: () => '1000',
       getQueryParamMaxPrice: () => '5000',
       updateSearchParams: jest.fn(),
@@ -94,7 +93,8 @@ describe('usePrice', () => {
       getQueryParamCondition: jest.fn(),
       getQueryParamStock: jest.fn(),
       getQueryParamShipping: jest.fn(),
-    }));
+      getQueryParamCategory: jest.fn(),
+    });
 
     const { result } = renderHook(() => usePrice());
 
