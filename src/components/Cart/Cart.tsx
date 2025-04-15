@@ -35,22 +35,24 @@ export function Cart({ recommendedItems }: Props) {
           </div>
         )}
       </div>
-      <div className={styles.recommended__section}>
-        <SectionTitle text="閲覧履歴に基づくおすすめ商品" />
-        <div className={styles.recommended__section__content}>
-          {recommendedItems.map((item) => (
-            <Item
-              key={item.id}
-              id={item.id}
-              name={item.name}
-              src={item.image.url}
-              alt={item.image.alt}
-              description={item.description}
-              review={item.review}
-            />
-          ))}
+      {recommendedItems.length > 0 && (
+        <div className={styles.recommended__section}>
+          <SectionTitle text="閲覧履歴に基づくおすすめ商品" />
+          <div className={styles.recommended__section__content}>
+            {recommendedItems.map((item) => (
+              <Item
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                src={item.image.url}
+                alt={item.image.alt}
+                description={item.description}
+                review={item.review}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
