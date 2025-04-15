@@ -25,7 +25,7 @@ describe('CartItem Component', () => {
 
     expect(screen.getByAltText('Test Image')).toBeInTheDocument();
     expect(screen.getByText('Test Item')).toBeInTheDocument();
-    expect(screen.getByText('金額：1000')).toBeInTheDocument();
+    expect(screen.getByText('金額：￥1,000')).toBeInTheDocument();
     expect(screen.getByText('数量：2')).toBeInTheDocument();
   });
 

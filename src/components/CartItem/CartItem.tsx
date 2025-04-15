@@ -4,6 +4,7 @@ import type { CartItem } from '../../stores/cart/cartSlice';
 import { useCart } from "../../hooks/useCart";
 import { KeyboardEvent } from "react";
 import { useKeyupFunction } from "../../hooks/useKeyupFunction";
+import { formattedPrice } from "../../utils/price";
 
 interface Props {
   item: CartItem;
@@ -20,7 +21,7 @@ export function CartItem({ item }: Props) {
       </div>
       <div className={styles.item__info}>
         <div className={styles.item__name}>{item.name}</div>
-        <div className={styles.item__price}>金額：{item.price}</div>
+        <div className={styles.item__price}>金額：{formattedPrice(item.price)}</div>
         <div className={styles.item__quantity}>数量：{item.quantity}</div>
       </div>
       <div className={styles.item__actions}>
