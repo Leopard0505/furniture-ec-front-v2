@@ -1,32 +1,8 @@
 import { screen, fireEvent } from '@testing-library/react';
 import { renderWithRouter } from '../../test/utils/renderWithRouter';
 import { SearchConditionsForm } from './SearchConditionsForm';
-
-// useQueryParamsのモック
-jest.mock('../../hooks/useQueryParams', () => ({
-  useQueryParams: () => ({
-    updateSearchParams: jest.fn(),
-    updateMultipleSearchParams: jest.fn(),
-    getQueryParamPage: jest.fn(),
-    getQueryParamSort: jest.fn(),
-    getQueryParamOrder: jest.fn(),
-    getQueryParamReviewScore: jest.fn(),
-    getQueryParamCondition: jest.fn(),
-    getQueryParamStock: jest.fn(),
-    getQueryParamShipping: jest.fn(),
-    getQueryParamMinPrice: jest.fn(),
-    getQueryParamMaxPrice: jest.fn(),
-    getQueryParamCategory: jest.fn(),
-  }),
-  QUERY_PARAM_REVIEW_SCORE: 'review_score',
-  QUERY_PARAM_PRODUCT_CONDITION: 'product_condition',
-  QUERY_PARAM_STOCK: 'stock',
-  QUERY_PARAM_SHIPPING: 'shipping',
-  QUERY_PARAM_MIN_PRICE: 'min_price',
-  QUERY_PARAM_MAX_PRICE: 'max_price',
-  QUERY_PARAM_CATEGORY: 'category',
-  QUERY_PARAM_PAGE: 'page',
-}));
+import * as HookUseCategory from '../../hooks/useCategory';
+import * as HookUseQueryParams from '../../hooks/useQueryParams';
 
 describe('SearchConditionsForm', () => {
   describe('カテゴリ機能', () => {
@@ -40,8 +16,7 @@ describe('SearchConditionsForm', () => {
 
     it('カテゴリボタンをクリックするとhandleButtonClickが呼ばれること', () => {
       const mockHandleButtonClick = jest.fn();
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      jest.spyOn(require('../../hooks/useCategory'), 'useCategory').mockImplementation(() => ({
+      jest.spyOn(HookUseCategory, 'useCategory').mockImplementation(() => ({
         buttons: [
           { value: 'smartphone', text: 'スマホ', pressed: false },
           { value: 'tablet', text: 'タブレット', pressed: false },
@@ -59,8 +34,7 @@ describe('SearchConditionsForm', () => {
 
     it('クリアボタンをクリックするとclearが呼ばれること', () => {
       const mockClear = jest.fn();
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      jest.spyOn(require('../../hooks/useCategory'), 'useCategory').mockImplementation(() => ({
+      jest.spyOn(HookUseCategory, 'useCategory').mockImplementation(() => ({
         buttons: [
           { value: 'smartphone', text: 'スマホ', pressed: false },
           { value: 'tablet', text: 'タブレット', pressed: false },
@@ -78,8 +52,7 @@ describe('SearchConditionsForm', () => {
 
     it('検索ボタンをクリックすると選択されたカテゴリがクエリパラメータに含まれること', async () => {
       const mockUpdateMultipleSearchParams = jest.fn();
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      jest.spyOn(require('../../hooks/useQueryParams'), 'useQueryParams').mockImplementation(() => ({
+      jest.spyOn(HookUseQueryParams, 'useQueryParams').mockImplementation(() => ({
         updateSearchParams: jest.fn(),
         updateMultipleSearchParams: mockUpdateMultipleSearchParams,
         getQueryParamPage: jest.fn(),
@@ -94,8 +67,7 @@ describe('SearchConditionsForm', () => {
         getQueryParamCategory: jest.fn(),
       }));
 
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      jest.spyOn(require('../../hooks/useCategory'), 'useCategory').mockImplementation(() => ({
+      jest.spyOn(HookUseCategory, 'useCategory').mockImplementation(() => ({
         buttons: [
           { value: 'smartphone', text: 'スマホ', pressed: true },
           { value: 'tablet', text: 'タブレット', pressed: false },
