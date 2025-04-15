@@ -8,7 +8,7 @@ test('renders item details', () => {
     image: { url: "https://example.com/image.jpg", alt: "商品画像" },
     subImages: [],
     name: "商品名",
-    price: "1000円",
+    price: 1000,
     overview: "商品の概要",
     category: { id: 1, name: "カテゴリ名" },
     brand: { id: 1, name: "ブランド名" },
@@ -55,7 +55,7 @@ test('renders item details', () => {
   renderWithRouter(<ItemDetail item={item} />);
 
   expect(screen.getByText("商品名")).toBeInTheDocument();
-  expect(screen.getByText("1000円")).toBeInTheDocument();
+  expect(screen.getByText("￥1,000")).toBeInTheDocument();
   expect(screen.getByText("商品の概要")).toBeInTheDocument();
   expect(screen.getByText("カテゴリ名")).toBeInTheDocument();
   expect(screen.getByText("在庫あり")).toBeInTheDocument();

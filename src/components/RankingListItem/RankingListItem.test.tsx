@@ -9,7 +9,7 @@ const mockProps = {
   alt: 'テスト商品画像',
   name: 'テスト商品',
   description: 'テスト商品の説明',
-  price: '¥10,000',
+  price: 10000,
 };
 
 describe('RankingListItem', () => {
@@ -31,7 +31,7 @@ describe('RankingListItem', () => {
     expect(screen.getByText('テスト商品の説明')).toBeInTheDocument();
 
     // 価格が表示されていることを確認
-    expect(screen.getByText('¥10,000')).toBeInTheDocument();
+    expect(screen.getByText('￥10,000')).toBeInTheDocument();
   });
 
   it('リンクが正しいURLに遷移すること', () => {

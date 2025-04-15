@@ -62,12 +62,12 @@ export default function Top() {
   // ランキング
   // TODO: APIから取得
   const rankingItems = [
-    { to: "/items/1", src: rankingItemImage1, alt: "商品A", rank: 1, name: "商品A", description: "商品Aの説明文", price: "¥1000" },
-    { to: "/items/2", src: rankingItemImage1, alt: "商品B", rank: 2, name: "商品B", description: "商品Bの説明文", price: "¥2000" },
-    { to: "/items/3", src: rankingItemImage1, alt: "商品C", rank: 3, name: "商品C", description: "商品Cの説明文", price: "¥3000" },
-    { to: "/items/4", src: rankingItemImage1, alt: "商品D", rank: 4, name: "商品D", description: "商品Dの説明文", price: "¥4000" },
-    { to: "/items/5", src: rankingItemImage1, alt: "商品E", rank: 5, name: "商品E", description: "商品Eの説明文", price: "¥5000" },
-    { to: "/items/6", src: rankingItemImage1, alt: "商品F", rank: 6, name: "商品F", description: "商品Fの説明文", price: "¥6000" },
+    { to: "/items/1", src: rankingItemImage1, alt: "商品A", rank: 1, name: "商品A", description: "商品Aの説明文", price: 1000 },
+    { to: "/items/2", src: rankingItemImage1, alt: "商品B", rank: 2, name: "商品B", description: "商品Bの説明文", price: 2000 },
+    { to: "/items/3", src: rankingItemImage1, alt: "商品C", rank: 3, name: "商品C", description: "商品Cの説明文", price: 3000 },
+    { to: "/items/4", src: rankingItemImage1, alt: "商品D", rank: 4, name: "商品D", description: "商品Dの説明文", price: 4000 },
+    { to: "/items/5", src: rankingItemImage1, alt: "商品E", rank: 5, name: "商品E", description: "商品Eの説明文", price: 5000 },
+    { to: "/items/6", src: rankingItemImage1, alt: "商品F", rank: 6, name: "商品F", description: "商品Fの説明文", price: 6000 },
   ]
 
   return (

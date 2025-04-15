@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import styles from './RankingListItem.module.scss';
+import { formattedPrice } from '../../utils/price';
 
 export interface RankingListItemProps {
   rank: number;
@@ -8,7 +9,7 @@ export interface RankingListItemProps {
   alt: string;
   name: string;
   description: string;
-  price: string;
+  price: number;
 }
 
 export function RankingListItem(props: RankingListItemProps) {
@@ -21,7 +22,7 @@ export function RankingListItem(props: RankingListItemProps) {
         <div className={styles.ranking__list__item__info__ranking}>{props.rank}位</div>
         <div className={styles.ranking__list__item__info__name}>{props.name}</div>
         <div className={styles.ranking__list__item__info__description}>{props.description}</div>
-        <div className={styles.ranking__list__item__info__price}>{props.price}</div>
+        <div className={styles.ranking__list__item__info__price}>{formattedPrice(props.price)}</div>
       </div>
     </Link>
   );
