@@ -39,7 +39,12 @@ export function ModalItemAddedToCart() {
 
   return (
     <Portal>
-      <div className={styles.overlay} onClick={handleClose} onKeyUp={(e: KeyboardEvent) => handleEnterKey(e, () => handleClose())}>
+      <div
+        className={styles.overlay}
+        onClick={handleClose}
+        onKeyUp={(e: KeyboardEvent) => handleEnterKey(e, () => handleClose())}
+        tabIndex={0}
+      >
         <div className={styles.modal}>
           <p className={styles.text}>Item added to cart:</p>
           <p className={styles.itemName}>{lastAddedItem.name}</p>
