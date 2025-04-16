@@ -1,0 +1,9 @@
+.section {
+  width: var(--container-width);
+  margin: 24px auto 120px;
+}
+
+.content {
+  display: flex;
+  gap: 16px;
+}
