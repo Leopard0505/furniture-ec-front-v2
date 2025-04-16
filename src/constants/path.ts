@@ -10,5 +10,6 @@ export const PATH = {
   ME: () => "/me",
   ME_ORDERS: () => "/me/orders",
   ME_ORDERS_ORDER_ID: (id: string) => `/me/orders/${id}`,
+  ME_FAVORITES: () => "/me/favorites",
   CONTACT: () => "/contact",
 };
