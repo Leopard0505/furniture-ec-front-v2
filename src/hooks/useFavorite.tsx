@@ -7,6 +7,10 @@ export const useFavorite = () => {
 
   const favoriteItems = useSelector(selectFavoriteItems);
 
+  const isFavorite = (itemId: number) => {
+    return favoriteItems.some((item) => item.id === itemId);
+  };
+
   const addToFavorite = (item: FavoriteItem) => {
     dispatch(favoriteActions.addItem(item));
   };
@@ -15,9 +19,19 @@ export const useFavorite = () => {
     dispatch(favoriteActions.removeItem(itemId));
   };
 
+  const toggleFavorite = (item: FavoriteItem) => {
+    if (isFavorite(item.id)) {
+      removeFromFavorite(item.id);
+    } else {
+      addToFavorite(item);
+    }
+  };
+
   return {
     favoriteItems,
+    isFavorite,
     addToFavorite,
     removeFromFavorite,
+    toggleFavorite,
   };
 }
