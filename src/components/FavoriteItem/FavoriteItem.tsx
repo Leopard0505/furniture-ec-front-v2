@@ -27,6 +27,8 @@ export function FavoriteItem({ item }: Props) {
         <FaCircleXmark
           className={styles.item__remove__button}
           size={24}
+          role="button"
+          tabIndex={0}
           onClick={() => removeFromFavorite(item.id)}
           onKeyUp={(e: KeyboardEvent) => handleEnterKey(e, () => removeFromFavorite(item.id))}
         />

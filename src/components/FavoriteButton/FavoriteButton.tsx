@@ -26,9 +26,9 @@ export function FavoriteButton({ item }: Props) {
         },
       })}>
       {isFavorite(item.id) ? (
-        <FaHeart className={styles.icon} size={28} />
+        <FaHeart role="button" aria-label="favorite" className={styles.icon} size={28} />
       ) : (
-        <FaRegHeart className={styles.icon} size={28} />
+        <FaRegHeart role="button" aria-label="unfavorite" className={styles.icon} size={28} />
       )}
     </Button>
   );
