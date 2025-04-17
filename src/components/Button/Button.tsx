@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import styles from './Button.module.scss';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string;
   text?: string;
   white?: boolean;
   pressed?: boolean;
@@ -11,7 +12,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button(props: ButtonProps) {
-  const convertClassName = classNames(styles.button, props.white ? styles.white : null);
+  const convertClassName = classNames(styles.button, props.className, props.white ? styles.white : null);
 
   return (
     <button

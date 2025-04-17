@@ -7,6 +7,7 @@ import type { ItemType } from './ItemDetail.type';
 import { ImageViewer } from '../ImageViewer/ImageViewer';
 import { useCart } from '../../hooks/useCart';
 import { formattedPrice } from '../../utils/price';
+import { FavoriteButton } from '../FavoriteButton/FavoriteButton';
 
 type ItemDetailProps = {
   item: ItemType;
@@ -26,11 +27,25 @@ export default function ItemDetail({ item }: ItemDetailProps) {
           <h1 className={styles.title}>{item.name}</h1>
           <p className={styles.price}>{formattedPrice(item.price)}</p>
           <p className={styles.stock}>{item.stock ? "在庫あり" : "在庫なし"}</p>
-          <Button
-            className={styles.buyButton}
-            onClick={() => addToCart({
+          <div className={styles.buttons}>
+            <Button
+              className={styles.buyButton}
+              onClick={() => addToCart({
+                id: item.id,
+                quantity: 1,
+                name: item.name,
+                price: item.price,
+                image: item.image,
+                variation: {
+                  size: "M",
+                  color: "red",
+                },
+                stock: item.stock,
+              })}>
+              購入する
+            </Button>
+            <FavoriteButton item={{
               id: item.id,
-              quantity: 1,
               name: item.name,
               price: item.price,
               image: item.image,
@@ -38,10 +53,8 @@ export default function ItemDetail({ item }: ItemDetailProps) {
                 size: "M",
                 color: "red",
               },
-              stock: item.stock,
-            })}>
-            購入する
-          </Button>
+            }} />
+          </div>
         </div>
       </div>
       <div className={styles.detailsSection}>

@@ -11,7 +11,7 @@ describe('Cart Component', () => {
   it('renders empty cart message when cart is empty', () => {
     mockUseCart.mockReturnValue({ cartItems: [] });
 
-    renderWithRouter(<Cart recommendedItems={[]} />);
+    renderWithRouter(<Cart />);
 
     expect(screen.getByAltText('Empty Cart')).toBeInTheDocument();
     expect(screen.getByText('カート')).toBeInTheDocument();
@@ -25,37 +25,10 @@ describe('Cart Component', () => {
       ],
     });
 
-    renderWithRouter(<Cart recommendedItems={[]} />);
+    renderWithRouter(<Cart />);
 
     expect(screen.getByText('Item 1')).toBeInTheDocument();
     expect(screen.getByText('Item 2')).toBeInTheDocument();
     expect(screen.getByText('カート')).toBeInTheDocument();
-  });
-
-  it('renders recommended items', () => {
-    mockUseCart.mockReturnValue({ cartItems: [] });
-
-    const recommendedItems = [
-      {
-        id: 1, // Changed to number
-        name: 'Recommended Item 1',
-        image: { url: 'https://placehold.co/400x400', alt: 'Image 1' },
-        description: 'Description 1',
-        review: "4.5",
-      },
-      {
-        id: 2, // Changed to number
-        name: 'Recommended Item 2',
-        image: { url: 'https://placehold.co/400x400', alt: 'Image 2' },
-        description: 'Description 2',
-        review: "4.0",
-      },
-    ];
-
-    renderWithRouter(<Cart recommendedItems={recommendedItems} />);
-
-    expect(screen.getByText('Recommended Item 1')).toBeInTheDocument();
-    expect(screen.getByText('Recommended Item 2')).toBeInTheDocument();
-    expect(screen.getByText('閲覧履歴に基づくおすすめ商品')).toBeInTheDocument();
   });
 });

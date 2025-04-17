@@ -1,4 +1,4 @@
-import { ImageType } from "../ImageViewer/ImageViewer.type";
+import { ImageType } from "../components/ImageViewer/ImageViewer.type";
 
 export type RecommendedItem = {
   id: number;

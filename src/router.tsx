@@ -13,6 +13,7 @@ import Layout from "./layouts/Layout"
 import { Signup } from "./routes/sign-up/Signup"
 import Top from "./routes/top/Top"
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute"
+import { MeFavorites } from './routes/me/Favorites'
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,32 @@ export const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/me",
+        children: [
+          {
+            index: true,
+            element: <Me />,
+          },
+          {
+            path: "/me/orders",
+            children: [
+              {
+                index: true,
+                element: <Orders />,
+              },
+              {
+                path: "/me/orders/:orderId",
+                element: <OrderId />,
+              }
+            ],
+          },
+          {
+            path: "/me/favorites",
+            element: <MeFavorites />,
+          },
+        ],
       },
     ],
   },
@@ -79,22 +106,6 @@ export const router = createBrowserRouter([
         path: "/purchase/complete",
         element: <Complete />,
       }
-    ],
-  },
-  {
-    path: "/me",
-    element: <Me />,
-    children: [
-      {
-        path: "/me/orders",
-        element: <Orders />,
-        children: [
-          {
-            path: "/me/orders/:orderId",
-            element: <OrderId />,
-          }
-        ],
-      },
     ],
   },
   {
