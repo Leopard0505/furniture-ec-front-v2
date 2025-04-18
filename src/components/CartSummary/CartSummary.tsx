@@ -26,7 +26,7 @@ export function CartSummary() {
         </div>
       </div>
       <div>キャンセル・ポリシーについて</div>
-      <ButtonLink to={PATH.PURCHASE()} text="注文を確定する" />
+      <ButtonLink to={PATH.CHECKOUT()} text="注文手続きへ" />
     </div>
   );
 }

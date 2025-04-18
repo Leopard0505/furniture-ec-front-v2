@@ -43,6 +43,10 @@ export const router = createBrowserRouter([
         element: <Cart />,
       },
       {
+        path: "/checkout",
+        element: <div>Checkout</div>,
+      },
+      {
         path: "/me",
         children: [
           {
