@@ -1,0 +1,10 @@
+.wrapper {
+  width: var(--container-width);
+  margin: 40px auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

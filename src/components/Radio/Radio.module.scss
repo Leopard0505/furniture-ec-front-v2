@@ -1,0 +1,46 @@
+.radio_button input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio_button label {
+  display: inline-block;
+  padding-left: 30px;
+  margin: 8px;
+  position: relative;
+  font-size: 16px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: color 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.radio_button span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #555;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-origin: 0 0;
+}
+
+.radio_button input:checked+label span {
+  transform: translateY(-50%) scale(1);
+  border: 5px solid #4f29f0;
+  color: #4c8bf5;
+}
+
+.radio_button input:checked+label {
+  color: #4f29f0;
+}
+
+.radio_button label:hover span {
+  transform: translateY(-50%) scale(1.1);
+  border-color: #4f29f0;
+  box-shadow: 0 0 10px #4c8bf580;
+}
