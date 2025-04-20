@@ -8,7 +8,15 @@ export const useKeyupFunction = () => {
     }
   };
 
+  const handleEscapeKey = (e: KeyboardEvent, callback: () => void) => {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      callback();
+    }
+  };
+
   return {
     handleEnterKey,
+    handleEscapeKey,
   };
 }
