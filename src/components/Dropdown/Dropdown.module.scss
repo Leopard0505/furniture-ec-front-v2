@@ -4,7 +4,7 @@
   height: 48px;
   font-family: var(--font-family);
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   transition: all 0.2s ease;
@@ -65,7 +65,7 @@
     transition: all 0.2s ease;
 
     &:hover {
-      opacity: 0.8;
+      background-color: var(--background-secondary);
     }
   }
 }
