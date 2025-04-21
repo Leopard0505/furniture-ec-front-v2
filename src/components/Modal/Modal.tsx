@@ -5,6 +5,7 @@ import styles from "./Modal.module.scss";
 import { KeyboardEvent, useCallback, useEffect, useRef } from "react";
 import { useKeyupFunction } from "../../hooks/useKeyupFunction";
 import { ButtonIcon } from "../ButtonIcon/ButtonIcon";
+import { useAutoFocus } from "../../hooks/useAutoFocus";
 
 interface Props {
   title: string;
@@ -12,26 +13,13 @@ interface Props {
   onClose: () => void;
 }
 
-function useFocus<T extends HTMLElement>() {
-  const targetRef = useRef<T | null>(null);
-
-  const focus = useCallback(() => {
-    targetRef.current?.focus();
-  }, []);
-
-  return {
-    targetRef,
-    focus,
-  }
-}
-
 export function Modal(props: Props) {
-  const { targetRef, focus } = useFocus<HTMLButtonElement>();
+  const targetRef = useRef<HTMLButtonElement | null>(null);
+  useAutoFocus<HTMLButtonElement>(targetRef);
   const { handleEscapeKey } = useKeyupFunction();
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    focus();
     return () => {
       document.body.style.overflow = "auto";
     }
