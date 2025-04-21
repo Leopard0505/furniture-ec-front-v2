@@ -1,0 +1,11 @@
+.wrapper {
+  width: var(--container-width);
+  margin: 40px auto;
+
+  display: flex;
+  gap: 56px;
+}
+
+.summary {
+  margin-top: calc(40px + 70px); // margin-top + section title height
+}
