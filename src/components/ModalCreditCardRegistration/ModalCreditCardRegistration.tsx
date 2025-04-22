@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { Form } from "../Form/Form";
-import { InputField } from "../InputField/InputField";
+import { FormInputField } from "../FormInputField/FormInputField";
 import { Modal } from "../Modal/Modal";
 import { Portal } from "../Portal/Portal";
 import { creditCardRegistrationSchema, FormInputs } from "./schema";
@@ -42,11 +42,11 @@ export function ModalCreditCardRegistration(props: Props) {
           schema={creditCardRegistrationSchema}
           onSubmit={handleSubmit}
         >
-          <InputField name="cardNumber" label="クレジットカード番号" />
-          <InputField name="cardHolder" label="カード名義" />
-          <InputField name="expirationDate" label="有効期限（月/年）" />
-          <InputField name="securityCode" label="セキュリティコード" />
-          <InputField name="country" label="国または地域" />
+          <FormInputField name="cardNumber" label="クレジットカード番号" />
+          <FormInputField name="cardHolder" label="カード名義" />
+          <FormInputField name="expirationDate" label="有効期限（月/年）" />
+          <FormInputField name="securityCode" label="セキュリティコード" />
+          <FormInputField name="country" label="国または地域" />
         </Form>
       </Modal>
     </Portal>

@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { Form } from "../Form/Form";
-import { InputField } from "../InputField/InputField";
+import { FormInputField } from "../FormInputField/FormInputField";
 import { Modal } from "../Modal/Modal";
 import { Portal } from "../Portal/Portal";
 // import styles from "./ModalDeliveryAddressChange.module.scss";
@@ -45,14 +45,14 @@ export function ModalDeliveryAddressChange(props: Props) {
           submitButtonText="変更する"
           onSubmit={handleSubmit}
         >
-          <InputField label='氏名' name='name' />
-          <InputField label='電話番号' name='phonenumber' />
-          <InputField label='郵便番号（半角数字）' name='postcode' />
-          <InputField label='都道府県' name='prefecture' />
-          <InputField label='市区町村' name='municipality' />
-          <InputField label='丁目・番地・号（数字は半角数字）' name='ding' />
-          <InputField label='建物名' name='buildname' />
-          <InputField label='部屋番号（数字は半角数字）' name='roomname' />
+          <FormInputField label='氏名' name='name' />
+          <FormInputField label='電話番号' name='phonenumber' />
+          <FormInputField label='郵便番号（半角数字）' name='postcode' />
+          <FormInputField label='都道府県' name='prefecture' />
+          <FormInputField label='市区町村' name='municipality' />
+          <FormInputField label='丁目・番地・号（数字は半角数字）' name='ding' />
+          <FormInputField label='建物名' name='buildname' />
+          <FormInputField label='部屋番号（数字は半角数字）' name='roomname' />
         </Form>
       </Modal>
     </Portal>

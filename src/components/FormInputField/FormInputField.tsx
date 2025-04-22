@@ -1,14 +1,14 @@
 
 import { useMemo } from 'react';
 import { useFormContext } from 'react-hook-form';
-import styles from './InputField.module.scss';
+import styles from './FormInputField.module.scss';
 
-interface InputFieldProps {
+interface FormInputFieldProps {
   name: string;
   label: string;
 }
 
-export function InputField(props: InputFieldProps) {
+export function FormInputField(props: FormInputFieldProps) {
   const { register, formState: { errors } } = useFormContext();
 
   const label = useMemo(() => {

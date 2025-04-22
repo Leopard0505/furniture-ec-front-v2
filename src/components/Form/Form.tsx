@@ -22,7 +22,7 @@ export function Form<T>(props: Props<T>) {
       <form onSubmit={useFormMethods.handleSubmit(props.onSubmit)}>
         {/* Form fields go here */}
         {props.children}
-        {/* Example: <InputField label='Email' name='email' /> */}
+        {/* Example: <FormInputField label='Email' name='email' /> */}
         {/* You can use the useFormMethods to register inputs */}
         {/* <input {...useFormMethods.register("email")} /> */}
 

@@ -2,16 +2,16 @@ import { useMemo } from 'react';
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { useFormContext } from 'react-hook-form';
 
-import styles from './InputPasswordField.module.scss';
+import styles from './FormInputPasswordField.module.scss';
 
 import { usePassword } from './usePassword';
 
-interface InputPasswordFieldProps {
+interface FormInputPasswordFieldProps {
   name: string;
   label: string;
 }
 
-export function InputPasswordField(props: InputPasswordFieldProps) {
+export function FormInputPasswordField(props: FormInputPasswordFieldProps) {
   const { register, formState: { errors } } = useFormContext();
   const { type, handleToggleType } = usePassword();
 
