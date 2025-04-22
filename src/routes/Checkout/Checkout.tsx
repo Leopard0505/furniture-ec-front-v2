@@ -9,7 +9,7 @@ import styles from "./Checkout.module.scss";
 export function Checkout() {
   return (
     <div className={styles.wrapper}>
-      <div>
+      <div className={styles.container}>
         <CheckoutDeliveryAddress />
         <CheckoutDeliveryDateTime />
         <CheckoutPaymentMethod />
