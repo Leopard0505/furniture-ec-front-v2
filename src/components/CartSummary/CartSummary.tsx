@@ -1,11 +1,15 @@
 import { useSelector } from 'react-redux';
 import styles from './CartSummary.module.scss';
-import { PATH } from '../../constants/path';
 import { ButtonLink } from '../ButtonLink/ButtonLink';
 import { selectCartTotalPrice } from '../../stores/cart/cartSlice';
 import { formattedPrice } from '../../utils/price';
 
-export function CartSummary() {
+interface Props {
+  to: string;
+  buttonText: string;
+}
+
+export function CartSummary(props: Props) {
   const cartTotalPrice = useSelector(selectCartTotalPrice);
   const cartServiceFee = 0;
 
@@ -26,7 +30,7 @@ export function CartSummary() {
         </div>
       </div>
       <div>キャンセル・ポリシーについて</div>
-      <ButtonLink to={PATH.CHECKOUT()} text="注文手続きへ" />
+      <ButtonLink to={props.to} text={props.buttonText} />
     </div>
   );
 }

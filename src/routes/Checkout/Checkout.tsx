@@ -4,6 +4,7 @@ import { CheckoutDeliveryAddress } from "../../components/CheckoutDeliveryAddres
 import { CheckoutDeliveryDateTime } from "../../components/CheckoutDeliveryDateTime/CheckoutDeliveryDateTime";
 import { CheckoutPaymentMethod } from "../../components/CheckoutPaymentMethod/CheckoutPaymentMethod";
 import { CheckoutPointAvailable } from "../../components/CheckoutPointAvailable/CheckoutPointAvailable";
+import { PATH } from "../../constants/path";
 import styles from "./Checkout.module.scss";
 
 export function Checkout() {
@@ -17,7 +18,7 @@ export function Checkout() {
         <CheckoutCouponAvailable />
       </div>
       <div className={styles.summary}>
-        <CartSummary />
+        <CartSummary to={PATH.PURCHASE_COMPLETE()} buttonText="注文を確定する" />
       </div>
     </div>
   );
