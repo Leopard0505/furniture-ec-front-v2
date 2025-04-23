@@ -42,11 +42,11 @@ export function ModalCreditCardRegistration(props: Props) {
           schema={creditCardRegistrationSchema}
           onSubmit={handleSubmit}
         >
-          <FormInputField name="cardNumber" label="クレジットカード番号" />
-          <FormInputField name="cardHolder" label="カード名義" />
-          <FormInputField name="expirationDate" label="有効期限（月/年）" />
-          <FormInputField name="securityCode" label="セキュリティコード" />
-          <FormInputField name="country" label="国または地域" />
+          <FormInputField role="cardNumber" name="cardNumber" label="クレジットカード番号" />
+          <FormInputField role="cardHolder" name="cardHolder" label="カード名義" />
+          <FormInputField role="expirationDate" name="expirationDate" label="有効期限（月/年）" />
+          <FormInputField role="securityCode" name="securityCode" label="セキュリティコード" />
+          <FormInputField role="country" name="country" label="国または地域" />
         </Form>
       </Modal>
     </Portal>

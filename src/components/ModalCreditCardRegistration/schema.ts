@@ -10,10 +10,10 @@ export interface FormInputs {
 
 const cardNumber = z
   .string()
-  .min(16)
-  .max(16)
+  .min(16, { message: "クレジットカード番号が無効です" })
+  .max(16, { message: "クレジットカード番号が無効です" })
   .regex(/^[0-9]+$/, "クレジットカード番号が無効です");
-const cardHolder = z.string().min(1, "必須です");
+const cardHolder = z.string().min(1, "カード名義を入力してください");
 const expirationDate = z.string().min(1, "必須です");
 const securityCode = z
   .string()

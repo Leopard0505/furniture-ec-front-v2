@@ -24,6 +24,6 @@ export function DeliveryTime(props: Props) {
 
 
   return (
-    <Dropdown options={options} onChange={handleChange} />
+    <Dropdown options={options} onChange={handleChange} placeholder="配達時間を選択してください" />
   )
 }

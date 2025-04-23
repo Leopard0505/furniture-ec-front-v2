@@ -6,17 +6,18 @@ import styles from "./CreditCardRegistered.module.scss";
 import { CreditCard } from "./CreditCardRegistered.types";
 import { FormInputs } from "../ModalCreditCardRegistration/schema";
 
-export function CreditCardRegistered() {
+interface Props {
+  cardNumber: string;
+  cardHolder: string;
+  expirationDate: string;
+}
+
+export function CreditCardRegistered(props: Props) {
   const [isOpen, setIsOpen] = useState(false);
-  const [creditCard, setCreditCard] = useState<CreditCard | null>({
-    cardNumber: "**** **** **** 4242",
-    cardHolder: "山田太郎",
-    expirationDate: "11/30",
-  } as CreditCard);
+  const [creditCard, setCreditCard] = useState<CreditCard>({ ...props });
 
   const hasCreditCard = useMemo(() => {
-    // クレジットカードの登録状況を確認するAPIを呼び出す
-    return !!creditCard;
+    return !!creditCard.cardNumber && !!creditCard.cardHolder && !!creditCard.expirationDate;
   }, [creditCard]);
 
   const handleCreditCardRegistration = useCallback((data: FormInputs) => {

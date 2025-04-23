@@ -6,6 +6,7 @@ import styles from './FormInputField.module.scss';
 interface FormInputFieldProps {
   name: string;
   label: string;
+  role?: string;
 }
 
 export function FormInputField(props: FormInputFieldProps) {
@@ -20,6 +21,8 @@ export function FormInputField(props: FormInputFieldProps) {
       {label}
       <input
         {...register(props.name)}
+        role={props.role}
+        aria-label={props.name}
         className={styles.input}
         aria-invalid={errors[props.name] ? "true" : "false"}
         type="text"

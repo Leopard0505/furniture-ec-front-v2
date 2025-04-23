@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import styles from './ButtonIcon.module.scss';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  role?: string;
   className?: string;
   white?: boolean;
   children?: React.ReactNode;
@@ -15,6 +16,7 @@ export function ButtonIcon(props: ButtonProps) {
 
   return (
     <button
+      role={props.role}
       className={convertClassName}
       type={props.type}
       onClick={props.onClick}

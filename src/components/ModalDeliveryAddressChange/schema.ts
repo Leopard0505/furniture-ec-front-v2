@@ -11,8 +11,8 @@ export interface FormInputs {
   roomname: string;
 }
 
-const name = z.string().min(1, "必須です");
-const phonenumber = z.string().min(1, "必須です");
+const name = z.string().min(1, "氏名を入力してください");
+const phonenumber = z.string().min(1, "電話番号を入力してください");
 const postcode = z.string().min(1, "必須です");
 const prefecture = z.string().min(1, "必須です");
 const municipality = z.string().min(1, "必須です");

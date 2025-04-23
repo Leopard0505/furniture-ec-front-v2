@@ -14,14 +14,14 @@ interface Props {
 
 export function ModalDeliveryAddressChange(props: Props) {
   const defaultValues = {
-    name: "山田太郎",
-    phonenumber: "090-1234-5678",
-    postcode: "000-0000",
-    prefecture: "東京都",
-    municipality: "千代田区",
-    ding: "1-1-1",
-    buildname: "東京ビル",
-    roomname: "101",
+    name: "",
+    phonenumber: "",
+    postcode: "",
+    prefecture: "",
+    municipality: "",
+    ding: "",
+    buildname: "",
+    roomname: "",
   };
 
   const handleSubmit = useCallback((data: FormInputs) => {
@@ -45,14 +45,14 @@ export function ModalDeliveryAddressChange(props: Props) {
           submitButtonText="変更する"
           onSubmit={handleSubmit}
         >
-          <FormInputField label='氏名' name='name' />
-          <FormInputField label='電話番号' name='phonenumber' />
-          <FormInputField label='郵便番号（半角数字）' name='postcode' />
-          <FormInputField label='都道府県' name='prefecture' />
-          <FormInputField label='市区町村' name='municipality' />
-          <FormInputField label='丁目・番地・号（数字は半角数字）' name='ding' />
-          <FormInputField label='建物名' name='buildname' />
-          <FormInputField label='部屋番号（数字は半角数字）' name='roomname' />
+          <FormInputField role="name" label='氏名' name='name' />
+          <FormInputField role="phonenumber" label='電話番号' name='phonenumber' />
+          <FormInputField role="postcode" label='郵便番号（半角数字）' name='postcode' />
+          <FormInputField role="prefecture" label='都道府県' name='prefecture' />
+          <FormInputField role="municipality" label='市区町村' name='municipality' />
+          <FormInputField role="ding" label='丁目・番地・号（数字は半角数字）' name='ding' />
+          <FormInputField role="buildname" label='建物名' name='buildname' />
+          <FormInputField role="roomname" label='部屋番号（数字は半角数字）' name='roomname' />
         </Form>
       </Modal>
     </Portal>

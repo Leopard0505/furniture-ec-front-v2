@@ -17,7 +17,7 @@ export const createPointAvailableSchema = (availablePoint: number) => {
           const numberValue = Number(value);
           return numberValue <= availablePoint;
         },
-        { message: `利用可能ポイントは${availablePoint}ptまでです。` }
+        { message: `利用可能ポイントを超えています。` }
       ),
   });
 };

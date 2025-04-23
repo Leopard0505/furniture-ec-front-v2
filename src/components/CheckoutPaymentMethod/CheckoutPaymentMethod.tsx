@@ -4,9 +4,15 @@ import { RadioGroup } from "../RadioGroup/RadioGroup";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
 import styles from "./CheckoutPaymentMethod.module.scss";
 import { CreditCardRegistered } from "../CreditCardRegistered/CreditCardRegistered";
+import { CreditCard } from "../CreditCardRegistered/CreditCardRegistered.types";
 
 export function CheckoutPaymentMethod() {
   const [selectedOption, setSelectedOption] = useState<RadioType | null>(null);
+  const [creditCard,] = useState<CreditCard>({
+    cardNumber: "",
+    cardHolder: "",
+    expirationDate: "",
+  });
 
   const options: RadioType[] = [
     { id: "credit-card", checked: false, label: "クレジットカード" },
@@ -24,7 +30,7 @@ export function CheckoutPaymentMethod() {
         onChangeSelectOption={setSelectedOption}
       />
       {selectedOption?.id === "credit-card" && (
-        <CreditCardRegistered />
+        <CreditCardRegistered {...creditCard} />
       )}
     </div>
   );

@@ -24,9 +24,10 @@ export function Dropdown({ options, onChange, placeholder = "選択してくだ�
   };
 
   return (
-    <div className={styles.dropdown}>
+    <div className={styles.dropdown} role="combobox" aria-expanded={isOpen} aria-haspopup="listbox">
       <div
         className={styles.dropdown__selected}
+        role="button"
         onClick={() => setIsOpen((prev) => !prev)}
       >
         {selected ? options.find((option) => option.value === selected)?.label : placeholder}
@@ -36,6 +37,13 @@ export function Dropdown({ options, onChange, placeholder = "選択してくだ�
           {options.map((option) => (
             <li
               key={option.value}
+              role="option"
+              aria-selected={selected === option.value}
+              tabIndex={0}
+              onFocus={() => setSelected(option.value)}
+              onBlur={() => setSelected(null)}
+              onMouseEnter={() => setSelected(option.value)}
+              onMouseLeave={() => setSelected(null)}
               className={styles.dropdown__item}
               onClick={() => handleSelect(option.value)}
             >

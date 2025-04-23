@@ -33,6 +33,6 @@ export function DeliveryDate(props: Props) {
   }, [options, props]);
 
   return (
-    <Dropdown options={options} onChange={handleChange} />
+    <Dropdown options={options} onChange={handleChange} placeholder="配達日を選択してください" />
   );
 }

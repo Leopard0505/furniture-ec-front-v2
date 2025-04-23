@@ -32,11 +32,11 @@ export function Modal(props: Props) {
   }, [handleEscapeKey, props]);
 
   return (
-    <div className={styles.overlay} onKeyUp={handleClose}>
-      <div className={styles.modal}>
+    <div className={styles.overlay} role="overlay" onKeyUp={handleClose}>
+      <div className={styles.modal} role="modal" aria-modal="true">
         <div className={styles.header}>
           <SectionTitle text={props.title} />
-          <ButtonIcon ref={targetRef} className={styles.close_button} onClick={props.onClose}>
+          <ButtonIcon ref={targetRef} role="close-button" className={styles.close_button} onClick={props.onClose}>
             <FaXmark size={24} />
           </ButtonIcon>
         </div>

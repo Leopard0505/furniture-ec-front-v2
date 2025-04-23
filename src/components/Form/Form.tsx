@@ -28,7 +28,7 @@ export function Form<T>(props: Props<T>) {
 
         {/* Submit button */}
         <div>
-          <Button type='submit' text={props.submitButtonText ?? "OK"} />
+          <Button role="submit-button" type='submit' text={props.submitButtonText ?? "OK"} />
         </div>
       </form>
     </FormProvider>

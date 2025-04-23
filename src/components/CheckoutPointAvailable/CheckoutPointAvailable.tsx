@@ -9,6 +9,7 @@ import { ZodError } from "zod";
 
 export function CheckoutPointAvailable() {
   const [selectedOption, setSelectedOption] = useState<RadioType | null>(null);
+  // TODO: 1200 はAPIから取得した値を使用する
   const [pointAvailable,] = useState<number>(1200);
   const [point, setPoint] = useState<string>("");
   const [errors, setErrors] = useState<string[]>([]);
