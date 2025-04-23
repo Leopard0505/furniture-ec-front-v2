@@ -2,8 +2,8 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '../Button/Button';
-import { InputField } from '../InputField/InputField';
-import { InputPasswordField } from '../InputPasswordField/InputPasswordField';
+import { FormInputField } from '../FormInputField/FormInputField';
+import { FormInputPasswordField } from '../FormInputPasswordField/FormInputPasswordField';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 
 import styles from './SignupPortal.module.scss';
@@ -48,17 +48,17 @@ export function SignupPortal(props: SignupPortalProps) {
       <SectionTitle text="会員登録" />
       <FormProvider {...useFormMethods}>
         <form onSubmit={useFormMethods.handleSubmit(onSubmit)}>
-          <InputField label='メールアドレス' name='username' />
-          <InputPasswordField label='パスワード' name='password' />
-          <InputField label='氏名' name='name' />
-          <InputField label='氏名（フリガナ）' name='namekana' />
-          <InputField label='電話番号' name='phonenumber' />
-          <InputField label='郵便番号（半角数字）' name='postcode' />
-          <InputField label='都道府県' name='prefecture' />
-          <InputField label='市区町村' name='municipality' />
-          <InputField label='丁目・番地・号（数字は半角数字）' name='ding' />
-          <InputField label='建物名' name='buildname' />
-          <InputField label='部屋番号（数字は半角数字）' name='roomname' />
+          <FormInputField label='メールアドレス' name='username' />
+          <FormInputPasswordField label='パスワード' name='password' />
+          <FormInputField label='氏名' name='name' />
+          <FormInputField label='氏名（フリガナ）' name='namekana' />
+          <FormInputField label='電話番号' name='phonenumber' />
+          <FormInputField label='郵便番号（半角数字）' name='postcode' />
+          <FormInputField label='都道府県' name='prefecture' />
+          <FormInputField label='市区町村' name='municipality' />
+          <FormInputField label='丁目・番地・号（数字は半角数字）' name='ding' />
+          <FormInputField label='建物名' name='buildname' />
+          <FormInputField label='部屋番号（数字は半角数字）' name='roomname' />
           <div className={styles.signup__portal__agree}>
             <a className={styles.signup__portal__agree_link} href="#">規約および個人情報保護方針への同意が必要です。</a>
           </div>

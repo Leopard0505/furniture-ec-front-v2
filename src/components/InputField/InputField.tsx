@@ -1,32 +1,32 @@
 
-import { useMemo } from 'react';
-import { useFormContext } from 'react-hook-form';
+import { InputHTMLAttributes, useMemo } from 'react';
 import styles from './InputField.module.scss';
+import classNames from 'classnames';
 
-interface InputFieldProps {
-  name: string;
-  label: string;
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  className?: string;
+  label?: string;
+  errors?: string[];
 }
 
-export function InputField(props: InputFieldProps) {
-  const { register, formState: { errors } } = useFormContext();
-
-  const label = useMemo(() => {
-    return props.label ? (<label className={styles.label}>{props.label}</label>) : null;
-  }, [props.label]);
+export function InputField({ label, className, ...props}: Props) {
+  const memoLabel = useMemo(() => {
+    return label ? (<label className={styles.label}>{label}</label>) : null;
+  }, [label]);
 
   return (
     <div className={styles.input__field}>
-      {label}
+      {memoLabel}
       <input
-        {...register(props.name)}
-        className={styles.input}
-        aria-invalid={errors[props.name] ? "true" : "false"}
-        type="text"
-        placeholder={`${props.label}を入力してください`}
+        {...props}
+        className={classNames(styles.input, className)}
       />
-      {errors[props.name] && (
-        <p className={styles.text__error}>{errors[props.name]?.message as string}</p>
+      {props.errors && props.errors.length > 0 && (
+        <div className={styles.error__message}>
+          {props.errors.map((error, index) => (
+            <p key={index} className={styles.error}>{error}</p>
+          ))}
+        </div>
       )}
     </div>
   );

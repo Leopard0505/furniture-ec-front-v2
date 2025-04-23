@@ -72,8 +72,8 @@ API 仕様が変わる場合はここも修正してください。
 ### カート・購入関連
 
 - `/cart` - カートページ
-- `/purchase` - 購入ページ
-- `/purchase/complete` - 購入完了ページ
+- `/checkout` - 注文手続きページ
+- `/purchase/complete` - 注文完了ページ
 
 ### マイページ関連
 

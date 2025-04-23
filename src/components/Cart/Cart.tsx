@@ -4,6 +4,7 @@ import styles from './Cart.module.scss';
 import { CartItem } from '../CartItem/CartItem';
 import { useCart } from '../../hooks/useCart';
 import cartEmptyImage from '@/assets/images/cart-empty.png';
+import { PATH } from '../../constants/path';
 
 export function Cart() {
   const { cartItems } = useCart();
@@ -25,7 +26,7 @@ export function Cart() {
                 <CartItem key={item.id} item={item} />
               ))}
             </div>
-            <CartSummary />
+            <CartSummary to={PATH.CHECKOUT()} buttonText="注文手続きへ" />
           </div>
         )}
       </div>

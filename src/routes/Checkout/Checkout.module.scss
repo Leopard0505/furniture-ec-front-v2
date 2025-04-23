@@ -1,0 +1,17 @@
+.wrapper {
+  width: var(--container-width);
+  margin: 24px auto 120px;
+
+  display: flex;
+  gap: 56px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.summary {
+  margin-top: 70px; // section title height
+}

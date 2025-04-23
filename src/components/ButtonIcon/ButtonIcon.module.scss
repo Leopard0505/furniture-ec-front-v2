@@ -1,0 +1,9 @@
+@import url("../Button/Button.module.scss");
+
+.button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}

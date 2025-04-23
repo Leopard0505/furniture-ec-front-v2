@@ -2,6 +2,7 @@
   /* width */
   --container-width: 960px;
   --container-inner-width: 680px;
+  --container-inner-width-without-cart-summary: 520px;
 
   /* フォント */
   --font-family: Noto Sans JP,

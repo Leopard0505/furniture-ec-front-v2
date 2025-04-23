@@ -14,6 +14,7 @@ import { Signup } from "./routes/sign-up/Signup"
 import Top from "./routes/top/Top"
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute"
 import { MeFavorites } from './routes/me/Favorites'
+import { Checkout } from './routes/Checkout/Checkout'
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
       },
       {
         path: "/me",

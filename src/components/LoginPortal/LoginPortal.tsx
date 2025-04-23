@@ -2,8 +2,8 @@
 import { loginSchema, type FormInputs } from './schema';
 import { Button } from '../Button/Button';
 import { ButtonLink } from '../ButtonLink/ButtonLink';
-import { InputField } from '../InputField/InputField';
-import { InputPasswordField } from '../InputPasswordField/InputPasswordField';
+import { FormInputField } from '../FormInputField/FormInputField';
+import { FormInputPasswordField } from '../FormInputPasswordField/FormInputPasswordField';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import styles from './LoginPortal.module.scss';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -34,8 +34,8 @@ export function LoginPortal(props: LoginPortalProps) {
         <SectionTitle text='ログイン' />
         <FormProvider {...useFormMethods}>
           <form className={styles.login__portal__login__form} onSubmit={useFormMethods.handleSubmit(onSubmit)}>
-            <InputField name='username' label='ユーザー名' />
-            <InputPasswordField name='password' label='パスワード' />
+            <FormInputField name='username' label='ユーザー名' />
+            <FormInputPasswordField name='password' label='パスワード' />
             <div className={styles.login__portal__login__forgot}>
               <a className={styles.login__portal__login__forgot_link} href="#">ユーザID・パスワードを忘れた場合</a>
             </div>
