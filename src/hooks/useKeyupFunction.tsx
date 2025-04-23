@@ -15,8 +15,32 @@ export const useKeyupFunction = () => {
     }
   };
 
+  const handleArrowUpKey = (e: KeyboardEvent, callback: () => void) => {
+    if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      callback();
+    }
+  };
+
+  const handleArrowDownKey = (e: KeyboardEvent, callback: () => void) => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      callback();
+    }
+  };
+
+  const handleTabKey = (e: KeyboardEvent, callback: () => void) => {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      callback();
+    }
+  };
+
   return {
     handleEnterKey,
     handleEscapeKey,
+    handleArrowUpKey,
+    handleArrowDownKey,
+    handleTabKey,
   };
 }

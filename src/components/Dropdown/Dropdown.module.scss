@@ -33,7 +33,6 @@
       border-style: solid;
       border-width: 6px 5px 0 5px;
       border-color: var(--border-dark) transparent transparent transparent;
-      transform: translateY(-50%) rotate(0deg);
       transition: transform ease-in-out 0.3s;
       transform: rotate(0deg);
     }
@@ -64,7 +63,8 @@
     color: var(--text-on-primary-light);
     transition: all 0.2s ease;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: var(--background-secondary);
     }
   }

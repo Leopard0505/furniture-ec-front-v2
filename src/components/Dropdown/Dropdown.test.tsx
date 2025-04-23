@@ -45,7 +45,7 @@ describe('Dropdown', () => {
   it('closes the dropdown menu when the escape key is pressed', () => {
     renderWithRouter(<Dropdown options={options} onChange={jest.fn()} />);
     fireEvent.click(screen.getByText('選択してください'));
-    fireEvent.keyUp(screen.getByRole('list'), { key: 'Escape' });
+    fireEvent.keyDown(screen.getByRole('list'), { key: 'Escape' });
     expect(screen.queryByRole('list')).not.toBeInTheDocument();
   });
 });
