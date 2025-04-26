@@ -3,6 +3,7 @@ import styles from './CartSummary.module.scss';
 import { ButtonLink } from '../ButtonLink/ButtonLink';
 import { selectCartTotalPrice } from '../../stores/cart/cartSlice';
 import { formattedPrice } from '../../utils/price';
+import { CancelPolicy } from '../CancelPolicy/CancelPolicy';
 
 interface Props {
   to: string;
@@ -29,7 +30,7 @@ export function CartSummary(props: Props) {
           <div role="presentation" aria-label="ご請求額">{formattedPrice(cartTotalPrice + cartServiceFee)}</div>
         </div>
       </div>
-      <div>キャンセル・ポリシーについて</div>
+      <CancelPolicy className={styles.cancel__policy} />
       <ButtonLink to={props.to} text={props.buttonText} />
     </div>
   );

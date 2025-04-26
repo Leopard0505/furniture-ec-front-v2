@@ -1,0 +1,16 @@
+.cancel__policy {
+  display: block;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: var(--text-secondary);
+    text-decoration: underline;
+  }
+}

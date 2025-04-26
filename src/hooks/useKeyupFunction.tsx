@@ -1,36 +1,27 @@
-import { KeyboardEvent } from "react";
 
 export const useKeyupFunction = () => {
-  const handleEnterKey = (e: KeyboardEvent, callback: () => void) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      callback();
-    }
+  const handleEnterKey = (e: React.KeyboardEvent, callback: () => void) => {
+    IsKey(e.nativeEvent, ['Enter'], callback);
   };
 
-  const handleEscapeKey = (e: KeyboardEvent, callback: () => void) => {
-    if (e.key === 'Escape') {
-      e.preventDefault();
-      callback();
-    }
+  const handleEscapeKey = (e: React.KeyboardEvent, callback: () => void) => {
+    IsKey(e.nativeEvent, ['Escape'], callback);
   };
 
-  const handleArrowUpKey = (e: KeyboardEvent, callback: () => void) => {
-    if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      callback();
-    }
+  const handleArrowUpKey = (e: React.KeyboardEvent, callback: () => void) => {
+    IsKey(e.nativeEvent, ['ArrowUp'], callback);
   };
 
-  const handleArrowDownKey = (e: KeyboardEvent, callback: () => void) => {
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      callback();
-    }
+  const handleArrowDownKey = (e: React.KeyboardEvent, callback: () => void) => {
+    IsKey(e.nativeEvent, ['ArrowDown'], callback);
   };
 
-  const handleTabKey = (e: KeyboardEvent, callback: () => void) => {
-    if (e.key === 'Tab') {
+  const handleTabKey = (e: React.KeyboardEvent, callback: () => void) => {
+    IsKey(e.nativeEvent, ['Tab'], callback);
+  };
+
+  const IsKey = (e: KeyboardEvent, keys: string[], callback: () => void) => {
+    if (keys.includes(e.key)) {
       e.preventDefault();
       callback();
     }
@@ -42,5 +33,6 @@ export const useKeyupFunction = () => {
     handleArrowUpKey,
     handleArrowDownKey,
     handleTabKey,
+    IsKey,
   };
 }
