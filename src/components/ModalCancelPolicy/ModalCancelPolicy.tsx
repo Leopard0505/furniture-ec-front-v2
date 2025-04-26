@@ -4,8 +4,8 @@ import { Portal } from "../Portal/Portal";
 import styles from "./ModalCancelPolicy.module.scss";
 
 interface Props {
-  isOpen: boolean;
-  onRequestClose: () => void;
+  readonly isOpen: boolean;
+  readonly onRequestClose: () => void;
 }
 
 export function ModalCancelPolicy(props: Props) {

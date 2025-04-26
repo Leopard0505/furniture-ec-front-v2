@@ -5,7 +5,7 @@ import { useKeyupFunction } from '../../hooks/useKeyupFunction';
 import classNames from 'classnames';
 
 interface Props {
-  className?: string;
+  readonly className?: string;
 };
 
 export function CancelPolicy(props: Props): ReactElement {
@@ -22,16 +22,16 @@ export function CancelPolicy(props: Props): ReactElement {
 
   return (
     <>
-      <p
+      <a
         className={classNames(styles.cancel__policy, props.className)}
-        role="presentation"
+        role="button"
         tabIndex={0}
         aria-label="キャンセル・ポリシーについて"
         onClick={() => setIsOpen(true)}
         onKeyDown={handleKeyDown}
       >
         キャンセル・ポリシーについて
-      </p>
+      </a>
       <ModalCancelPolicy isOpen={isOpen} onRequestClose={handleRequestClose} />
     </>
   );
