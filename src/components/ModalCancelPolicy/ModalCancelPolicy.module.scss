@@ -1,0 +1,38 @@
+.cancel__policy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.block {
+  &__title {
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--text-primary);
+    padding-left: 18px;
+
+    position: relative;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      background-color: var(--secondary-900);
+      transform: translateY(-50%);
+    }
+  }
+
+  &__content {
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-primary);
+  }
+}
