@@ -24,7 +24,7 @@ export function CancelPolicy(props: Props): ReactElement {
     <>
       <a
         className={classNames(styles.cancel__policy, props.className)}
-        role="button"
+        role="link"
         tabIndex={0}
         aria-label="キャンセル・ポリシーについて"
         onClick={() => setIsOpen(true)}
