@@ -4,8 +4,6 @@ import Items from "./routes/items/Items"
 import ItemId from "./routes/items/itemId/ItemId"
 import Contact from "./routes/contact/Contact"
 import Cart from "./routes/cart/Cart"
-import Purchase from "./routes/purchase/Purchase"
-import Complete from "./routes/purchase/complete/Complete"
 import Me from "./routes/me/Me"
 import Orders from "./routes/me/orders/Orders"
 import OrderId from "./routes/me/orders/orderId/OrderId"
@@ -15,6 +13,7 @@ import Top from "./routes/top/Top"
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute"
 import { MeFavorites } from './routes/me/Favorites'
 import { Checkout } from './routes/Checkout/Checkout'
+import { CheckoutComplete } from './routes/Checkout/CheckoutComplete'
 
 export const router = createBrowserRouter([
   {
@@ -45,7 +44,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "/checkout",
-        element: <Checkout />,
+        children: [
+          {
+            index: true,
+            element: <Checkout />,
+          },
+          {
+            path: "/checkout/complete",
+            element: <CheckoutComplete />,
+          }
+        ],
       },
       {
         path: "/me",
@@ -102,16 +110,6 @@ export const router = createBrowserRouter([
         )
       }
     ]
-  },
-  {
-    path: "/purchase",
-    element: <Purchase />,
-    children: [
-      {
-        path: "/purchase/complete",
-        element: <Complete />,
-      }
-    ],
   },
   {
     path: "/contact",

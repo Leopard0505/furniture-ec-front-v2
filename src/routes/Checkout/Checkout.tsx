@@ -18,7 +18,7 @@ export function Checkout() {
         <CheckoutCouponAvailable />
       </div>
       <div className={styles.summary}>
-        <CartSummary to={PATH.PURCHASE_COMPLETE()} buttonText="注文を確定する" />
+        <CartSummary to={PATH.CHECKOUT_COMPLETE()} buttonText="注文を確定する" />
       </div>
     </div>
   );
