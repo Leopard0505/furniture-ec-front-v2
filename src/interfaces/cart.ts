@@ -1,0 +1,12 @@
+import { ImageType } from "../components/ImageViewer/ImageViewer.type";
+import { Variation } from "../components/ItemDetail/ItemDetail.type";
+
+export type CartItem = {
+  id: number;
+  name: string;
+  quantity: number;
+  price: number;
+  image: ImageType;
+  variation: Variation;
+  stock: boolean;
+};

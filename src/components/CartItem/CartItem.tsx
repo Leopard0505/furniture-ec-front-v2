@@ -1,10 +1,10 @@
 import { FaCircleXmark } from "react-icons/fa6";
 import styles from './CartItem.module.scss';
-import type { CartItem } from '../../stores/cart/cartSlice';
 import { useCart } from "../../hooks/useCart";
 import { KeyboardEvent } from "react";
 import { useKeyupFunction } from "../../hooks/useKeyupFunction";
 import { formattedPrice } from "../../utils/price";
+import type { CartItem } from "../../interfaces/cart";
 
 interface Props {
   item: CartItem;

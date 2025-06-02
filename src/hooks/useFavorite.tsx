@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { actions as favoriteActions, FavoriteItem, selectFavoriteItems } from "../stores/favorite/favoriteSlice";
+import { selectFavoriteItems } from "../stores/favorite/favoriteSlice";
+import { FavoriteItem } from "../interfaces/favorite";
+import { addItem, removeItem } from "../stores/favorite/favoriteActions";
 
 
 export const useFavorite = () => {
@@ -12,11 +14,11 @@ export const useFavorite = () => {
   };
 
   const addToFavorite = (item: FavoriteItem) => {
-    dispatch(favoriteActions.addItem(item));
+    dispatch(addItem(item));
   };
 
   const removeFromFavorite = (itemId: number) => {
-    dispatch(favoriteActions.removeItem(itemId));
+    dispatch(removeItem(itemId));
   };
 
   const toggleFavorite = (item: FavoriteItem) => {

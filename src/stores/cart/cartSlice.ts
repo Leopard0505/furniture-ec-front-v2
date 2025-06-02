@@ -1,18 +1,15 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {
+  // combineReducers,
+  createReducer,
+  createSelector,
+} from "@reduxjs/toolkit";
 import { ImageType } from "../../components/ImageViewer/ImageViewer.type";
 import { Variation } from "../../components/ItemDetail/ItemDetail.type";
+import { CartItem } from "../../interfaces/cart";
+import { addItem, clearCart, removeItem } from "./cartActions";
+// import { TypedUseSelectorHook, useSelector } from "react-redux";
 
 const LOACL_STORAGE_KEY = "cart";
-
-export type CartItem = {
-  id: number;
-  name: string;
-  quantity: number;
-  price: number;
-  image: ImageType;
-  variation: Variation;
-  stock: boolean;
-};
 
 export type CartLastAddedItem = CartItem;
 export type CartLastRemovedItem = {
@@ -28,25 +25,24 @@ type CartState = {
   lastRemovedItem: CartLastRemovedItem | null;
 };
 
-const cartSlice = createSlice({
-  name: "cart",
+export const createInitialCartState = (): CartState => {
+  let items: CartItem[] = [];
+  try {
+    const storedCart = localStorage.getItem(LOACL_STORAGE_KEY);
+    items = storedCart ? JSON.parse(storedCart) : [];
+  } catch {
+    items = [];
+  }
+  return {
+    items,
+    lastAddedItem: null,
+    lastRemovedItem: null,
+  };
+};
 
-  initialState: (): CartState => {
-    let items: CartItem[] = [];
-    try {
-      const storedCart = localStorage.getItem(LOACL_STORAGE_KEY);
-      items = storedCart ? JSON.parse(storedCart) : [];
-    } catch {
-      items = [];
-    }
-    return {
-      items,
-      lastAddedItem: null,
-      lastRemovedItem: null,
-    };
-  },
-  reducers: {
-    addItem: (state, action: PayloadAction<CartItem>) => {
+const reducers = createReducer(createInitialCartState(), (builder) => {
+  builder
+    .addCase(addItem, (state, action) => {
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
       );
@@ -57,36 +53,44 @@ const cartSlice = createSlice({
       }
       state.lastAddedItem = { ...action.payload };
       localStorage.setItem(LOACL_STORAGE_KEY, JSON.stringify(state.items));
-    },
-    removeItem: (state, action: PayloadAction<number>) => {
+    })
+    .addCase(removeItem, (state, action) => {
       state.lastRemovedItem = state.items.find(
         (item) => item.id === action.payload
       ) as CartLastRemovedItem;
       state.items = state.items.filter((item) => item.id !== action.payload);
       localStorage.setItem(LOACL_STORAGE_KEY, JSON.stringify(state.items));
-    },
-    clearCart: (state) => {
+    })
+    .addCase(clearCart, (state) => {
       state.items = [];
       localStorage.setItem(LOACL_STORAGE_KEY, JSON.stringify(state.items));
-    },
-  },
+    });
 });
 
-export const { actions, reducer } = cartSlice;
+export const cartRootReducer = {
+  cart: reducers,
+};
 
-export const selectCartItems = (state: { cart: CartState }) => state.cart.items;
+// const localReducer = combineReducers(cartRootReducer);
+// type CartRootState = ReturnType<typeof localReducer>;
+// export const useCartSelector: TypedUseSelectorHook<CartRootState> = useSelector;
 
-export const selectCartItemCount = (state: { cart: CartState }) =>
-  state.cart.items.reduce((count, item) => count + item.quantity, 0);
-
-export const selectLastAddedItem = (state: { cart: CartState }) =>
-  state.cart.lastAddedItem;
-
-export const selectLastRemovedItem = (state: { cart: CartState }) =>
-  state.cart.lastRemovedItem;
-
-export const selectCartTotalPrice = (state: { cart: CartState }) =>
-  state.cart.items.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
+const selectCartState = (state: { cart: CartState }) => state.cart;
+export const selectCartItems = createSelector(
+  selectCartState,
+  (cart) => cart.items
+);
+export const selectCartItemCount = createSelector(selectCartState, (cart) =>
+  cart.items.reduce((totalCount, { quantity }) => totalCount + quantity, 0)
+);
+export const selectLastAddedItem = createSelector(
+  selectCartState,
+  (cart) => cart.lastAddedItem
+);
+export const selectLastRemovedItem = createSelector(
+  selectCartState,
+  (cart) => cart.lastRemovedItem
+);
+export const selectCartTotalPrice = createSelector(selectCartState, (cart) =>
+  cart.items.reduce((total, item) => total + item.price * item.quantity, 0)
+);

@@ -1,10 +1,10 @@
 import { KeyboardEvent } from "react";
 import { FaCircleXmark } from "react-icons/fa6";
 import styles from './FavoriteItem.module.scss';
-import type { FavoriteItem } from '../../stores/favorite/favoriteSlice';
 import { useKeyupFunction } from "../../hooks/useKeyupFunction";
 import { formattedPrice } from "../../utils/price";
 import { useFavorite } from "../../hooks/useFavorite";
+import type { FavoriteItem } from "../../interfaces/favorite";
 
 interface Props {
   item: FavoriteItem;

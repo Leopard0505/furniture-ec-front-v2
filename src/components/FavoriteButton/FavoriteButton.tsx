@@ -1,8 +1,8 @@
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
 import { useFavorite } from "../../hooks/useFavorite";
-import { FavoriteItem } from "../../stores/favorite/favoriteSlice";
 import { Button } from "../Button/Button";
 import styles from "./FavoriteButton.module.scss";
+import { FavoriteItem } from "../../interfaces/favorite";
 
 interface Props {
   readonly item: FavoriteItem;

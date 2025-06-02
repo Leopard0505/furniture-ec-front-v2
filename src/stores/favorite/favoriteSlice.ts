@@ -1,38 +1,29 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ImageType } from "../../components/ImageViewer/ImageViewer.type";
-import { Variation } from "../../components/ItemDetail/ItemDetail.type";
+import { createReducer } from "@reduxjs/toolkit";
+import { FavoriteItem } from "../../interfaces/favorite";
+import { addItem, removeItem } from "./favoriteActions";
 
 const LOACL_STORAGE_KEY = "favorite";
-
-export type FavoriteItem = {
-  id: number;
-  name: string;
-  price: number;
-  image: ImageType;
-  variation: Variation;
-};
 
 type FavoriteState = {
   items: FavoriteItem[];
 };
 
-const favoriteSlice = createSlice({
-  name: "favorite",
+export const createInitialFavoriteState = (): FavoriteState => {
+  let items: FavoriteItem[] = [];
+  try {
+    const storedFavorite = localStorage.getItem(LOACL_STORAGE_KEY);
+    items = storedFavorite ? JSON.parse(storedFavorite) : [];
+  } catch {
+    items = [];
+  }
+  return {
+    items,
+  };
+};
 
-  initialState: (): FavoriteState => {
-    let items: FavoriteItem[] = [];
-    try {
-      const storedFavorite = localStorage.getItem(LOACL_STORAGE_KEY);
-      items = storedFavorite ? JSON.parse(storedFavorite) : [];
-    } catch {
-      items = [];
-    }
-    return {
-      items,
-    };
-  },
-  reducers: {
-    addItem: (state, action: PayloadAction<FavoriteItem>) => {
+const reducers = createReducer(createInitialFavoriteState(), (builder) => {
+  builder
+    .addCase(addItem, (state, action) => {
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
       );
@@ -40,15 +31,16 @@ const favoriteSlice = createSlice({
         state.items.push(action.payload);
         localStorage.setItem(LOACL_STORAGE_KEY, JSON.stringify(state.items));
       }
-    },
-    removeItem: (state, action: PayloadAction<number>) => {
+    })
+    .addCase(removeItem, (state, action) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
       localStorage.setItem(LOACL_STORAGE_KEY, JSON.stringify(state.items));
-    },
-  },
+    });
 });
 
-export const { actions, reducer } = favoriteSlice;
+export const favoriteRootReducer = {
+  favorite: reducers,
+};
 
 export const selectFavoriteItems = (state: { favorite: FavoriteState }) =>
   state.favorite.items;
