@@ -25,7 +25,7 @@ type CartState = {
   lastRemovedItem: CartLastRemovedItem | null;
 };
 
-export const createInitialCartState = (): CartState => {
+const createInitialCartState = (): CartState => {
   let items: CartItem[] = [];
   try {
     const storedCart = localStorage.getItem(LOACL_STORAGE_KEY);

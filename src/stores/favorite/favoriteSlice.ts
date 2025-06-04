@@ -8,7 +8,7 @@ type FavoriteState = {
   items: FavoriteItem[];
 };
 
-export const createInitialFavoriteState = (): FavoriteState => {
+const createInitialFavoriteState = (): FavoriteState => {
   let items: FavoriteItem[] = [];
   try {
     const storedFavorite = localStorage.getItem(LOACL_STORAGE_KEY);
