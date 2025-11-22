@@ -1,0 +1,88 @@
+---
+description: Storybook ストーリー構造
+alwaysApply: true
+---
+
+# Storybook ストーリー構造
+
+## 基本的な構造
+
+```tsx
+// 1. 外部ライブラリのインポート
+import type { Meta, StoryObj } from "@storybook/react";
+
+// 2. 内部モジュールのインポート
+import { Button } from "./Button";
+
+// 3. メタデータの定義
+const meta = {
+  title: "Components/Button",
+  component: Button,
+  tags: ["autodocs"],
+  parameters: {
+    layout: "centered",
+  },
+} satisfies Meta<typeof Button>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+// 4. ストーリーの定義
+export const Default: Story = {
+  args: {
+    text: "ボタン",
+  },
+};
+```
+
+## メタデータの設定
+
+### title
+
+コンポーネントの階層構造を明確に定義します。
+
+```tsx
+// ✅ 良い例
+title: "Components/Button"
+title: "Components/Form/InputField"
+title: "Layouts/Header"
+
+// ❌ 悪い例
+title: "Button" // 階層が不明確
+title: "components/button" // 小文字は避ける
+```
+
+### tags
+
+- `["autodocs"]` - 自動ドキュメント生成を有効化（推奨）
+- 必要に応じて `["test"]` などのタグを追加
+
+### parameters
+
+```tsx
+parameters: {
+  layout: "centered", // "centered" | "padded" | "fullscreen"
+  backgrounds: {
+    default: "light", // 必要に応じて背景色を設定
+  },
+},
+```
+
+## ストーリーの命名規則
+
+- **PascalCase を使用**
+- **意味のある名前を付ける** - 状態やバリエーションを表現
+
+```tsx
+// ✅ 良い例
+export const Default: Story = {};
+export const White: Story = {};
+export const WithIcon: Story = {};
+export const Disabled: Story = {};
+export const Pressed: Story = {};
+
+// ❌ 悪い例
+export const Story1: Story = {};
+export const test: Story = {};
+export const button: Story = {};
+```

@@ -1,0 +1,33 @@
+---
+description: Storybook ファイル構造
+alwaysApply: true
+---
+
+# Storybook ファイル構造
+
+## ストーリーファイルの配置
+
+ストーリーファイルはコンポーネントと同じディレクトリに配置します。
+
+```
+ComponentName/
+  ComponentName.tsx
+  ComponentName.module.scss
+  ComponentName.stories.tsx
+  ComponentName.type.ts (必要に応じて)
+```
+
+## ファイル命名規則
+
+- **ストーリーファイル名**: `{ComponentName}.stories.tsx`
+- コンポーネント名と一致させる
+
+```tsx
+// ✅ 良い例
+// Button/Button.stories.tsx
+// ItemDetail/ItemDetail.stories.tsx
+
+// ❌ 悪い例
+// Button/button.stories.tsx
+// Button/ButtonStory.tsx
+```

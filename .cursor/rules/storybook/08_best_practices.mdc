@@ -1,0 +1,70 @@
+---
+description: Storybook ベストプラクティス
+alwaysApply: true
+---
+
+# Storybook ベストプラクティス
+
+## 1. すべての主要な状態をカバー
+
+```tsx
+// ✅ 良い例
+export const Default: Story = {};
+export const Disabled: Story = {};
+export const Loading: Story = {};
+export const Error: Story = {};
+
+// ❌ 悪い例
+export const Default: Story = {}; // これだけでは不十分
+```
+
+## 2. 意味のあるデフォルト値
+
+```tsx
+// ✅ 良い例
+export const Default: Story = {
+  args: {
+    text: "送信",
+    disabled: false,
+  },
+};
+
+// ❌ 悪い例
+export const Default: Story = {
+  args: {
+    text: "",
+    disabled: undefined,
+  },
+};
+```
+
+## 3. アクセシビリティの考慮
+
+```tsx
+export const WithAriaLabel: Story = {
+  args: {
+    text: "お気に入り",
+    "aria-label": "お気に入りに追加",
+  },
+};
+```
+
+## 4. 依存関係のモック
+
+外部 API や複雑な依存関係はモック化します。
+
+```tsx
+import { rest } from "msw";
+
+export const WithMockData: Story = {
+  parameters: {
+    msw: {
+      handlers: [
+        rest.get("/api/items", (req, res, ctx) => {
+          return res(ctx.json({ items: [] }));
+        }),
+      ],
+    },
+  },
+};
+```

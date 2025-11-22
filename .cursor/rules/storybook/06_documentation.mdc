@@ -1,0 +1,47 @@
+---
+description: Storybook ドキュメント化
+alwaysApply: true
+---
+
+# Storybook ドキュメント化
+
+## JSDoc コメント
+
+コンポーネントに JSDoc コメントを追加すると、Storybook の自動ドキュメントに反映されます。
+
+```tsx
+/**
+ * ボタンコンポーネント
+ *
+ * @example
+ * ```tsx
+ * <Button text="クリック" onClick={handleClick} />
+ * ```
+ */
+export function Button(props: ButtonProps) {
+  // ...
+}
+```
+
+## argTypes での説明
+
+```tsx
+argTypes: {
+  text: {
+    control: "text",
+    description: "ボタンに表示するテキスト",
+    table: {
+      type: { summary: "string" },
+      defaultValue: { summary: "undefined" },
+    },
+  },
+  white: {
+    control: "boolean",
+    description: "白背景のボタンかどうか",
+    table: {
+      type: { summary: "boolean" },
+      defaultValue: { summary: "false" },
+    },
+  },
+},
+```
