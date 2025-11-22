@@ -1,0 +1,23 @@
+---
+description: React 型定義
+alwaysApply: true
+---
+
+# 型定義
+
+- **型定義ファイル** - 複雑な型や共有型は`.type.ts`に分離
+- **import type** - 型のみのインポートは`import type`を使用
+- **any 禁止** - `any`の使用は避け、明示的な型定義を記述
+
+```tsx
+// ✅ 良い例
+// ItemDetail.type.ts
+export type ItemType = {
+  id: number;
+  name: string;
+  price: number;
+};
+
+// ItemDetail.tsx
+import type { ItemType } from "./ItemDetail.type";
+```

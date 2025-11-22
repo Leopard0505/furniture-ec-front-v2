@@ -1,0 +1,44 @@
+---
+description: React フック
+alwaysApply: true
+---
+
+# フック
+
+## カスタムフック
+
+複数のコンポーネントで共有されるロジックはカスタムフックに抽出。
+
+```tsx
+// hooks/useCart.tsx
+export const useCart = () => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+
+  const addToCart = (item: CartItem) => {
+    dispatch(cartActions.addItem(item));
+  };
+
+  return { cartItems, addToCart };
+};
+```
+
+## フックのルール
+
+- 常にコンポーネントのトップレベルで呼び出す
+- 条件分岐やループ内で呼び出さない
+- 依存配列は完全に記述
+
+```tsx
+// ✅ 良い例
+export function Component() {
+  const cart = useCart();
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    fetchData(id);
+  }, [id]); // 依存関係を完全に記述
+
+  return <div>{cart.cartItems.length}</div>;
+}
+```

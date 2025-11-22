@@ -1,0 +1,24 @@
+---
+description: React パフォーマンス
+alwaysApply: true
+---
+
+# パフォーマンス
+
+- **React.memo** - 不要な再レンダリング防止に適切に使用
+- **useMemo/useCallback** - 計算コストが高い処理や子コンポーネントに渡す関数をメモ化
+- **key プロップ** - リストレンダリング時は適切な`key`を指定（index は避ける）
+
+```tsx
+// ✅ 良い例
+export const Item = React.memo(function Item(props: ItemProps) {
+  return <div>{props.name}</div>;
+});
+
+const expensiveValue = useMemo(() => computeExpensiveValue(data), [data]);
+const handleClick = useCallback(() => doSomething(id), [id]);
+
+{
+  items.map((item) => <Item key={item.id} {...item} />);
+}
+```

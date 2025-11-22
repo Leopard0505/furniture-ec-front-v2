@@ -1,0 +1,25 @@
+---
+description: React スタイリング
+alwaysApply: true
+---
+
+# スタイリング
+
+- **SCSS モジュール必須** - `ComponentName.module.scss`を使用
+- **classnames 使用** - 複数クラス結合時は`classnames`ライブラリを使用
+- **BEM 命名推奨** - SCSS 内で BEM 命名規則を使用
+
+```tsx
+// ✅ 良い例
+import classNames from "classnames";
+import styles from "./Button.module.scss";
+
+export function Button({ white, className }: ButtonProps) {
+  const buttonClass = classNames(
+    styles.button,
+    white && styles.white,
+    className
+  );
+  return <button className={buttonClass}>Click me</button>;
+}
+```

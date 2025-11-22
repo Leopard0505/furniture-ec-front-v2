@@ -1,0 +1,21 @@
+---
+description: React ディレクトリ構造
+alwaysApply: true
+---
+
+# ディレクトリ構造
+
+- **コンポーネント単位** - 各コンポーネントは専用ディレクトリに配置
+- **PascalCase** - ディレクトリ名はコンポーネント名と一致（PascalCase）
+- **相対パス** - `../`は 2 階層まで、それ以上はエイリアス検討
+
+```
+components/
+  Button/
+    Button.tsx
+    Button.module.scss
+  ItemDetail/
+    ItemDetail.tsx
+    ItemDetail.module.scss
+    ItemDetail.type.ts
+```

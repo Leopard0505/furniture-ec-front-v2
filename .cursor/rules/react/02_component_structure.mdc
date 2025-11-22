@@ -1,0 +1,44 @@
+---
+description: React コンポーネント構造
+alwaysApply: true
+---
+
+# コンポーネント構造
+
+## ファイル構造
+
+```
+ComponentName/
+  ComponentName.tsx
+  ComponentName.module.scss
+  ComponentName.type.ts (必要に応じて)
+```
+
+## コード順序
+
+1. 外部ライブラリのインポート
+2. 内部モジュールのインポート
+3. 型定義（interface）
+4. コンポーネント本体
+5. エクスポート
+
+```tsx
+// 1. 外部ライブラリ
+import classNames from "classnames";
+import { Link } from "react-router";
+
+// 2. 内部モジュール
+import styles from "./Component.module.scss";
+import { PATH } from "../../constants/path";
+
+// 3. 型定義
+interface ComponentProps {
+  id: number;
+  name: string;
+}
+
+// 4. コンポーネント本体
+export function Component({ id, name }: ComponentProps) {
+  return <div className={styles.container}>{name}</div>;
+}
+```
