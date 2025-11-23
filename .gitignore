@@ -26,3 +26,6 @@ tsconfig.node.tsbuildinfo
 *.sw?
 
 coverage
+
+*storybook.log
+storybook-static
