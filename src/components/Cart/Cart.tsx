@@ -3,7 +3,7 @@ import { CartSummary } from '../CartSummary/CartSummary';
 import styles from './Cart.module.scss';
 import { CartItem } from '../CartItem/CartItem';
 import { useCart } from '../../hooks/useCart';
-import cartEmptyImage from '@/assets/images/cart-empty.png';
+import cartEmptyImage from '../../assets/images/cart-empty.png';
 import { PATH } from '../../constants/path';
 
 export function Cart() {

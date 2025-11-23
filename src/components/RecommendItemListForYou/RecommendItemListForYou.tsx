@@ -3,7 +3,7 @@ import { Item } from "../Item/Item";
 import { SectionTitle } from "../SectionTitle/SectionTitle"
 import styles from "./RecommendItemListForYou.module.scss"
 import { RecommendedItem } from "../../interfaces/recommendedItem.type";
-import itemImage1 from '@/assets/images/item_1.png';
+import itemImage1 from '../../assets/images/item_1.png';
 
 export function RecommendItemListForYou() {
   const [recommendedItems,] = useState<RecommendedItem[]>(
