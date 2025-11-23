@@ -8,7 +8,7 @@ alwaysApply: true
 ## アクションの記録
 
 ```tsx
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 
 export const WithClick: Story = {
   args: {
