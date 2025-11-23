@@ -1,15 +1,18 @@
-import React from 'react';
 import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router';
+import { MemoryRouter } from 'react-router';
 import { Provider } from 'react-redux';
-import { store } from '../../stores/store';
+import { store } from '../../app/store';
+import { CookiesProvider } from 'react-cookie';
+import { config } from '../../constants/cookie';
 
-export const renderWithRouter = (component: React.ReactElement) => {
+export function renderWithRouter(ui: React.ReactElement, { route = '/' } = {}) {
   return render(
     <Provider store={store}>
-      <BrowserRouter>
-        {component}
-      </BrowserRouter>
+      <CookiesProvider defaultSetOptions={config}>
+        <MemoryRouter initialEntries={[route]}>
+          {ui}
+        </MemoryRouter>
+      </CookiesProvider>
     </Provider>
   );
-};
+}

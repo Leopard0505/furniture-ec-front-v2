@@ -1,0 +1,18 @@
+import { screen } from "@testing-library/react";
+import { renderWithRouter } from "../../../../test/utils/renderWithRouter";
+import { HeaderTextCartShoppingButton } from "./HeaderTextCartShoppingButton";
+import { useCart } from "../../../cart/hooks/useCart";
+
+jest.mock("../../../cart/hooks/useCart");
+
+const mockedUseCart = useCart as jest.MockedFunction<typeof useCart>;
+
+describe("HeaderTextCartShoppingButton", () => {
+  it("displays the correct cart item count", () => {
+    mockedUseCart.mockReturnValue({ cartItems: [], cartItemCount: 5, lastAddedItem: null, addToCart: jest.fn(), removeFromCart: jest.fn() });
+
+    renderWithRouter(<HeaderTextCartShoppingButton />);
+
+    expect(screen.getByText("5")).toBeInTheDocument();
+  });
+});
