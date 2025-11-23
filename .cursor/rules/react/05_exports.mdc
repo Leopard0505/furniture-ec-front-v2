@@ -1,0 +1,24 @@
+---
+description: React エクスポート
+alwaysApply: true
+---
+
+# エクスポート
+
+- **再利用可能コンポーネント**: 名前付きエクスポート（`export function`）
+- **ページ/レイアウトコンポーネント**: デフォルトエクスポート（`export default function`）
+- **型定義**: 他で使用する場合はエクスポート
+
+```tsx
+// ✅ 再利用可能コンポーネント
+export function Button(props: ButtonProps) {}
+
+// ✅ ページコンポーネント
+export default function Login() {}
+
+// ✅ 型定義
+export interface ItemProps {
+  id: number;
+  name: string;
+}
+```

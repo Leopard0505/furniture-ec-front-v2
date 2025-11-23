@@ -1,0 +1,31 @@
+---
+description: React Props 定義
+alwaysApply: true
+---
+
+# Props 定義
+
+- **interface を使用** - Props の型定義は`interface`を使用
+- **HTML 属性の継承** - HTML 要素を拡張する場合は適切な属性を継承
+- **分割代入** - props は分割代入で受け取る
+
+```tsx
+// ✅ 良い例
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  text?: string;
+  white?: boolean;
+}
+
+export function Button({ text, white, className, ...props }: ButtonProps) {
+  const buttonClass = classNames(
+    styles.button,
+    white && styles.white,
+    className
+  );
+  return (
+    <button className={buttonClass} {...props}>
+      {text}
+    </button>
+  );
+}
+```

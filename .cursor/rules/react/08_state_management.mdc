@@ -1,0 +1,39 @@
+---
+description: React 状態管理
+alwaysApply: true
+---
+
+# 状態管理
+
+## Redux Toolkit
+
+- グローバル状態は Redux Toolkit を使用
+- Redux ロジックはカスタムフックでラップ
+- コンポーネントから直接`useDispatch`/`useSelector`を使用しない
+
+```tsx
+// ✅ 良い例
+// hooks/useCart.tsx
+export const useCart = () => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+  const addToCart = (item: CartItem) => {
+    dispatch(cartActions.addItem(item));
+  };
+  return { cartItems, addToCart };
+};
+
+// コンポーネント内
+const { cartItems, addToCart } = useCart();
+```
+
+## ローカル状態
+
+コンポーネント固有の状態は`useState`を使用。
+
+```tsx
+export function Form() {
+  const [email, setEmail] = useState("");
+  return <input value={email} onChange={(e) => setEmail(e.target.value)} />;
+}
+```

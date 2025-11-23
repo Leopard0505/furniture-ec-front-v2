@@ -1,0 +1,59 @@
+---
+description: Storybook デコレータ
+alwaysApply: true
+---
+
+# Storybook デコレータ
+
+## Redux Store の提供
+
+Redux を使用するコンポーネントの場合：
+
+```tsx
+import { Provider } from "react-redux";
+import { store } from "../../stores/store";
+
+const meta = {
+  // ...
+  decorators: [
+    (Story) => (
+      <Provider store={store}>
+        <Story />
+      </Provider>
+    ),
+  ],
+} satisfies Meta<typeof Component>;
+```
+
+## React Router の提供
+
+ルーティングを使用するコンポーネントの場合：
+
+```tsx
+import { MemoryRouter } from "react-router";
+
+const meta = {
+  // ...
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
+} satisfies Meta<typeof Component>;
+```
+
+## 複数のデコレータ
+
+```tsx
+decorators: [
+  (Story) => (
+    <Provider store={store}>
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    </Provider>
+  ),
+],
+```

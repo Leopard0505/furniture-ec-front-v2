@@ -1,0 +1,38 @@
+---
+description: Storybook インタラクション
+alwaysApply: true
+---
+
+# Storybook インタラクション
+
+## アクションの記録
+
+```tsx
+import { fn } from "@storybook/test";
+
+export const WithClick: Story = {
+  args: {
+    text: "クリック",
+    onClick: fn(),
+  },
+};
+```
+
+## インタラクションテスト
+
+```tsx
+import { expect, userEvent, within } from "@storybook/test";
+
+export const ClickTest: Story = {
+  args: {
+    text: "クリック",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole("button");
+
+    await userEvent.click(button);
+    // アサーションなど
+  },
+};
+```

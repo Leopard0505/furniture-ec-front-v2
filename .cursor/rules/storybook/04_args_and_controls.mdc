@@ -1,0 +1,114 @@
+---
+description: Storybook args とコントロール
+alwaysApply: true
+---
+
+# Storybook args とコントロール
+
+## args の設定
+
+### 基本的な args
+
+```tsx
+export const Default: Story = {
+  args: {
+    text: "ボタン",
+    onClick: () => console.log("clicked"),
+  },
+};
+```
+
+### コントロールの設定
+
+```tsx
+export default {
+  // ...
+  argTypes: {
+    white: {
+      control: "boolean",
+      description: "白背景のボタンかどうか",
+    },
+    text: {
+      control: "text",
+      description: "ボタンに表示するテキスト",
+    },
+    onClick: {
+      action: "clicked",
+      description: "クリック時のハンドラ",
+    },
+  },
+} satisfies Meta<typeof Button>;
+```
+
+### よく使うコントロールタイプ
+
+```tsx
+argTypes: {
+  // テキスト入力
+  text: {
+    control: "text",
+  },
+  // 数値入力
+  count: {
+    control: "number",
+  },
+  // 真偽値
+  disabled: {
+    control: "boolean",
+  },
+  // 選択肢
+  size: {
+    control: "select",
+    options: ["small", "medium", "large"],
+  },
+  // ラジオボタン
+  variant: {
+    control: "radio",
+    options: ["primary", "secondary"],
+  },
+  // カラー
+  color: {
+    control: "color",
+  },
+  // 日付
+  date: {
+    control: "date",
+  },
+  // アクション（関数）
+  onClick: {
+    action: "clicked",
+  },
+},
+```
+
+## 複数のストーリー
+
+コンポーネントの主要な状態やバリエーションをストーリーとして定義します。
+
+```tsx
+export const Default: Story = {
+  args: {
+    text: "ボタン",
+  },
+};
+
+export const White: Story = {
+  args: {
+    text: "白背景ボタン",
+    white: true,
+  },
+};
+
+export const WithChildren: Story = {
+  args: {
+    children: <span>子要素</span>,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    text: "無効化ボタン",
+    disabled: true,
+  },
+};
+```

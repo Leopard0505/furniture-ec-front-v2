@@ -1,0 +1,18 @@
+---
+description: React アクセシビリティ
+alwaysApply: true
+---
+
+# アクセシビリティ
+
+適切な ARIA 属性やセマンティック HTML を使用。
+
+```tsx
+<button
+  aria-pressed={pressed}
+  aria-label="お気に入りに追加"
+  onClick={handleClick}
+>
+  <Icon />
+</button>
+```
