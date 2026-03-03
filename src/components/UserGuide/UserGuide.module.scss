@@ -8,10 +8,35 @@
 
     &__main {
       width: 100%;
+    }
 
-      &__link__list {
-        margin-bottom: 60px;
+    &__text {
+      white-space: pre-line;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+  }
+
+  &__section {
+    margin-bottom: 60px;
+
+    &__item {
+      margin-bottom: 32px;
+
+      &__title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 12px;
       }
+    }
+  }
+
+  &__contact__link {
+    color: var(--color-primary, #0066cc);
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
     }
   }
 }

@@ -92,25 +92,25 @@ export function FooterMenu() {
           <div className={styles.guide__links__content}>
             <ul className={styles.menu__links__main}>
               <li className={styles.menu__links__item}>
-                <a href="/guides/about" className={styles.menu__link}>はじめての方へ</a>
+                <Link to="/guide" className={styles.menu__link}>はじめての方へ</Link>
               </li>
               <li className={styles.menu__links__item}>
-                <a href="/guides/howto-buy" className={styles.menu__link}>ご購入方法</a>
+                <Link to="/guide#flow" className={styles.menu__link}>ご購入方法</Link>
               </li>
               <li className={styles.menu__links__item}>
-                <a href="/guides/delivery" className={styles.menu__link}>配送について</a>
+                <Link to="/guide#shipping" className={styles.menu__link}>配送について</Link>
               </li>
               <li className={styles.menu__links__item}>
-                <a href="/guides/payment" className={styles.menu__link}>お支払い方法</a>
+                <Link to="/guide#method" className={styles.menu__link}>お支払い方法</Link>
               </li>
               <li className={styles.menu__links__item}>
-                <a href="/guides/return" className={styles.menu__link}>返品・交換</a>
+                <Link to="/guide#return" className={styles.menu__link}>返品・交換</Link>
               </li>
               <li className={styles.menu__links__item}>
-                <a href="/guides/point" className={styles.menu__link}>NEKOYAポイント</a>
+                <Link to="/guide#register" className={styles.menu__link}>会員登録</Link>
               </li>
               <li className={styles.menu__links__item}>
-                <a href="/guides#question" className={styles.menu__link}>よくあるご質問</a>
+                <Link to="/guide" className={styles.menu__link}>よくあるご質問</Link>
               </li>
             </ul>
           </div>
