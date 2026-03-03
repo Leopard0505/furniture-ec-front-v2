@@ -1,0 +1,85 @@
+.container {
+  width: var(--container-width);
+  margin: 40px auto 120px;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 24px;
+}
+
+.section {
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 24px;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  color: var(--text-on-primary-light);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menuLink {
+  color: var(--text-on-primary-light);
+  text-decoration: none;
+  padding: 8px 0;
+  font-size: 1rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.monthlySpending {
+  min-height: 80px;
+}
+
+.spendingList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.spendingItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 1rem;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.emptyMessage {
+  margin: 0;
+  color: var(--text-on-primary-light);
+  opacity: 0.8;
+}
+
+.description {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-on-primary-light);
+}
+
+.inlineLink {
+  color: var(--text-on-primary-light);
+  text-decoration: underline;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

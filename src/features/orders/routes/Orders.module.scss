@@ -1,0 +1,86 @@
+.container {
+  width: var(--container-width);
+  margin: 40px auto 120px;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: var(--text-on-primary-light);
+  text-decoration: underline;
+  font-size: 1rem;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.content {
+  margin-top: 24px;
+}
+
+.orderList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.orderItem {
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.orderLink {
+  display: block;
+  padding: 20px 24px;
+  text-decoration: none;
+  color: var(--text-on-primary-light);
+
+  &:hover {
+    background-color: var(--background-tertiary);
+  }
+}
+
+.orderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.orderId {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.orderDate {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.orderFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.orderStatus {
+  font-size: 0.95rem;
+}
+
+.orderTotal {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.emptyMessage {
+  margin: 0;
+  padding: 40px;
+  text-align: center;
+  color: var(--text-on-primary-light);
+  opacity: 0.8;
+}
